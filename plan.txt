@@ -1,3 +1,25 @@
 This document is a draft. Anyone can edit this file.
 Here we can write what we've discussed, how we divide the work among us, the design patterns we used, etc.
 
+We have the following (As a start) to do in this project:
+	- Solvable maze auto generation
+	- Walls
+	- Gifts
+	- Bombs
+	- Runner
+	- Gun
+	- Bullet
+	- Difficulty
+	- Bonus : Monsters
+	
+We will use MVC Model and the concept of Agile software development.
+
+Our (initially) MainMenu :
+	- Start Game {
+		- Easy	
+		- Medium
+		- Hard
+	 }
+	- Setting
+	- Exit
+	
