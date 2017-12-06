@@ -22,4 +22,15 @@ Our (initially) MainMenu :
 	 }
 	- Setting
 	- Exit
-	
+
+
+
+1- singlton -------------done
+2- AbstractFactory & 3-          ------------------- done
+4- iterator ----------------------
+5- Dynamic Linkage -------------------- class loader
+6- Snapshots ----------- check points
+7- state ---------------------
+8- Strategy ------------------
+9- Flyweight ------------------
+10- observer -----------------
