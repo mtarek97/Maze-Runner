@@ -8,10 +8,16 @@ public class MapSize {
 		this.height = height;
 		this.width = width;
 	}
-	
-	private MapSize mapSize = new MapSize(height, width);
-	
+
+	public int getHeight() {
+		return this.height;
+	}
+	public int getWidth() {
+		return this.width;
+	}
+
 	public MapSize getMapSize(){
+		 MapSize mapSize = new MapSize(height, width);
 		return mapSize;
 	}
 }
