@@ -1,7 +1,24 @@
 package mazeRunner.model.mapElement;
 
-public class Wall {
+public abstract class Wall implements MapCell{
 
-	private boolean isDestroyable;
-	private boolean isObstacle;
+	@Override
+	public boolean isObstacle() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isWay() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public int getDamage() {
+		return 0;
+	}
+	
+	
 }

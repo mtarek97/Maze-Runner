@@ -1,21 +1,34 @@
 package mazeRunner.model.mapElement;
 
-public abstract class Obstacle implements MapCell {
+public  abstract class Obstacle implements MapCell {
 
-	private boolean isObstacle;
-	private boolean isDestroyable;
+
 	
 	@Override
 	public boolean isObstacle() {
-		
-		return isObstacle;
+		return true;
+	}
+
+	@Override
+	public boolean isWay() {
+		return false;
 	}
 
 	@Override
 	public boolean isDestroyable() {
-		
-		return isDestroyable;
+		return true;
 	}
-	
+
+
+	@Override
+	public void addBombVisualEffects(int direction, int fullDamage) {
+		this.Destroy();
+	}
+
+	@Override
+	public void addBulletsVisualEffect(int num) {
+		this.Destroy(); 		
+	}
+
 	
 }
