@@ -1,62 +1,31 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapElement.IObserver;
+
 import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.Way;
 
 public class Way1 extends Way{
+	private final String standardImageLink ="";
+	private  String currentImageLink = this.standardImageLink;
+
+	/* from index 0 to 8 - Links to the images suitable for his direction*/
+	private final String[] ashesImagesLink ={"","","","","","","","",""};
+
+	
 
 	@Override
-	public boolean isDestroyable() {
-		return false;
-	}
-
-	@Override
-	public MapCell Destroy() {
-		return this;
+	public void setAshes(int Direction) {
+		this.currentImageLink = this.ashesImagesLink[Direction];		
 	}
 
 	
 
 	@Override
-	public String getDestroyingSound() {
-		return null;
+	public String getImageLink() {
+		return this.currentImageLink;
 	}
 
 
-
-
-
-	public boolean removeObserver(IObserver observer) {
-		return false;
-	}
-
-	public boolean notifyChanges() {
-		return false;
-	}
-
-
-
-	@Override
-	public int getDamage() {
-		return 0;
-	}
-
-	@Override
-	public void addBombVisualEffects(int direction, int fullDamage) {
-		
-	}
-
-
-	@Override
-	public boolean addObserver(IObserver observer, int ObservingDirection) {
-		return false;
-	}
-
-	@Override
-	public void update(int direction, int fullDamage) {
-		this.addBombVisualEffects(direction, fullDamage);		
-	}
 
 
 

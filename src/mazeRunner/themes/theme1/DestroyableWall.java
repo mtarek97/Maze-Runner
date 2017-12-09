@@ -1,11 +1,11 @@
 package mazeRunner.themes.theme1;
 
-
 import mazeRunner.model.mapElement.DirectionContract;
 import mazeRunner.model.mapElement.MapCell;
-import mazeRunner.model.mapElement.Obstacle;
+import mazeRunner.model.mapElement.Wall;
 
-public class HugeBomb extends Obstacle {
+public class DestroyableWall extends Wall{
+
 	private MapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
@@ -16,24 +16,16 @@ public class HugeBomb extends Obstacle {
 	private final String destroySound = "";
 	private final String hittingSound = "";
 	private  int health = 1;
-	private int damage = 3 ;
 	
-
 	@Override
-	public String getDestroyingSound() {
-		return this.destroySound;
+	public boolean isDestroyable() {
+		return false;
 	}
 
 	@Override
-	public String getHittingSound() {
-		return this.hittingSound;
+	public MapCell getUpdateResult() {
+		return this.afterUpdate;
 	}
-
-	@Override
-	public int getHealth() {
-		return this.health;
-	}
-
 
 	@Override
 	public void setAshes(int Direction) {
@@ -67,23 +59,23 @@ return false;
 	}
 
 	@Override
-	public MapCell getUpdateResult() {
-		return this.afterUpdate;
+	public String getDestroyingSound() {
+		return this.destroySound;
+	}
+
+	@Override
+	public String getHittingSound() {
+		return this.hittingSound;
+	}
+
+	@Override
+	public int getHealth() {
+		return this.health;
 	}
 
 	@Override
 	public String getImageLink() {
 		return this.currentImageLink;
 	}
-
-	@Override
-	public int getDamage() {
-		return this.damage;
-	}
-
-
-
-	
-
 
 }

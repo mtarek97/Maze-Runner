@@ -1,29 +1,32 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapElement.IObserver;
+import mazeRunner.model.mapElement.DirectionContract;
+
 import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.NonObstacle;
 
 public class Bullets1 extends NonObstacle{
-	private final String DestroySound = "";
-	private final String HittingSound = "";
+	private MapCell afterUpdate = null;
+	private final String standardImageLink ="";
+	private  String currentImageLink = this.standardImageLink;
+
+	/* from index 0 to 8 - Links to the images suitable for his direction*/
+	private final String[] ashesImagesLink ={"","","","","","","","",""};
+
+	private final String destroySound = "";
+	private final String hittingSound = "";
 	private  int health = 1;
-	@Override
-	public MapCell Destroy() {
-		MapCell w1 = new Way1();
-		CellFactory cf = new CellFactory();
-		return cf.getFullObject(w1);
-		
-	}
+	private final int giftDamage = 1;
+	
 
 	@Override
 	public String getDestroyingSound() {
-		return this.DestroySound;
+		return this.destroySound;
 	}
 
 	@Override
 	public String getHittingSound() {
-		return this.HittingSound;
+		return this.hittingSound;
 	}
 
 	@Override
@@ -31,16 +34,56 @@ public class Bullets1 extends NonObstacle{
 		return this.health;
 	}
 
+
 	@Override
-	public void setHealth(int health) {
-		this.health=health;
+	public void setAshes(int Direction) {
+		this.currentImageLink = this.ashesImagesLink[Direction];
+	}
+
+	@Override
+	public boolean update(int direction, int fullDamage) {
+		this.health -= fullDamage;
+		if(this.getHealth()<=0){
+			MapCell way ;
+
+			switch(direction){
+			case DirectionContract.NON : 
+				way = new Way1();
+				break;
+			default :
+				way = new Way1();
+				way.setAshes(direction);
+				break;
+			}
+			this.afterUpdate = way;
+			return true ;
+	
+		}else{
+			this.setAshes(direction);
+		}
+
+
+return false;
+	}
+
+	@Override
+	public MapCell getUpdateResult() {
+		return this.afterUpdate;
+	}
+
+	@Override
+	public String getImageLink() {
+		return this.currentImageLink;
+	}
+
+	@Override
+	public int getDamage() {
+		return this.giftDamage;
 	}
 
 
 
-	@Override
-	public void update(int direction, int fullDamage) {
-this.addBombVisualEffects(direction, fullDamage);		
-	}
+	
 
+	
 }

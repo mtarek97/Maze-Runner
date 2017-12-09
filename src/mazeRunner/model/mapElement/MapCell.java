@@ -4,7 +4,7 @@ package mazeRunner.model.mapElement;
  * @author ABDelRAHMAN
  *
  */
-public interface MapCell extends IChangeable , IObserver{
+public interface MapCell {
 	
 	
 	/**
@@ -28,26 +28,24 @@ public interface MapCell extends IChangeable , IObserver{
 	public boolean isDestroyable();
 	
 	/**
-	 * destroy the object to normal way ,, if way destroys it to hole 
+	 * returns the new MapCell after update
 	 * @return the resulted mapcell
 	 */
-	public MapCell Destroy();
+	public MapCell getUpdateResult();
 
+	public void setAshes(int Direction);
 	/**
-	 * change the visual resource from the abstract factory class to the damaged one
-	 * @param direction an integer from 0 to 8 represents the direction of the bomb
-	 * 			0 means that this object is bomb and it has exploded ,, then the method replace it with fully destroyed empty way
-	 * 			1 up , 2 top right corner , 3 right , and so on
-	 * 			the visual effect must be suitable to the direction 
-	 * @param fullDamage  tells that the bomb's power is very big and this cell was very close to the bomb so 
-	 * 						it must be fully damaged 
+	 * it is designed to be called when any mapcell is hit by Something causes damage (bombs )
+	 * 
+	 * updates the situation of the current object based on he damage received ,
+	 * if that damage changed this cell type to another one , it will return true 
+	 * then you can get the result from getUpdateResult
+	 * @param direction
+	 * @param fullDamage
+	 * @return
 	 */
-	public void addBombVisualEffects(int direction , int fullDamage );
-	/**
-	 * changes the visual effect to that with bullets
-	 * @param num the number of bullets     -- just in case we added weapons like shotgun which fires more than one bullet
-	 */
-	public void addBulletsVisualEffect(int num);
+	public boolean update(int direction , int fullDamage);
+	
 	/**
 	 * the sound is shared among all the cells of the same kind using the abstract factory
 	 * @return the shared sound null  if undestroyable     -- unsure about the return type //TODO
@@ -64,7 +62,7 @@ public interface MapCell extends IChangeable , IObserver{
 	 */
 	public int getDamage();
 	public int getHealth();
-	public void setHealth(int health);
+	public String getImageLink();
 	
 	/*TODO add setters and getters for the resources*/
 	/*TODO complete theme1 to test */

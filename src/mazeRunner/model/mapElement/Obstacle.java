@@ -1,6 +1,6 @@
 package mazeRunner.model.mapElement;
 
-public  abstract class Obstacle implements MapCell {
+public abstract  class Obstacle implements MapCell {
 
 
 	
@@ -19,16 +19,6 @@ public  abstract class Obstacle implements MapCell {
 		return true;
 	}
 
-
-	@Override
-	public void addBombVisualEffects(int direction, int fullDamage) {
-		this.Destroy();
-	}
-
-	@Override
-	public void addBulletsVisualEffect(int num) {
-		this.Destroy(); 		
-	}
 
 	
 }

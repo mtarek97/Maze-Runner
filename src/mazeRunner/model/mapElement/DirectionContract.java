@@ -10,5 +10,8 @@ public static final int BOTTOM =5;
 public static final int BOTTOM_LEFT =6;
 public static final int LEFT =7;
 public static final int TOP_LEFT =8;
+/*when the direction doesn't matter-WHEN bullet hits bomb or gift-*/
+public static final int NON =-1;
+
 
 }
