@@ -1,10 +1,10 @@
 package mazeRunner.model.mapBuilder;
 
-import mazeRunner.model.difficulty.Difficulty;
+import mazeRunner.model.levels.ILevel;
 
 public class MapBuilder implements IMapBuilder{
 	
-	Difficulty difficulty;
+	ILevel level;
 	Map map;
 	
 	private static MapBuilder builder = new MapBuilder();
@@ -16,15 +16,15 @@ public class MapBuilder implements IMapBuilder{
 	@Override
 	public Map getMap() {
 		//TODO: implement method logic
-		MazeGenerator mazeGenerator = new MazeGenerator(difficulty.getSize());
+		MazeGenerator mazeGenerator = new MazeGenerator(level.getSize());
 		boolean[][] maze = mazeGenerator.generateMaze();
 		MapGenerator mapGenerator = new MapGenerator(maze);
 		return mapGenerator.generateMap();
 	}
 	
 	@Override
-	public void setDifficulty(Difficulty level) {
-		this.difficulty = level;
+	public void setLevel(ILevel level) {
+		this.level = level;
 	}
 	
 	

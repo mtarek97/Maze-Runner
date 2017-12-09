@@ -1,6 +1,6 @@
 package mazeRunner.model.mapBuilder;
 
-import mazeRunner.model.difficulty.MapSize;
+import mazeRunner.model.levels.MapSize;
 
 public class Main {
     public static void main(String[] args) {

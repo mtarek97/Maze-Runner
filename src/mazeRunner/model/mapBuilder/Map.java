@@ -1,19 +1,18 @@
 package mazeRunner.model.mapBuilder;
-
-import mazeRunner.model.difficulty.Difficulty;
+import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapElement.MapCell;
 
 public class Map {
 
 	private MapCell[][] map;
-	private Difficulty difficulty;
+	private ILevel level;
 	
-	public Difficulty getDifficulty() {
-		return difficulty;
+	public ILevel getLevel() {
+		return level;
 	}
 	
-	public void setDifficulty(Difficulty difficulty) {
-		this.difficulty = difficulty;
+	public void setLevel(ILevel level) {
+		this.level = level;
 	}
 	
 	public MapCell[][] getMap() {

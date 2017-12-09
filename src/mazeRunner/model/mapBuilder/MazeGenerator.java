@@ -1,9 +1,9 @@
 package mazeRunner.model.mapBuilder;
 
-import mazeRunner.model.difficulty.MapSize;
-
 import java.util.Arrays;
 import java.util.Collections;
+
+import mazeRunner.model.levels.MapSize;
 
 public class MazeGenerator {
 

@@ -1,4 +1,4 @@
-package mazeRunner.model.difficulty;
+package mazeRunner.model.levels;
 
 public class MapSize {
 	private int height;
