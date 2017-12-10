@@ -15,7 +15,7 @@ public class mainForTest {
     	
     	//------------------------- Level ---------------------------//
     	ILevel level1 = new Level1();
-    	System.out.println(level1.getSize());
+    	System.out.println(level1.getMapSize());
     	System.out.println(level1.getSupportedMapCells());
     	System.out.println(level1.getSupportedMapCells().get(0).getSimpleName());
     }

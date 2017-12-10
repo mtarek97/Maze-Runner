@@ -16,7 +16,7 @@ public class MapBuilder implements IMapBuilder{
 	@Override
 	public Map getMap() {
 		//TODO: implement method logic
-		MazeGenerator mazeGenerator = new MazeGenerator(level.getSize());
+		MazeGenerator mazeGenerator = new MazeGenerator(level.getMapSize());
 		boolean[][] maze = mazeGenerator.generateMaze();
 		MapGenerator mapGenerator = new MapGenerator(maze);
 		return mapGenerator.generateMap();

@@ -3,11 +3,11 @@ package mazeRunner.model.levels;
 public class Level3 extends Level{
 
 	public Level3(){
-		setSize(new MapSize(70, 70));
-		setTheme(1);
-		setSupportedMapCells();
-		setObstacleCount(20);
-		setNonObstacleCount(22);
-		setRunnerSpeed(30);
+		this.mapSize = new MapSize(70, 70);
+		this.theme = 1;
+		this.obstacleCount = 20;
+		this.nonObstacleCount = 22;
+		this.runnerSpeed = 30;
+		addSupportedMapCells();
 	}
 }

@@ -6,27 +6,18 @@ import mazeRunner.model.utilities.ClassFinder;
 
 public abstract class Level implements ILevel{
 
-	private MapSize size;
-	private int theme;
-	private List<Class<?>> supportedMapCells;
-	private int obstacleCount;
-	private int nonObstacleCount;
-	private int runnerSpeed;
+	protected MapSize mapSize;
+	protected int theme;
+	protected List<Class<?>> supportedMapCells;
+	protected int obstacleCount;
+	protected int nonObstacleCount;
+	protected int runnerSpeed;
 	
 	@Override
-	public void setSize(MapSize size) {
-		this.size = size;
+	public MapSize getMapSize() {
+		return mapSize;
 	}
 	
-	@Override
-	public MapSize getSize() {
-		return this.size;
-	}
-	
-	@Override
-	public void setTheme(int theme) {
-		this.theme = theme;
-	}
 	
 	@Override
 	public int getTheme() {
@@ -34,7 +25,7 @@ public abstract class Level implements ILevel{
 	}
 	
 	@Override
-	public void setSupportedMapCells(){
+	public void addSupportedMapCells(){
 		supportedMapCells = ClassFinder.findAllClassesInPackage("mazeRunner.themes.theme".concat(String.valueOf(theme)));
 	}
 	
@@ -48,24 +39,10 @@ public abstract class Level implements ILevel{
 		return obstacleCount;
 	}
 
-	@Override
-	public void setObstacleCount(int obstacleCount) {
-		this.obstacleCount = obstacleCount;
-	}
 
 	@Override
 	public int getNonObstacleCount() {
 		return nonObstacleCount;
-	}
-
-	@Override
-	public void setNonObstacleCount(int nonObstacleCount) {
-		this.nonObstacleCount = nonObstacleCount;
-	}
-	
-	@Override
-	public void setRunnerSpeed(int runnerSpeed){
-		this.runnerSpeed = runnerSpeed;
 	}
 
 	@Override
