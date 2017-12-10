@@ -2,10 +2,11 @@ package mazeRunner.themes.theme1;
 
 
 import mazeRunner.model.mapElement.DirectionContract;
+import mazeRunner.model.mapElement.IElementsGenerator;
 import mazeRunner.model.mapElement.IMapCell;
 import mazeRunner.model.mapElement.Obstacle;
 
-public class HugeBomb extends Obstacle {
+public class HugeBomb extends Obstacle implements IElementsGenerator {
 	private IMapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
@@ -82,8 +83,9 @@ return false;
 	}
 
 
+	@Override
+	public void generate(IMapCell[][] maze, int[][] booleanMaze) {
+		// TODO Auto-generated method stub
 
-	
-
-
+	}
 }

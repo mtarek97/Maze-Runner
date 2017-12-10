@@ -1,6 +1,6 @@
 package mazeRunner.model.mapElement;
 
-public abstract  class Obstacle implements IMapCell, IElementsGenerator {
+public abstract  class Obstacle implements IMapCell {
 
 IMapCell m  = null;
 	
@@ -18,11 +18,5 @@ IMapCell m  = null;
 	public boolean isDestroyable() {
 		return true;
 	}
-	@Override
-	public void generate(IMapCell[][] maze) {
-		// TODO Auto-generated method stub
-	}
-
-
 
 }

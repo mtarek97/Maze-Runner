@@ -1,10 +1,11 @@
 package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapElement.DirectionContract;
+import mazeRunner.model.mapElement.IElementsGenerator;
 import mazeRunner.model.mapElement.IMapCell;
 import mazeRunner.model.mapElement.Wall;
 
-public class DestroyableWall extends Wall{
+public class DestroyableWall extends Wall implements IElementsGenerator{
 
 	private IMapCell afterUpdate = null;
 	private final String standardImageLink ="";
@@ -78,4 +79,9 @@ return false;
 		return this.currentImageLink;
 	}
 
+	@Override
+	public void generate(IMapCell[][] maze, int[][] booleanMaze) {
+		// TODO Auto-generated method stub
+
+	}
 }
