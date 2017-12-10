@@ -17,5 +17,4 @@ public  abstract class NonObstacle implements IMapCell {
 		return true;
 	}
 	
-	
 }
