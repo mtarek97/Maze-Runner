@@ -6,7 +6,7 @@ import java.util.Map;
 public interface ILevel {
 
 	/**
-	 * get map size (2D) of the level.
+	 * get 2D map size of the level.
 	 * @return MapSize object
 	 */
 	public MapSize getMapSize();

@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mazeRunner.model.mapElement.NonObstacle;
+import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.Obstacle;
-import mazeRunner.model.mapElement.Wall;
 import mazeRunner.model.utilities.ClassFinder;
 
 public abstract class Level implements ILevel {
@@ -49,16 +48,16 @@ public abstract class Level implements ILevel {
 
 	protected void setSupportedMapCellsCount() {
 		for (Class<?> mapCell : supportedMapCells) {
-			Object mapCellInstance;
 			try {
-				mapCellInstance = mapCell.newInstance();
-				if (mapCellInstance instanceof Wall) {
-					if (((Wall) mapCellInstance).isDestroyable()) {
+				MapCell cell = (MapCell) mapCell.newInstance();
+				// TODO : ABDO shab7 fe el detection  methods
+				if (cell.isObstacle()) {
+					if (cell.isDestroyable()) {
 						supportedMapCellsCounts.put(mapCell.getSimpleName(), destroyableWallsCount());
+					} else if(cell instanceof Obstacle){
+						supportedMapCellsCounts.put(mapCell.getSimpleName(), obstaclesCount());
 					}
-				} else if (mapCellInstance instanceof Obstacle) {
-					supportedMapCellsCounts.put(mapCell.getSimpleName(), obstaclesCount());
-				} else if (mapCellInstance instanceof NonObstacle) {
+				} else if(!cell.isObstacle() && !cell.isWay()){
 					supportedMapCellsCounts.put(mapCell.getSimpleName(), nonObstaclesCount());
 				}
 			} catch (InstantiationException | IllegalAccessException e) {
