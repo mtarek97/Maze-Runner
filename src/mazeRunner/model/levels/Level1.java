@@ -6,6 +6,8 @@ public class Level1 extends Level{
 		setSize(new MapSize(30, 30));
 		setTheme(1);
 		setSupportedMapCells();
+		setObstacleCount(10);
+		setNonObstacleCount(12);
 	}
 	
 
