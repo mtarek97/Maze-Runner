@@ -1,6 +1,6 @@
 package mazeRunner.model.runner;
 
-public class Gun implements IGun{
+public class Gun implements Weapon{
 
 	private int ammo;
 	private int bulletsCount;
@@ -18,7 +18,6 @@ public class Gun implements IGun{
 
 	@Override
 	public int getBulletsCount() {
-		
 		return bulletsCount;
 	}
 

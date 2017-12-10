@@ -1,6 +1,6 @@
 package mazeRunner.model.runner;
 
-public interface IGun {
+public interface Weapon {
 
 	public int getAmmo();
 	

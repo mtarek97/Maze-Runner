@@ -27,4 +27,28 @@ public class Runner implements IRunner{
 		return direction;
 	}
 
+	@Override
+	public void moveUp() {
+		this.direction = GameContract.Direction.UP;
+		// TODO : implement movement
+	}
+
+	@Override
+	public void moveDown() {
+		this.direction = GameContract.Direction.DOWN;
+		// TODO : implement movement
+	}
+
+	@Override
+	public void moveRight() {
+		this.direction = GameContract.Direction.RIGHT;
+		// TODO : implement movement
+	}
+
+	@Override
+	public void moveLeft() {
+		this.direction = GameContract.Direction.LEFT;
+		// TODO : implement movement
+	}
+
 }
