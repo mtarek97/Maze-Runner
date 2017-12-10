@@ -4,7 +4,7 @@ package mazeRunner.model.mapElement;
  * @author ABDelRAHMAN
  *
  */
-public interface MapCell {
+public interface IMapCell {
 	
 	
 	/**
@@ -28,10 +28,10 @@ public interface MapCell {
 	public boolean isDestroyable();
 	
 	/**
-	 * returns the new MapCell after update
+	 * returns the new IMapCell after update
 	 * @return the resulted mapcell
 	 */
-	public MapCell getUpdateResult();
+	public IMapCell getUpdateResult();
 
 	public void setAshes(int Direction);
 	/**

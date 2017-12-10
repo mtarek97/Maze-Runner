@@ -1,7 +1,6 @@
 package mazeRunner.themes.theme1;
 
 
-import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.Way;
 
 public class Way1 extends Way{
