@@ -1,5 +1,5 @@
 package mazeRunner.model.mapElement;
 
 public interface IElementsGenerator {
-    public void generate(IMapCell[][] maze, int[][] booleanMaze);
+    public void generate(MapCell[][] maze, int[][] booleanMaze);
 }

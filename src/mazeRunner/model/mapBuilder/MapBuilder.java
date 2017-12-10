@@ -1,7 +1,7 @@
 package mazeRunner.model.mapBuilder;
 
 import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.mapElement.IMapCell;
+import mazeRunner.model.mapElement.MapCell;
 
 import java.util.HashMap;
 
@@ -9,7 +9,7 @@ public class MapBuilder implements IMapBuilder{
 	
 	ILevel level;
 	Map map;
-	HashMap<IMapCell, Integer> mapElementsType;
+	HashMap<MapCell, Integer> mapElementsType;
 	private static MapBuilder builder = new MapBuilder();
 	
 	public static MapBuilder createMapBuilder(){

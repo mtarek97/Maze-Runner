@@ -2,12 +2,12 @@ package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapElement.DirectionContract;
 import mazeRunner.model.mapElement.IElementsGenerator;
-import mazeRunner.model.mapElement.IMapCell;
+import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.Wall;
 
-public class DestroyableWall extends Wall implements IElementsGenerator{
+public class DestroyableWall extends Wall{
 
-	private IMapCell afterUpdate = null;
+	private MapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
 
@@ -24,7 +24,7 @@ public class DestroyableWall extends Wall implements IElementsGenerator{
 	}
 
 	@Override
-	public IMapCell getUpdateResult() {
+	public MapCell getUpdateResult() {
 		return this.afterUpdate;
 	}
 
@@ -38,7 +38,7 @@ public class DestroyableWall extends Wall implements IElementsGenerator{
 		this.health -= fullDamage;
 		
 		if(this.getHealth()<=0){
-			IMapCell way ;
+			MapCell way ;
 			switch(direction){
 			case DirectionContract.NON : 
 				way = new Way1();
@@ -79,9 +79,4 @@ return false;
 		return this.currentImageLink;
 	}
 
-	@Override
-	public void generate(IMapCell[][] maze, int[][] booleanMaze) {
-		// TODO Auto-generated method stub
-
-	}
 }

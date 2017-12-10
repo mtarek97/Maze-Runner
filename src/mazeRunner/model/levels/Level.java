@@ -1,10 +1,11 @@
 package mazeRunner.model.levels;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
-import mazeRunner.model.mapElement.IMapCell;
+import mazeRunner.model.mapElement.MapCell;
 import mazeRunner.model.mapElement.Obstacle;
 import mazeRunner.model.utilities.ClassFinder;
 
@@ -49,7 +50,7 @@ public abstract class Level implements ILevel {
 	protected void setSupportedMapCellsCount() {
 		for (Class<?> mapCell : supportedMapCells) {
 			try {
-				IMapCell cell = (IMapCell) mapCell.newInstance();
+				MapCell cell = (MapCell) mapCell.newInstance();
 				// TODO : ABDO shab7 fe el detection methods
 				if (cell.isObstacle()) {
 					if (cell.isDestroyable()) {

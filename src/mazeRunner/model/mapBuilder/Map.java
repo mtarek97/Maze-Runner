@@ -1,10 +1,10 @@
 package mazeRunner.model.mapBuilder;
 import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.mapElement.IMapCell;
+import mazeRunner.model.mapElement.MapCell;
 
 public class Map {
 
-	private IMapCell[][] map;
+	private MapCell[][] map;
 	private ILevel level;
 	
 	public ILevel getLevel() {
@@ -15,11 +15,11 @@ public class Map {
 		this.level = level;
 	}
 	
-	public IMapCell[][] getMap() {
+	public MapCell[][] getMap() {
 		return map;
 	}
 	
-	public void setMap(IMapCell[][] map) {
+	public void setMap(MapCell[][] map) {
 		this.map = map;
 	}
 }

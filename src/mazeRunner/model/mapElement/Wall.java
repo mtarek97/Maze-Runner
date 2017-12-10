@@ -1,19 +1,25 @@
 package mazeRunner.model.mapElement;
 
-public abstract class Wall implements IMapCell {
+public abstract class Wall implements MapCell {
 
 	@Override
-	public boolean isObstacle() {
-		// TODO Auto-generated method stub
+	public boolean isWall(){
 		return true;
 	}
-
+	
 	@Override
-	public boolean isWay() {
-		// TODO Auto-generated method stub
+
+	public boolean isNonObstacle(){
 		return false;
 	}
-
+	@Override
+	public boolean isObstacle() {
+		return false;
+	}
+	@Override
+	public boolean isWay(){
+		return false;
+	}
 
 	@Override
 	public int getDamage() {
