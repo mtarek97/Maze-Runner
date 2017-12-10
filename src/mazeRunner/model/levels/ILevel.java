@@ -12,16 +12,20 @@ public interface ILevel {
 	
 	public int getTheme();
 	
+	public void setSupportedMapCells();	
+	
 	public List<Class<?>> getSupportedMapCells();
 	
-	public void setSupportedMapCells();	
+	public void setObstacleCount(int obstacleCount);
 	
 	public int getObstacleCount();
 
-	public void setObstacleCount(int obstacleCount) ;
+	public void setNonObstacleCount(int nonObstacleCount);
 
 	public int getNonObstacleCount();
-
-	public void setNonObstacleCount(int nonObstacleCount);
 	
+	public void setRunnerSpeed(int runnerSpeed);
+
+	public int getRunnerSpeed();
+
 }

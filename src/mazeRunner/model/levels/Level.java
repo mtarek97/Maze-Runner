@@ -11,6 +11,7 @@ public abstract class Level implements ILevel{
 	private List<Class<?>> supportedMapCells;
 	private int obstacleCount;
 	private int nonObstacleCount;
+	private int runnerSpeed;
 	
 	@Override
 	public void setSize(MapSize size) {
@@ -60,6 +61,16 @@ public abstract class Level implements ILevel{
 	@Override
 	public void setNonObstacleCount(int nonObstacleCount) {
 		this.nonObstacleCount = nonObstacleCount;
+	}
+	
+	@Override
+	public void setRunnerSpeed(int runnerSpeed){
+		this.runnerSpeed = runnerSpeed;
+	}
+
+	@Override
+	public int getRunnerSpeed(){
+		return runnerSpeed;
 	}
 
 }

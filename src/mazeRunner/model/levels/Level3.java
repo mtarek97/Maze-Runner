@@ -8,5 +8,6 @@ public class Level3 extends Level{
 		setSupportedMapCells();
 		setObstacleCount(20);
 		setNonObstacleCount(22);
+		setRunnerSpeed(30);
 	}
 }
