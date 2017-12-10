@@ -18,6 +18,7 @@ public class mainForTest {
     	System.out.println(level1.getMapSize());
     	System.out.println(level1.getSupportedMapCells());
     	System.out.println(level1.getSupportedMapCells().get(0).getSimpleName());
+    	System.out.println(level1.getSupportedMapCellsCounts());
     }
 
 }
