@@ -14,7 +14,7 @@ public abstract class Level implements ILevel {
 	protected MapSize mapSize;
 	protected int theme;
 	protected List<Class<?>> supportedMapCells;
-	protected Map<String, Integer> supportedMapCellsCount = new HashMap<>();
+	protected Map<String, Integer> supportedMapCellsCounts = new HashMap<>();
 	protected int runnerSpeed;
 
 	@Override
@@ -29,7 +29,7 @@ public abstract class Level implements ILevel {
 
 	@Override
 	public Map<String, Integer> getSupportedMapCellsCounts() {
-		return supportedMapCellsCount;
+		return supportedMapCellsCounts;
 	}
 
 	@Override
@@ -54,12 +54,12 @@ public abstract class Level implements ILevel {
 				mapCellInstance = mapCell.newInstance();
 				if (mapCellInstance instanceof Wall) {
 					if (((Wall) mapCellInstance).isDestroyable()) {
-						supportedMapCellsCount.put(mapCell.getSimpleName(), destroyableWallsCount());
+						supportedMapCellsCounts.put(mapCell.getSimpleName(), destroyableWallsCount());
 					}
 				} else if (mapCellInstance instanceof Obstacle) {
-					supportedMapCellsCount.put(mapCell.getSimpleName(), obstaclesCount());
+					supportedMapCellsCounts.put(mapCell.getSimpleName(), obstaclesCount());
 				} else if (mapCellInstance instanceof NonObstacle) {
-					supportedMapCellsCount.put(mapCell.getSimpleName(), nonObstaclesCount());
+					supportedMapCellsCounts.put(mapCell.getSimpleName(), nonObstaclesCount());
 				}
 			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
