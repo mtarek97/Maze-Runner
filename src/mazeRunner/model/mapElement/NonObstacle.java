@@ -1,6 +1,6 @@
 package mazeRunner.model.mapElement;
 
-public  abstract class NonObstacle implements MapCell {
+public  abstract class NonObstacle implements IMapCell {
 
 
 	

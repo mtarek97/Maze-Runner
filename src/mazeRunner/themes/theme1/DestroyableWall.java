@@ -1,12 +1,12 @@
 package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapElement.DirectionContract;
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapElement.IMapCell;
 import mazeRunner.model.mapElement.Wall;
 
 public class DestroyableWall extends Wall{
 
-	private MapCell afterUpdate = null;
+	private IMapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
 
@@ -23,7 +23,7 @@ public class DestroyableWall extends Wall{
 	}
 
 	@Override
-	public MapCell getUpdateResult() {
+	public IMapCell getUpdateResult() {
 		return this.afterUpdate;
 	}
 
@@ -37,7 +37,7 @@ public class DestroyableWall extends Wall{
 		this.health -= fullDamage;
 		
 		if(this.getHealth()<=0){
-			MapCell way ;
+			IMapCell way ;
 			switch(direction){
 			case DirectionContract.NON : 
 				way = new Way1();

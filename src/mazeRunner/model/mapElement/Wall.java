@@ -1,6 +1,6 @@
 package mazeRunner.model.mapElement;
 
-public abstract class Wall implements MapCell{
+public abstract class Wall implements IMapCell {
 
 	@Override
 	public boolean isObstacle() {

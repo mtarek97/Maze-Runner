@@ -1,6 +1,6 @@
 package mazeRunner.model.mapElement;
 
-public abstract class Way implements MapCell {
+public abstract class Way implements IMapCell {
 
 	@Override
 	public boolean isObstacle() {
@@ -36,7 +36,7 @@ public abstract class Way implements MapCell {
 		throw new UnsupportedOperationException("making the ground causes damages is not supported yet");//Flammable cells or something like that
 	}
 	@Override
-	public MapCell getUpdateResult() {
+	public IMapCell getUpdateResult() {
 		return null;
 	}
 	@Override

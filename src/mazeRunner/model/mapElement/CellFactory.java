@@ -8,7 +8,7 @@ package mazeRunner.model.mapElement;
 public class CellFactory implements ICellFactory{
 	
 	@Override
-	public MapCell getFullObject(MapCell cell) {
+	public IMapCell getFullObject(IMapCell cell) {
 		return null;
 	}
 

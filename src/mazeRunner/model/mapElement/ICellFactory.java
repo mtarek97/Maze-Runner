@@ -6,6 +6,6 @@ public interface ICellFactory {
 	 * @param cell
 	 * @return
 	 */
-public MapCell getFullObject(MapCell cell);
+public IMapCell getFullObject(IMapCell cell);
 
 }

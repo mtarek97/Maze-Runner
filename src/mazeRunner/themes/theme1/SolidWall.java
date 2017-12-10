@@ -1,6 +1,6 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapElement.IMapCell;
 import mazeRunner.model.mapElement.Wall;
 
 public class SolidWall extends Wall{
@@ -17,7 +17,7 @@ public class SolidWall extends Wall{
 	}
 
 	@Override
-	public MapCell getUpdateResult() {
+	public IMapCell getUpdateResult() {
 		return null;
 	}
 

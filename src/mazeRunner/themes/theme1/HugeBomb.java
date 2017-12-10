@@ -2,11 +2,11 @@ package mazeRunner.themes.theme1;
 
 
 import mazeRunner.model.mapElement.DirectionContract;
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapElement.IMapCell;
 import mazeRunner.model.mapElement.Obstacle;
 
 public class HugeBomb extends Obstacle {
-	private MapCell afterUpdate = null;
+	private IMapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
 
@@ -45,7 +45,7 @@ public class HugeBomb extends Obstacle {
 		this.health -= fullDamage;
 		
 		if(this.getHealth()<=0){
-			MapCell way ;
+			IMapCell way ;
 			switch(direction){
 			case DirectionContract.NON : 
 				way = new Way1();
@@ -67,7 +67,7 @@ return false;
 	}
 
 	@Override
-	public MapCell getUpdateResult() {
+	public IMapCell getUpdateResult() {
 		return this.afterUpdate;
 	}
 
