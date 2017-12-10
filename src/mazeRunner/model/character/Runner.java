@@ -1,6 +1,8 @@
-package mazeRunner.model.runner;
+package mazeRunner.model.character;
 
-public class Runner implements IRunner{
+import mazeRunner.model.utilities.GameContract;
+
+public class Runner implements Character{
 
 	private int speed;
 	private int direction;

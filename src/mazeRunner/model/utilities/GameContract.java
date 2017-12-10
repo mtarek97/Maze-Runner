@@ -1,4 +1,4 @@
-package mazeRunner.model.runner;
+package mazeRunner.model.utilities;
 
 public class GameContract {
 

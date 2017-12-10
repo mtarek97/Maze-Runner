@@ -1,6 +1,6 @@
-package mazeRunner.model.runner;
+package mazeRunner.model.character;
 
-public interface IRunner {
+public interface Character {
 
 	public void setSpeed(int speed);
 	
