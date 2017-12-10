@@ -3,12 +3,21 @@ package mazeRunner.model.mapElement;
 public abstract class Way implements MapCell {
 
 	@Override
-	public boolean isObstacle() {
+	public boolean isWall(){
 		return false;
 	}
 
 	@Override
-	public boolean isWay() {
+
+	public boolean isNonObstacle(){
+		return false;
+	}
+	@Override
+	public boolean isObstacle() {
+		return false;
+	}
+	@Override
+	public boolean isWay(){
 		return true;
 	}
 	
