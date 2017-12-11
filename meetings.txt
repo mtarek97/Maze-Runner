@@ -1,0 +1,22 @@
+11/12/2017
+----------
+- character ----> what will be in weapon interface ?
+                  add decorator to runner and monster
+                  implement factory for runner and monster
+- levels -------> mapCells counts problem
+                  treat with mapCell name instead of class
+* how can we diffrentiate between bulleftGifgt & healthGift & scoreGift and so on?
+we need this differentiation to implement generation logic and set count logic for mapCells
+Brainstorming to find a solution for this problem
+- a suggestion : Contract --static
+- another one : map simulation to check if it is valid --optimal way may make the map invalid --we will discart alot of valid maps (time)
+- another one : simulation after generation and make the map valid (put gifts) --hard to implement
+- another one : runtime --harder
+- the solution : add method isCauseDamage in mapCell and add method getRandomGift in mapCell Factory
+                 the generation will be splitted into 3 phases
+                 1- generate Bombs randlomly
+                 2- generate destroysObstaclesGifts
+                 3- generate notDestroysObstaclesGifts
+``
+
+
