@@ -20,7 +20,7 @@ public class MainController {
     //private MapSize map = new MapSize(20,20);
     //private MazeGenerator generator = new MazeGenerator(map);
     //private boolean[][] maze =  generator.generateMaze();
-    _2DArrayIterator mapIterator = new _2DArrayIterator(builder.getMap().getMapCellArray());
+ //TODO   _2DArrayIterator mapIterator = new _2DArrayIterator(builder.getMap().getMapCellArray());
     public static MainController getController(){
         return controller;
     }

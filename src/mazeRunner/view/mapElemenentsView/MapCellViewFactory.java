@@ -1,7 +1,7 @@
 package mazeRunner.view.mapElemenentsView;
 
-import mazeRunner.model.character.*;
-import mazeRunner.model.mapElement.*;
+import mazeRunner.model.mapCells.*;
+import mazeRunner.model.movingObjects.*;
 
 /**
  * Created by Mustafa on 12/10/2017.
@@ -17,7 +17,7 @@ public class MapCellViewFactory {
         else  if(object instanceof Obstacle){
             return  new WallView();
         }
-        else  if(object instanceof NonObstacle){
+        else  if(object instanceof Gifts){
             return  new WallView();
         }
         else  if(object instanceof Runner){

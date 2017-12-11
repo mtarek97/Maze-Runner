@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mazeRunner.model.mapElement.MapCell;
-import mazeRunner.model.mapElement.Obstacle;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.utilities.ClassFinder;
 
 public abstract class Level implements ILevel {

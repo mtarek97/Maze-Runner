@@ -1,10 +1,12 @@
 package mazeRunner.model.mapBuilder;
 import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.movingObjects.MovingObject;
 
 public class Map {
 
-	private MapCell[][] map;
+	private MapCell[][] cellsLayer;
+	private MovingObject[][] movingObjectsLayer;
 	private ILevel level;
 	
 	public ILevel getLevel() {
@@ -15,11 +17,11 @@ public class Map {
 		this.level = level;
 	}
 	
-	public MapCell[][] getMapCellArray() {
-		return map;
+	public MapCell[][] getCellsLayer() {
+		return cellsLayer;
 	}
 	
-	public void setMap(MapCell[][] map) {
-		this.map = map;
+	public void setCellsLayer(MapCell[][] cellsLayer) {
+		this.cellsLayer = cellsLayer;
 	}
 }

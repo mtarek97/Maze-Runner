@@ -1,7 +1,7 @@
 package mazeRunner.themes.theme1;
 
 
-import mazeRunner.model.mapElement.Way;
+import mazeRunner.model.mapCells.Way;
 
 public class Way1 extends Way{
 	private final String standardImageLink ="";

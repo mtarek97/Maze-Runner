@@ -1,10 +1,15 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 /**
  * 
  * @author ABDelRAHMANs
  *
  */
 public interface MapCell {
+	/**
+	 * this method is used to know if this object causes a damage to bombs , walls ,etc
+	 * @return 
+	 */
+	public boolean isCauseDamage();
 	/**
 	 * @return true if empty way false otherwise
 	 */

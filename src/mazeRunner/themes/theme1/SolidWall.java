@@ -1,7 +1,7 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapElement.MapCell;
-import mazeRunner.model.mapElement.Wall;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.mapCells.Wall;
 
 public class SolidWall extends Wall{
 

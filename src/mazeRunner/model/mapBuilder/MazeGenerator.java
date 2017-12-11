@@ -12,8 +12,8 @@ public class MazeGenerator {
 	private  int y;
 	private  int[][] maze;
 	public void MazeGenerator(int x, int y) {
-		this.x = x;
-		this.y = y;
+		this.x = x/2;
+		this.y = y/2;
 		maze = new int[this.x][this.y];
 		generateMaze(0, 0);
 	}

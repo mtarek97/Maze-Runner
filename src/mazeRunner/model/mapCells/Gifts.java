@@ -1,9 +1,9 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 
 
 import mazeRunner.themes.theme1.Way1;
 
-public  abstract class NonObstacle implements MapCell {
+public  abstract class Gifts implements MapCell {
 	@Override
 	public boolean isWall(){
 		return false;

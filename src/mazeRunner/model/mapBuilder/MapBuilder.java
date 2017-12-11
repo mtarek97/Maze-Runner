@@ -1,7 +1,7 @@
 package mazeRunner.model.mapBuilder;
 
 import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapCells.MapCell;
 
 import java.util.HashMap;
 
@@ -21,7 +21,7 @@ public class MapBuilder implements IMapBuilder{
 		//TODO: implement method logic
 		MazeGenerator mazeGenerator = new MazeGenerator(level.getMapSize());
 		boolean[][] maze = mazeGenerator.generateMaze();
-		MapGenerator mapGenerator = new MapGenerator(maze, mapElementsType);
+		MapGenerator mapGenerator = new MapGenerator(maze, level.getSupportedMapCellsCounts(), level);
 		return mapGenerator.generateMap();
 	}
 	

@@ -1,10 +1,9 @@
 package mazeRunner.themes.theme1;
 
 
-import mazeRunner.model.mapElement.DirectionContract;
-import mazeRunner.model.mapElement.IElementsGenerator;
-import mazeRunner.model.mapElement.MapCell;
-import mazeRunner.model.mapElement.Obstacle;
+import mazeRunner.model.mapCells.DirectionContract;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.mapCells.Obstacle;
 
 public class HugeBomb extends Obstacle  {
 	private MapCell afterUpdate = null;
