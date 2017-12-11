@@ -8,8 +8,8 @@ public class _2DArrayIterator implements Iterator{
     public  _2DArrayIterator(Object[][] array){
         this.array = array;
     }
-    private int rowIndex = 0;
-    private int columnIndex = 0;
+    private int rowIndex = -1;
+    private int columnIndex = -1;
     private int numberOfRows = array.length;
     private int numberOfColumns = array[0].length;
     @Override
@@ -22,12 +22,12 @@ public class _2DArrayIterator implements Iterator{
 
     @Override
     public Object next() {
+        columnIndex ++;
         if(columnIndex >= numberOfColumns){
             columnIndex = 0;
             rowIndex ++;
         }
         Object arrayObject = array[rowIndex][columnIndex];
-        columnIndex ++;
         return arrayObject;
     }
 

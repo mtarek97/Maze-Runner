@@ -15,7 +15,7 @@ public class Map {
 		this.level = level;
 	}
 	
-	public MapCell[][] getMap() {
+	public MapCell[][] getMapCellArray() {
 		return map;
 	}
 	

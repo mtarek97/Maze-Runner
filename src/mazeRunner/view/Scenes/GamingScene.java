@@ -9,6 +9,8 @@ import javafx.stage.Stage;
  */
 public class GamingScene{
 
-    GridPane pan = new GridPane();
-
+    GridPane pane = new GridPane();
+    public GridPane getPan(){
+        return  this.pane;
+    }
 }
