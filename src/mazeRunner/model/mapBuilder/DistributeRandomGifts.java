@@ -32,7 +32,7 @@ public class DistributeRandomGifts {
     }
 
     public void  DFS(int x, int y, Stack<Point> allFreeCells ) {
-        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true|| !(maze[x][y] instanceof Way1)) {
+        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true|| !(maze[x][y] instanceof Way)) {
             return;
         }
 

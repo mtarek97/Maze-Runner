@@ -1,7 +1,7 @@
 package mazeRunner.controller;
 
 import mazeRunner.model.GameSetting;
-import mazeRunner.model.character.Character;
+
 import mazeRunner.model.levels.MapSize;
 import mazeRunner.model.mapBuilder.MapBuilder;
 import mazeRunner.model.mapBuilder.MazeGenerator;

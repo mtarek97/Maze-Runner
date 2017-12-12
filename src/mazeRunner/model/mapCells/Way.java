@@ -53,8 +53,7 @@ public abstract class Way implements MapCell {
 		return null;
 	}
 	@Override
-	public boolean update(int direction, int fullDamage) {
-		this.setAshes(direction);
+	public boolean update(int fullDamage) {
 		return false;
 	}
 

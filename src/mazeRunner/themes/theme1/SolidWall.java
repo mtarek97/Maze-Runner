@@ -5,11 +5,7 @@ import mazeRunner.model.mapCells.Wall;
 
 public class SolidWall extends Wall{
 
-	private final String standardImageLink ="";
-	private  String currentImageLink = this.standardImageLink;
-
-	/* from index 0 to 8 - Links to the images suitable for his direction*/
-	private final String[] ashesImagesLink ={"","","","","","","","",""};
+	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.wall";
 	private final String hittingSound = "";
 	@Override
 	public boolean isDestroyable() {
@@ -21,14 +17,10 @@ public class SolidWall extends Wall{
 		return null;
 	}
 
-	@Override
-	public void setAshes(int Direction) {
-		this.currentImageLink = this.ashesImagesLink[Direction];
-	}
+	
 
 	@Override
-	public boolean update(int direction, int fullDamage) {
-		this.setAshes(direction);
+	public boolean update(int fullDamage) {
 		return false;
 	}
 
@@ -49,7 +41,7 @@ public class SolidWall extends Wall{
 
 	@Override
 	public String getImageLink() {
-		return this.currentImageLink;
+		return this.standardImageLink;
 	}
 
 }

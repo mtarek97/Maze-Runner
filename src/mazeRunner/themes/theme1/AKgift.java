@@ -1,30 +1,25 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapCells.DirectionContract;
-
+import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.mapCells.Wall;
 
-public class DestroyableWall extends Wall{
-
+public class AKgift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.box";
-
+	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.ak";
 	private final String destroySound = "";
 	private final String hittingSound = "";
-	private  int health = 1;
-	
+	private  int health = 2;
+	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
+	private final int giftDamage = 10;
 	@Override
-	public boolean isDestroyable() {
+	public boolean isCauseDamage() {
 		return true;
 	}
 
 	@Override
 	public MapCell getUpdateResult() {
-		return this.afterUpdate;
+		return null;
 	}
-
-
 
 	@Override
 	public boolean update(int fullDamage) {
@@ -44,6 +39,11 @@ public class DestroyableWall extends Wall{
 	@Override
 	public String getHittingSound() {
 		return this.hittingSound;
+	}
+
+	@Override
+	public int getDamage() {
+		return this.giftDamage;
 	}
 
 	@Override

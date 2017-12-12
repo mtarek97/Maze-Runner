@@ -1,19 +1,15 @@
 package mazeRunner.themes.theme1;
 
-
-import mazeRunner.model.mapCells.DirectionContract;
+import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.mapCells.Obstacle;
 
-public class HugeBomb extends Obstacle  {
+public class Coin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.Dynamite";
-
+	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.Coin";
 
 	private final String destroySound = "";
 	private final String hittingSound = "";
-	private  int health = 1;
-	private int damage = 3 ;
+	private  int health = 2;
 	
 
 	@Override
@@ -56,9 +52,15 @@ public class HugeBomb extends Obstacle  {
 
 	@Override
 	public int getDamage() {
-		return this.damage;
+		return 0;
+	}
+
+	@Override
+	public boolean isCauseDamage() {
+		return false;
 	}
 
 
 
+	
 }

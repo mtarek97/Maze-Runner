@@ -39,11 +39,7 @@ public interface MapCell {
 	 * @return the resulted mapcell
 	 */
 	public MapCell getUpdateResult();
-	/**
-	 * set the the imagelink with the one by ashes of this direction
-	 * @param Direction
-	 */
-	public void setAshes(int Direction);
+
 	/**
 	 * it is designed to be called when any mapcell is hit by Something causes damage (bombs)
 	 * 
@@ -54,7 +50,7 @@ public interface MapCell {
 	 * @param fullDamage
 	 * @return true if there is data in getUpdateResult();
 	 */
-	public boolean update(int direction , int fullDamage);
+	public boolean update(int fullDamage);
 	
 	/**
 	 * the sound is shared among all the cells of the same kind using the abstract factory

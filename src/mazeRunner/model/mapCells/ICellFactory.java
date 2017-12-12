@@ -43,4 +43,5 @@ public MapCell getWay() throws Exception;
  */
 public MapCell getGiftDestroysObstacles() throws Exception;
 
+
 }

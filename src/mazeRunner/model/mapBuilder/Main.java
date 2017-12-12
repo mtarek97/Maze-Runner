@@ -9,9 +9,11 @@ public class Main {
         builer.createMapBuilder();
         builer.setLevel(new Level1());
        Map map= builer.getMap();
-       MapSize mapl = new MapSize(7,7);
-   /*  //   MazeGenerator generator = new MazeGenerator(map);
-      //boolean[][] maze =  generator.generateMaze();
+       @SuppressWarnings("unused")
+	MapSize mapl = new MapSize(7,7);
+       System.out.println("");
+   //   MazeGenerator generator = new MazeGenerator(map);
+   /*   //boolean[][] maze =  generator.generateMaze();
       for(int i = 0; i < maze.length; i++) {
           for(int j = 0; j < maze[0].length; j++) {
               System.out.print(maze[i][j]+" ");
