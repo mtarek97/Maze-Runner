@@ -13,12 +13,26 @@ Brainstorming to find a solution for this problem
 - another one : simulation after generation and make the map valid (put gifts) --hard to implement
 - another one : runtime --harder
 - the solution : add method isCauseDamage in mapCell and add method getRandomGift in mapCell Factory
-                 the generation will be splitted into 3 phases
+                 the generation will be splitted into 4 phases
                  
-				 1- generate nonDestroyables Walls & ways
-                 1- generate Bombs randlomly
-                 2- generate destroysObstaclesGifts
-                 3- generate notDestroysObstaclesGifts
-``
-
+				 1- generate nonDestroyables Walls & Ways
+                 2- generate Obstacles randlomly
+                 3- generate destroysObstaclesGifts
+                 4- generate notDestroysObstaclesGifts
+--------------------------------------------------------------
+12/12/2017
+----------
+1- Position 
+ 	a) abdelrahman : implement two methods in mapCell (get and set Position)
+ 	b) shazly : use set position while generating the map 
+ 	c) Controller : on updating any mapcell a boolean is returned . this boolean denotes if there is a new mapcell
+ 					or not . so if this boolen is true then you get the the new mapcell from getupdated method .
+ 					HHHHere we shold use the getter of the position . to know where to put that returned cell 
+2-labib - - - >  runner movement                   --hwa katb kda
+3- separate runner from monster
+4- change the name Obstacle to Bomb 
+5- we need to learn javaFX (wee need to talk)
+6- shazly - - - > set object at runtime (mapcell)  --hwa katb kda
+ 					
+---------------------------------------------------------------------------
 
