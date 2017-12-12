@@ -1,8 +1,6 @@
-package mazeRunner.view.mapElemenentsView;
+package mazeRunner.view.mapCellsView;
 
 import javafx.scene.layout.Pane;
-
-import javax.swing.text.html.ImageView;
 
 /**
  * Created by Mustafa on 12/10/2017.

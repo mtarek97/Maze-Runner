@@ -1,4 +1,4 @@
-package mazeRunner.view.mapElemenentsView;
+package mazeRunner.view.mapCellsView;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

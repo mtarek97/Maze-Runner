@@ -1,10 +1,10 @@
-package mazeRunner.model;
+/*package mazeRunner.model;
 
 
 /**
  * Created by Mustafa on 12/10/2017.
  */
-public class GameSetting {
+/*public class GameSetting {
     public void setRunner(String runner){
 
     }
@@ -12,5 +12,4 @@ public class GameSetting {
 
         return null;
     }
-}
-
+}*/

@@ -1,4 +1,4 @@
-package mazeRunner.view.mapElemenentsView;
+package mazeRunner.view.mapCellsView;
 
 /**
  * Created by Mustafa on 12/10/2017.

@@ -1,4 +1,4 @@
-package mazeRunner.view.mapElemenentsView;
+package mazeRunner.view.mapCellsView;
 
 import mazeRunner.model.mapCells.*;
 import mazeRunner.model.movingObjects.*;
