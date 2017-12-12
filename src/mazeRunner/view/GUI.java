@@ -101,10 +101,11 @@ public class GUI extends Application{
     }
     public class Cell extends Pane {
         public Cell() {
-            ImageView imageView = new ImageView(new Image(getClass().getResource("move.png").toExternalForm()));
-            imageView.setFitWidth(20);
-            imageView.setFitHeight(20);
-            this.getChildren().add(imageView);
+          //  ImageView imageView = new ImageView(new Image(getClass().getResource("move.png").toExternalForm()));
+            //imageView.setFitWidth(20);
+            //imageView.setFitHeight(20);
+            //this.getChildren().add(imageView);
+            setStyle("-fx-background-color: black");
             this.setPrefSize(20, 20);
         }
 
