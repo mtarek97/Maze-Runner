@@ -20,7 +20,7 @@ public class DestroyableWall extends Wall{
 	
 	@Override
 	public boolean isDestroyable() {
-		return false;
+		return true;
 	}
 
 	@Override

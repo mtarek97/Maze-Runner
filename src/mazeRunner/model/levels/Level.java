@@ -54,12 +54,12 @@ public abstract class Level implements ILevel {
 				// TODO : ABDO shab7 fe el detection methods
 				if (cell.isObstacle()) {
 					if (cell.isDestroyable()) {
-						supportedMapCellsCounts.put(mapCell.getSimpleName(), destroyableWallsCount());
+						supportedMapCellsCounts.put(mapCell.getName(), destroyableWallsCount());
 					} else if(cell instanceof Obstacle){
-						supportedMapCellsCounts.put(mapCell.getSimpleName(), obstaclesCount());
+						supportedMapCellsCounts.put(mapCell.getName(), obstaclesCount());
 					}
 				} else if(!cell.isObstacle() && !cell.isWay()){
-					supportedMapCellsCounts.put(mapCell.getSimpleName(), nonObstaclesCount());
+					supportedMapCellsCounts.put(mapCell.getName(), nonObstaclesCount());
 				}
 			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
