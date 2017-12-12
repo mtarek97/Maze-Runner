@@ -25,15 +25,15 @@ Our (initially) MainMenu :
 
 
 
-1- singlton -------------done
-2- AbstractFactory & 3- Flyweight  ------------------- done
-4- iterator ---------------------- Map
-5- Dynamic Linkage -------------------- class loader
-6- Snapshots ----------- check points
-7- state --------------------- health
-8- Strategy ------------------ difficulty
-9- decorator ------------------ map elements
-10- observer ----------------- bullets & monsters
+1- singlton -------------done (done)
+2- FactoryMethod & 3- Flyweight  ------------------- view (done)
+4- iterator ---------------------- Map (done)
+5- Dynamic Linkage -------------------- class loader (Abdo)
+6- Snapshots ----------- check points (shazly)
+7- state --------------------- health (tarek)
+8- abstractFactory ------------------ model (tarek)
+9- decorator ------------------ map elements (tarek)
+10- observer ----------------- bullets & monsters (Abdo)
 
 
 -----------------------------------------------------------------------------------------

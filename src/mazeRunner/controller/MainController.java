@@ -1,4 +1,4 @@
-package mazeRunner.controller;
+/*package mazeRunner.controller;
 
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.character.Character;
@@ -27,4 +27,4 @@ public class MainController {
     }
 
 
-}
+}*/
