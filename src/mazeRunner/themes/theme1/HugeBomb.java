@@ -10,8 +10,8 @@ public class HugeBomb extends Obstacle  {
 	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.Dynamite";
 
 
-	private final String destroySound = "";
-	private final String hittingSound = "";
+	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
+	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
 	private  int health = 1;
 	private int damage = 3 ;
 	

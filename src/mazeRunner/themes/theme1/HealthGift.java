@@ -8,8 +8,8 @@ public class HealthGift extends Gifts{
 	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.medicine";
 
 
-	private final String destroySound = "";
-	private final String hittingSound = "";
+	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
+	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.healthhit";
 	private  int health = 1;
 	private final int giftDamage = 0;
 	

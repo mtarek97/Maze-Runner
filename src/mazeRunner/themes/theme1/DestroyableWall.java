@@ -10,8 +10,8 @@ public class DestroyableWall extends Wall{
 	private MapCell afterUpdate = null;
 	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.box";
 
-	private final String destroySound = "";
-	private final String hittingSound = "";
+	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
+	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.hit";
 	private  int health = 1;
 	
 	@Override
