@@ -1,11 +1,12 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Random;
 
-import mazeRunner.model.mapElement.MapCell;
+import mazeRunner.model.mapCells.MapCell;
 
 /**
  * 
@@ -16,6 +17,7 @@ private boolean readyClasses=false;
 	private HashMap<String,Class<? extends MapCell>> classes = new HashMap<String,Class<?extends MapCell>>();
 	private LinkedList<Class<? extends Wall>> Walls = new LinkedList<Class<?extends Wall>>();
 	private LinkedList<Class<? extends Way>> Ways = new LinkedList<Class<?extends Way>>();
+	private LinkedList<Class<? extends Way>> GiftDestroysObstacles = new LinkedList<Class<?extends Way>>();
 
 	@Override
 
@@ -29,6 +31,8 @@ private boolean readyClasses=false;
 				this.Walls.add((Class<? extends Wall>) mapCellSubClass);
 				}else if(isWay(mapCellSubClass)){
 					this.Ways.add((Class<? extends Way>) mapCellSubClass);
+				}else if(isDestroyingObstacles(mapCellSubClass)){
+					this.GiftDestroysObstacles.add((Class<? extends Way>) mapCellSubClass);
 				}
 				classes.put(className,mapCellSubClass);
 			} catch (ClassNotFoundException e) {
@@ -44,6 +48,14 @@ private boolean readyClasses=false;
 			}
 		this.readyClasses = true;
 		return true;
+	}
+
+	private boolean isDestroyingObstacles(Class<? extends MapCell> mapCellSubClass) throws Exception {
+		MapCell tempMapCell = mapCellSubClass.newInstance();
+		if(tempMapCell.isNonObstacle()&&tempMapCell.isCauseDamage()){
+			return true;
+		}
+		return false;
 	}
 
 	private boolean isUndestroyableWall(Class<? extends MapCell> mapCellSubClass) {
@@ -97,6 +109,21 @@ private boolean readyClasses=false;
 			}else{
 				throw new Exception("there is no walls in this theme");
 			}
+	}
+
+	@Override
+	public MapCell getGiftDestroysObstacles() throws Exception {
+		if(!this.readyClasses){
+			throw new Exception("used cell factory without settign the classes' list");
+		}
+		if(this.GiftDestroysObstacles.size()!=0){
+		Random rnd = new Random();
+		int index=rnd.nextInt(this.GiftDestroysObstacles.size());
+		return this.GiftDestroysObstacles.get(index).newInstance();
+		}else{
+			throw new Exception("there is no gifts in this theme");
+
+		}
 	}
 	
 

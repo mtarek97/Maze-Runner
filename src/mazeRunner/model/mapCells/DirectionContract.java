@@ -1,4 +1,4 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 
 public class DirectionContract {
 public static final int THIS_CELL =0;

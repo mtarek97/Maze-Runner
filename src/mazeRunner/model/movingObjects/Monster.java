@@ -1,4 +1,4 @@
-package mazeRunner.model.character;
+package mazeRunner.model.movingObjects;
 
 import mazeRunner.model.utilities.GameContract;
 

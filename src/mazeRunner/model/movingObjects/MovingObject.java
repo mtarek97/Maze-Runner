@@ -1,14 +1,10 @@
-package mazeRunner.model.character;
+package mazeRunner.model.movingObjects;
 
-public interface Character {
+public interface MovingObject {
 
 	public void setSpeed(int speed);
 	
 	public int getSpeed();
-	
-	public void setDirection(int direction);
-	
-	public int getDirection();
 	
 	public void moveUp();
 	

@@ -1,11 +1,10 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapElement.DirectionContract;
+import mazeRunner.model.mapCells.DirectionContract;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.mapCells.Gifts;
 
-import mazeRunner.model.mapElement.MapCell;
-import mazeRunner.model.mapElement.NonObstacle;
-
-public class Bullets1 extends NonObstacle{
+public class Bullets1 extends Gifts{
 	private MapCell afterUpdate = null;
 	private final String standardImageLink ="";
 	private  String currentImageLink = this.standardImageLink;
@@ -16,6 +15,7 @@ public class Bullets1 extends NonObstacle{
 	private final String destroySound = "";
 	private final String hittingSound = "";
 	private  int health = 1;
+	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
 	private final int giftDamage = 1;
 	
 
@@ -81,9 +81,10 @@ return false;
 		return this.giftDamage;
 	}
 
-
-
-	
+	@Override
+	public boolean isCauseDamage() {
+		return true;
+	}
 
 	
 }

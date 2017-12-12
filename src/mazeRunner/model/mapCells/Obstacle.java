@@ -1,8 +1,11 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 
 public abstract  class Obstacle implements MapCell {
 
-
+	@Override
+	public boolean isCauseDamage(){
+		return false;
+	}
 	@Override
 	public boolean isWall(){
 		return false;

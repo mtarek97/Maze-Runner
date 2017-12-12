@@ -1,4 +1,4 @@
-package mazeRunner.model.mapElement;
+package mazeRunner.model.mapCells;
 
 public abstract class Way implements MapCell {
 
@@ -35,6 +35,10 @@ public abstract class Way implements MapCell {
 		throw new UnsupportedOperationException("making the ground destroyable object is not supported yet");
 	}
 
+	@Override
+	public boolean isCauseDamage(){
+		return false;
+	}
 	@Override
 	public String getHittingSound() {
 		throw new UnsupportedOperationException("hitting the ground  is not supported yet");

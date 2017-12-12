@@ -14,6 +14,8 @@ Brainstorming to find a solution for this problem
 - another one : runtime --harder
 - the solution : add method isCauseDamage in mapCell and add method getRandomGift in mapCell Factory
                  the generation will be splitted into 3 phases
+                 
+				 1- generate nonDestroyables Walls & ways
                  1- generate Bombs randlomly
                  2- generate destroysObstaclesGifts
                  3- generate notDestroysObstaclesGifts
