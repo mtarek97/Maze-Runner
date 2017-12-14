@@ -27,6 +27,7 @@ public class MapGenerator {
 	public MapGenerator(boolean[][] maze, Map map) {
 		this.level = map.getLevel();
 		this.map = map;
+		MapCell[][] solidWallAndWaysLayer = new MapCell[maze.length][maze[0].length];
 		this.mapElementType = map.getLevel().getSupportedMapCellsCounts();
 		this.maze = new MapCell[maze.length][maze[0].length];
 		map.setCellsLayer(this.maze);
@@ -34,13 +35,16 @@ public class MapGenerator {
 			for (int j = 0; j < maze[0].length; j++) {
 				if (maze[i][j]) {
 					this.maze[i][j] = new SolidWall();
+					solidWallAndWaysLayer[i][j] = new SolidWall();
 				}
 				else {
 					this.maze[i][j] = new Way1();
+					solidWallAndWaysLayer[i][j] = new Way1();
 					allFreeCells.add(new Point(i, j));
 				}
 			}
 		}
+		map.setSolidWallAndWaysLayer(solidWallAndWaysLayer);
 	}
 
 	public Point getRandomCell(Stack<Point> allFreeCells) {
