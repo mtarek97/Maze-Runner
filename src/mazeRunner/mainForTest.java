@@ -2,6 +2,7 @@ package mazeRunner;
 
 import java.util.ArrayList;
 
+import javafx.util.Pair;
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.levels.Level1;
 import mazeRunner.model.mapCells.CellFactory;
@@ -18,7 +19,7 @@ public class mainForTest {
 
 		
 		 //------------------------- Level ---------------------------//
-		 ILevel level1 = new Level1();
+		/* ILevel level1 = new Level1();
 		 System.out.println();
 		 System.out.println(level1.getSupportedMapCells());
 		 System.out.println(level1.getSupportedMapCells().get(0).getSimpleName()); 
@@ -51,8 +52,10 @@ public class mainForTest {
 			System.out.println(x);
 			System.out.println(wall.isWall());
 			System.out.println(way.isWay());
-			System.out.println();
+			System.out.println();*/
 		//-------------------------------------------------------------------------//
+
+
 	}
 
 }

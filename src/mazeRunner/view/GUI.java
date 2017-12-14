@@ -26,7 +26,7 @@ public class GUI extends Application{
     MapSize map = new MapSize(20,20);
     MazeGenerator generator = new MazeGenerator(map);
     boolean[][] maze =  generator.generateMaze();
-    Cell[][] cells = new Cell[40][41];
+    Cell[][] cells = new Cell[41][41];
     Cell wall = new Cell();
     GetEndPoint end = new GetEndPoint(maze);
     int x = end.getEnd().x;
@@ -36,59 +36,63 @@ public class GUI extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        GridPane pan = new GridPane();
+        GridPane objectsPane = new GridPane();
+        GridPane runnerPane = new GridPane();
+        runnerPane.setStyle("-fx-background-color: transparent");
         for(int i = 0; i < maze.length; i++) {
             for(int j = 0; j < maze[0].length; j++) {
                 if(maze[i][j] == true){
                     Cell cell = new Cell();
-                    pan.add(cell, j,i);
+                    objectsPane.add(cell, j,i);
                     cells[i][j] = cell;
                 }
                 else {
                     Cell cell = new Cell();
                     cell.setStyle("-fx-background-color: white");
-                    pan.add(cell, j,i);
+                    objectsPane.add(cell, j,i);
                     cells[i][j] = cell;
                 }
                 if(i == x && j == y){
                     Cell cell = new Cell();
                     cell.setStyle("-fx-background-color: aqua");
-                    pan.add(cell, j,i);
+                    objectsPane.add(cell, j,i);
                     cells[i][j] = cell;
                 }
             }
         }
         Cell cell = new Cell();
         cell.setStyle("-fx-background-color: chartreuse");
-        pan.add(cell, 1,1);
+        runnerPane.add(cell, 1,1);
         cells[1][1] = cell;
-        BorderPane boarderBane = new BorderPane();
-        boarderBane.setCenter(pan);
+        Pane boarderBane = new Pane();
+        boarderBane.getChildren().add(runnerPane);
+        boarderBane.getChildren().add(objectsPane);
+
         Scene scene = new Scene(boarderBane);
 
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.UP) {
                 if(!cells[runnerX - 1][runnerY].getStyle().toString().equals("-fx-background-color: black")) {
-                    pan.getChildren().remove(cells[runnerX - 1][runnerY]);
-                    pan.add(cells[runnerX][runnerY], runnerY, runnerX - 1);
+                    objectsPane.getChildren().remove(cells[runnerX - 1][runnerY]);
+                    objectsPane.add(cells[runnerX][runnerY], runnerY, runnerX - 1);
                     runnerX = runnerX - 1;
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
                 if (!cells[runnerX + 1][runnerY].getStyle().toString().equals("-fx-background-color: black")) {
-                    pan.getChildren().remove(cells[runnerX + 1][runnerY]);
-                    pan.add(cells[runnerX][runnerY], runnerY, runnerX + 1);
+                    objectsPane.getChildren().remove(cells[runnerX + 1][runnerY]);
+                    objectsPane.add(cells[runnerX][runnerY], runnerY, runnerX + 1);
                     runnerX = runnerX + 1;
                 }
             } else if (event.getCode() == KeyCode.RIGHT) {
                 if (!cells[runnerX ][runnerY+1].getStyle().toString().equals("-fx-background-color: black")) {
-                    pan.getChildren().remove(cells[runnerX][runnerY + 1]);
-                    pan.add(cells[runnerX][runnerY], runnerY + 1, runnerX);
+                    objectsPane.getChildren().remove(cells[runnerX][runnerY + 1]);
+                    objectsPane.add(cells[runnerX][runnerY], runnerY + 1, runnerX);
                     runnerY = runnerY + 1;
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
                 if (!cells[runnerX ][runnerY-1].getStyle().toString().equals("-fx-background-color: black")) {
-                    pan.getChildren().remove(cells[runnerX][runnerY - 1]);
-                    pan.add(cells[runnerX][runnerY], runnerY - 1, runnerX);
+                    objectsPane.getChildren().remove(cells[runnerX][runnerY - 1]);
+                    objectsPane.add(cells[runnerX][runnerY], runnerY - 1, runnerX);
                     runnerY = runnerY - 1;
                 }
             }
@@ -110,7 +114,7 @@ public class GUI extends Application{
         }
 
     }
-    public Node getNodeByRowColumnIndex (int row, int column, GridPane gridPane) {
+   /* public Node getNodeByRowColumnIndex (int row, int column, GridPane gridPane) {
         Node result = null;
         ObservableList<Node> childrens = gridPane.getChildren();
 
@@ -122,5 +126,5 @@ public class GUI extends Application{
         }
 
         return result;
-    }
+    }*/
 }

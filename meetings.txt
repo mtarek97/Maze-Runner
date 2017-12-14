@@ -31,8 +31,14 @@ Brainstorming to find a solution for this problem
 2-labib - - - >  runner movement                   --hwa katb kda
 3- separate runner from monster
 4- change the name Obstacle to Bomb 
-5- we need to learn javaFX (wee need to talk)
+5- we need to learn javaFX (we need to talk)
 6- shazly - - - > set object at runtime (mapcell)  --hwa katb kda
  					
 ---------------------------------------------------------------------------
+14/12/2017
+----------
+I mostafa labib was alone in this meeting and i decided that:
 
+1- shazly should implement runner layer ()
+2- tarek should implement getImageLink in runner and there are 4 linkImages depending on runner direction
+3-
