@@ -70,6 +70,14 @@ public class mainForTest {
 		 runner = new WithAK(runner, 6);
 		 System.out.println(runner.getSpeed());
 		 System.out.println(runner.getSupportedWeapons());
+		 
+		 IRunner runner2 = runnerFactory.getRunner("Runner2");
+		 System.out.println(runner2.getSpeed());
+		 System.out.println(runner2.getSupportedWeapons());
+		 runner2 = new WithPistol(runner2, 6);
+		 runner2.setSpeed(20);
+		 System.out.println(runner2.getSpeed());
+		 System.out.println(runner2.getSupportedWeapons());
 	}
 
 }

@@ -45,6 +45,8 @@ public class GameSetting {
 		String packageBinName = "mazeRunner.model.movingObjects.runners.";
 		try {
 			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner1")));
+			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner2")));
+			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner3")));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

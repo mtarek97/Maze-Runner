@@ -51,7 +51,7 @@ I mostafa labib was alone in this meeting and i decided that:
 2- ImageLink method --done
 3- RunnerInteractions
 4- state DP -----------> health
-5- decorator
+5- decorator --done
 6- bullets
 7- split monster form character and bullet class --done
 ---------------------------------------------------------------------------
