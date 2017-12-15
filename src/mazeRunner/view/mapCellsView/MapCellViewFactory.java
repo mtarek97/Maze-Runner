@@ -5,7 +5,7 @@ import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.mapCells.Way;
 import mazeRunner.model.movingObjects.runners.Runner;
-import mazeRunner.model.weapons.Gun;
+import mazeRunner.model.weapons.Pistol;
 
 /**
  * Created by Mustafa on 12/10/2017.
@@ -27,7 +27,7 @@ public class MapCellViewFactory {
         else  if(object instanceof Runner){
             return  new WallView();
         }
-        else  if(object instanceof Gun){
+        else  if(object instanceof Pistol){
             return  new WallView();
         }
         return  null;

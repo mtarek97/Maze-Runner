@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import mazeRunner.model.weapons.Weapon;
 
-public class Runner1 extends Runner{
+public class Runner2 extends Runner {
 
-	public Runner1(){
+	public Runner2(){
 		setImageLinks(new String[]{"","","",""});
 		setSupportedWeapons(new ArrayList<Class<? extends Weapon>>());
 	}

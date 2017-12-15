@@ -2,9 +2,7 @@ package mazeRunner.model.weapons;
 
 public interface Weapon {
 
-	public int getAmmo();
+	public String getImageLink();
 	
-	public int getBulletsCount();
-
 	public void shoot();
 }
