@@ -1,4 +1,4 @@
-package mazeRunner.model.movingObjects;
+package mazeRunner.model.weapons;
 
 public class Gun implements Weapon{
 

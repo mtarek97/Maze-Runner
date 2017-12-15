@@ -1,5 +1,7 @@
 package mazeRunner.model.movingObjects;
 
+import java.awt.Point;
+
 public interface MovingObject {
 
 	public void setSpeed(int speed);
@@ -13,4 +15,20 @@ public interface MovingObject {
 	public void moveRight();
 	
 	public void moveLeft();
+	
+	public void setDirection(int direction);
+	
+	public int getDirection();
+	
+	public void SetPosition(Point position);
+	
+	public Point getPosition();
+	
+	public void setImageLinks(String[] imageLink);
+	
+	public String getImageLink();
+	
+	public void setMappedPosition(Point mappedPosition);
+	
+	public Point gettMappedPosition();
 }
