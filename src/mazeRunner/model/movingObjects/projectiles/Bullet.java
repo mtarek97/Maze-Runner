@@ -9,6 +9,8 @@ public class Bullet implements Projectile{
 	private int speed;
 	private int direction;
 	private Point position;
+	// position on runner layer
+	private Point mappedPosition;
 	//imageLink{UP, Down, Right, Left}
 	private String[] imageLinks;
 	
@@ -77,6 +79,18 @@ public class Bullet implements Projectile{
 	@Override
 	public void setImageLinks(String[] imageLinks) {
 		this.imageLinks = imageLinks;
+	}
+	
+	@Override
+	public void setMappedPosition(Point mappedPosition) {
+		this.mappedPosition = mappedPosition;
+		
+	}
+
+	@Override
+	public Point gettMappedPosition() {
+		return mappedPosition;
+		
 	}
 
 }

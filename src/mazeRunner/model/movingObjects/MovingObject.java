@@ -28,5 +28,7 @@ public interface MovingObject {
 	
 	public String getImageLink();
 	
+	public void setMappedPosition(Point mappedPosition);
 	
+	public Point gettMappedPosition();
 }

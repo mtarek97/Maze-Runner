@@ -8,6 +8,8 @@ public abstract class Monster implements IMonster{
 	private int speed;
 	private int direction;
 	private Point position;
+	// position on runner layer
+	private Point mappedPosition;
 	private int health;
 	//imageLink{UP, Down, Right, Left}
 	private String[] imageLinks;
@@ -88,5 +90,17 @@ public abstract class Monster implements IMonster{
 	@Override
 	public void setImageLinks(String[] imageLinks) {
 		this.imageLinks = imageLinks;
+	}
+	
+	@Override
+	public void setMappedPosition(Point mappedPosition) {
+		this.mappedPosition = mappedPosition;
+		
+	}
+
+	@Override
+	public Point gettMappedPosition() {
+		return mappedPosition;
+		
 	}
 }
