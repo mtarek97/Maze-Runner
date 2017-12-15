@@ -1,12 +1,7 @@
 package mazeRunner;
 
-import java.util.ArrayList;
-
-import javafx.util.Pair;
 import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.levels.Level1;
-import mazeRunner.model.mapCells.CellFactory;
-import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.levels.ILevelFactory;
 
 public class mainForTest {
 
@@ -19,13 +14,14 @@ public class mainForTest {
 
 		
 		 //------------------------- Level ---------------------------//
-		/* ILevel level1 = new Level1();
+		 ILevelFactory levelFactory = new ILevelFactory();
+		 ILevel level1 = levelFactory.getLevel(1);
 		 System.out.println();
 		 System.out.println(level1.getSupportedMapCells());
 		 System.out.println(level1.getSupportedMapCells().get(0).getSimpleName()); 
 		 System.out.println(level1.getSupportedMapCellsCounts());
 		 //-------------------------------map cells------------------------//
-		 CellFactory cf = new CellFactory();
+		/* CellFactory cf = new CellFactory();
 			ArrayList< String> hm = new ArrayList< String>();
 			hm.add("mazeRunner.themes.theme1.HugeBomb");
 			hm.add("mazeRunner.themes.theme1.Bullets1");

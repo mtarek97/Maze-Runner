@@ -1,12 +1,10 @@
 package mazeRunner.model.levels;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.utilities.ClassFinder;
 
 public abstract class Level implements ILevel {
@@ -51,15 +49,12 @@ public abstract class Level implements ILevel {
 		for (Class<?> mapCell : supportedMapCells) {
 			try {
 				MapCell cell = (MapCell) mapCell.newInstance();
-				// TODO : ABDO shab7 fe el detection methods
-				if (cell.isObstacle()) {
-					if (cell.isDestroyable()) {
-						supportedMapCellsCounts.put(mapCell.getName(), destroyableWallsCount());
-					} else if(cell instanceof Obstacle){
-						supportedMapCellsCounts.put(mapCell.getName(), obstaclesCount());
-					}
-				} else if(!cell.isObstacle() && !cell.isWay()){
+				if(cell.isObstacle()){
+					supportedMapCellsCounts.put(mapCell.getName(), obstaclesCount());
+				}else if(cell.isNonObstacle()){
 					supportedMapCellsCounts.put(mapCell.getName(), nonObstaclesCount());
+				}else if(cell.isWall() && cell.isDestroyable()){
+					supportedMapCellsCounts.put(mapCell.getName(), destroyableWallsCount());
 				}
 			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
