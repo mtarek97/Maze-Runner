@@ -1,11 +1,14 @@
-package mazeRunner.model.movingObjects;
+package mazeRunner.model.movingObjects.projectiles;
+
+import java.awt.Point;
 
 import mazeRunner.model.utilities.GameContract;
 
-public class Runner implements Character{
+public class Bullet implements Projectile{
 
 	private int speed;
 	private int direction;
+	private Point position;
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -51,6 +54,17 @@ public class Runner implements Character{
 	public void moveLeft() {
 		this.direction = GameContract.Direction.LEFT;
 		// TODO : implement movement
+	}
+
+	@Override
+	public void SetPosition(Point position) {
+		this.position = position;
+		
+	}
+
+	@Override
+	public Point getPosition() {
+		return position;
 	}
 
 }

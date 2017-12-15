@@ -2,10 +2,12 @@ package mazeRunner.controller;
 
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.MapSize;
-import mazeRunner.model.mapBuilder.*;
+import mazeRunner.model.mapBuilder.IMapBuilder;
+import mazeRunner.model.mapBuilder.Iterator;
+import mazeRunner.model.mapBuilder.Map;
+import mazeRunner.model.mapBuilder._2DArrayIterator;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.movingObjects.Character;
-import mazeRunner.model.movingObjects.Runner;
+import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.view.ViewBuilder;
 
 /**
@@ -19,7 +21,7 @@ public class BuildingController {
         this.mapBuilder = mapBuilder;
     }
     private GameSetting setting = new GameSetting();
-    private Character runner = setting.getRunner();
+    private IRunner runner = setting.getRunner();
     private ViewBuilder viewBuilder = new ViewBuilder();
     private Map map = mapBuilder.getMap();
     private MapSize mapSize = map.getLevel().getMapSize();

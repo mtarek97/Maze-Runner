@@ -1,10 +1,15 @@
-package mazeRunner.model.movingObjects;
+package mazeRunner.model.movingObjects.monsters;
+
+import java.awt.Point;
 
 import mazeRunner.model.utilities.GameContract;
 
-public class Monster implements Character{
+public abstract class Monster implements IMonster{
 	private int speed;
 	private int direction;
+	private Point position;
+	private int health;
+
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -49,5 +54,27 @@ public class Monster implements Character{
 	public void moveLeft() {
 		this.direction = GameContract.Direction.LEFT;
 		// TODO : implement movement
+	}
+
+	@Override
+	public Point getPosition() {
+		return position;
+	}
+
+	@Override
+	public void SetPosition(Point position) {
+		this.position = position;
+		
+	}
+
+	@Override
+	public void setHealth(int health) {
+		this.health = health;
+		
+	}
+
+	@Override
+	public int getHealth() {
+		return health;
 	}
 }

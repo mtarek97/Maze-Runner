@@ -1,7 +1,11 @@
 package mazeRunner.view.mapCellsView;
 
-import mazeRunner.model.mapCells.*;
-import mazeRunner.model.movingObjects.*;
+import mazeRunner.model.mapCells.Gifts;
+import mazeRunner.model.mapCells.Obstacle;
+import mazeRunner.model.mapCells.Wall;
+import mazeRunner.model.mapCells.Way;
+import mazeRunner.model.movingObjects.runners.Runner;
+import mazeRunner.model.weapons.Gun;
 
 /**
  * Created by Mustafa on 12/10/2017.
