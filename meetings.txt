@@ -47,13 +47,13 @@ I mostafa labib was alone in this meeting and i decided that:
 --------------
 1-tarek
 -------
-1- gameSetting --------> dynamicLinkage-abstractFactory
-2- ImageLink method
+1- gameSetting --------> dynamicLinkage-abstractFactory --need more discussion
+2- ImageLink method --done
 3- RunnerInteractions
 4- state DP -----------> health
 5- decorator
 6- bullets
-7- split monster form character and bullet class
+7- split monster form character and bullet class --done
 ---------------------------------------------------------------------------
 2-shazly
 --------

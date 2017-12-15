@@ -21,7 +21,7 @@ public class BuildingController {
         this.mapBuilder = mapBuilder;
     }
     private GameSetting setting = new GameSetting();
-    private IRunner runner = setting.getRunner();
+    private IRunner runner = setting.getCurrentRunner();
     private ViewBuilder viewBuilder = new ViewBuilder();
     private Map map = mapBuilder.getMap();
     private MapSize mapSize = map.getLevel().getMapSize();

@@ -9,6 +9,8 @@ public abstract class Monster implements IMonster{
 	private int direction;
 	private Point position;
 	private int health;
+	//imageLink{UP, Down, Right, Left}
+	private String[] imageLinks;
 
 	
 	@Override
@@ -76,5 +78,15 @@ public abstract class Monster implements IMonster{
 	@Override
 	public int getHealth() {
 		return health;
+	}
+	
+	@Override
+	public String getImageLink() {
+		return imageLinks[getDirection()-1];
+	}
+
+	@Override
+	public void setImageLinks(String[] imageLinks) {
+		this.imageLinks = imageLinks;
 	}
 }

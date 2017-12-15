@@ -9,6 +9,8 @@ public class Bullet implements Projectile{
 	private int speed;
 	private int direction;
 	private Point position;
+	//imageLink{UP, Down, Right, Left}
+	private String[] imageLinks;
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -65,6 +67,16 @@ public class Bullet implements Projectile{
 	@Override
 	public Point getPosition() {
 		return position;
+	}
+	
+	@Override
+	public String getImageLink() {
+		return imageLinks[getDirection()-1];
+	}
+
+	@Override
+	public void setImageLinks(String[] imageLinks) {
+		this.imageLinks = imageLinks;
 	}
 
 }

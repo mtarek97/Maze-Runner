@@ -10,6 +10,8 @@ public abstract class Runner implements IRunner{
 	private int direction;
 	private Point position;
 	private int health;
+	//imageLink{UP, Down, Right, Left}
+	private String[] imageLinks;
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -79,4 +81,14 @@ public abstract class Runner implements IRunner{
 		return health;
 	}
 
+
+	@Override
+	public String getImageLink() {
+		return imageLinks[getDirection()-1];
+	}
+
+	@Override
+	public void setImageLinks(String[] imageLinks) {
+		this.imageLinks = imageLinks;
+	}
 }
