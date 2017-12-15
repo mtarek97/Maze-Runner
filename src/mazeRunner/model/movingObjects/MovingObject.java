@@ -24,11 +24,11 @@ public interface MovingObject {
 	
 	public Point getPosition();
 	
-	public void setImageLinks(String[] imageLink);
+	public void setImageLinks(String[] imageLinks);
 	
 	public String getImageLink();
 	
 	public void setMappedPosition(Point mappedPosition);
 	
-	public Point gettMappedPosition();
+	public Point getMappedPosition();
 }

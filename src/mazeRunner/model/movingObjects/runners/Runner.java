@@ -16,7 +16,7 @@ public abstract class Runner implements IRunner{
 	private int health;
 	// imageLink{UP, Down, Right, Left}
 	protected String[] imageLinks;
-	protected List<Class<? extends Weapon>> supportedWeapons;
+	protected List<Weapon> supportedWeapons;
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -104,16 +104,19 @@ public abstract class Runner implements IRunner{
 	}
 
 	@Override
-	public Point gettMappedPosition() {
+	public Point getMappedPosition() {
 		return mappedPosition;
 		
 	}
 
-	public List<Class<? extends Weapon>> getSupportedWeapons() {
+	
+	@Override
+	public List<Weapon> getSupportedWeapons() {
 		return supportedWeapons;
 	}
 
-	public void setSupportedWeapons(List<Class<? extends Weapon>> supportedWeapons) {
+	@Override
+	public void setSupportedWeapons(List<Weapon> supportedWeapons) {
 		this.supportedWeapons = supportedWeapons;
 	}
 }

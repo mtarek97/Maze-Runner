@@ -8,6 +8,6 @@ public class Runner1 extends Runner{
 
 	public Runner1(){
 		setImageLinks(new String[]{"","","",""});
-		setSupportedWeapons(new ArrayList<Class<? extends Weapon>>());
+		setSupportedWeapons(new ArrayList<Weapon>());
 	}
 }

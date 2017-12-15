@@ -99,7 +99,7 @@ public abstract class Monster implements IMonster{
 	}
 
 	@Override
-	public Point gettMappedPosition() {
+	public Point getMappedPosition() {
 		return mappedPosition;
 		
 	}

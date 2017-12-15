@@ -88,7 +88,7 @@ public class Bullet implements Projectile{
 	}
 
 	@Override
-	public Point gettMappedPosition() {
+	public Point getMappedPosition() {
 		return mappedPosition;
 		
 	}
