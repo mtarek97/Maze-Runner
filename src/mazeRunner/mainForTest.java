@@ -1,13 +1,5 @@
 package mazeRunner;
 
-import java.util.ArrayList;
-
-import javafx.util.Pair;
-import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.levels.Level1;
-import mazeRunner.model.mapCells.CellFactory;
-import mazeRunner.model.mapCells.MapCell;
-
 public class mainForTest {
 
 	public static void main(String[] args) {
