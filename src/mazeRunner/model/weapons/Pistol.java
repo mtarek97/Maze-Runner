@@ -1,22 +1,22 @@
 package mazeRunner.model.weapons;
 
-public class Gun implements Weapon{
+public class Pistol implements Weapon{
 
 	private int ammo;
 	private int bulletsCount;
+	private String imageLink = "";
 	
 
-	public Gun(int ammo){
+	public Pistol(int ammo){
 		this.ammo = ammo;
 		this.bulletsCount = ammo;
 	}
 
-	@Override
+
 	public int getAmmo() {
 		return ammo;
 	}
 
-	@Override
 	public int getBulletsCount() {
 		return bulletsCount;
 	}
@@ -25,9 +25,11 @@ public class Gun implements Weapon{
 	public void shoot() {
 		bulletsCount--;
 	}
+
+
+	@Override
+	public String getImageLink() {
+		return imageLink;
+	}
 	
-	
-
-
-
 }

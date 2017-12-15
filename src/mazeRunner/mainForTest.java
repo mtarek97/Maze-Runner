@@ -1,7 +1,11 @@
 package mazeRunner;
 
-import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.levels.ILevelFactory;
+import mazeRunner.model.GameSetting;
+import mazeRunner.model.movingObjects.runners.IRunner;
+import mazeRunner.model.movingObjects.runners.IRunnerFactory;
+import mazeRunner.model.movingObjects.runners.WithA4;
+import mazeRunner.model.movingObjects.runners.WithAK;
+import mazeRunner.model.movingObjects.runners.WithPistol;
 
 public class mainForTest {
 
@@ -14,7 +18,7 @@ public class mainForTest {
 
 		
 		 //------------------------- Level ---------------------------//
-		 ILevelFactory levelFactory = new ILevelFactory();
+		 /*ILevelFactory levelFactory = new ILevelFactory();
 		 ILevel level1 = levelFactory.getLevel(1);
 		 System.out.println();
 		 System.out.println(level1.getSupportedMapCells());
@@ -49,9 +53,31 @@ public class mainForTest {
 			System.out.println(wall.isWall());
 			System.out.println(way.isWay());
 			System.out.println();*/
-		//-------------------------------------------------------------------------//
+		//--------------------------------decorator---------------------------------//
 
-
+		 GameSetting setting = new GameSetting();
+		 IRunnerFactory runnerFactory = new IRunnerFactory(setting);
+		 IRunner runner = runnerFactory.getRunner("Runner1");
+		 runner.setSpeed(30);
+		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getSupportedWeapons());
+		 runner = new WithPistol(runner, 6);
+		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getSupportedWeapons());
+		 runner = new WithA4(runner, 6);
+		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getSupportedWeapons());
+		 runner = new WithAK(runner, 6);
+		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getSupportedWeapons());
+		 
+		 IRunner runner2 = runnerFactory.getRunner("Runner2");
+		 System.out.println(runner2.getSpeed());
+		 System.out.println(runner2.getSupportedWeapons());
+		 runner2 = new WithPistol(runner2, 6);
+		 runner2.setSpeed(20);
+		 System.out.println(runner2.getSpeed());
+		 System.out.println(runner2.getSupportedWeapons());
 	}
 
 }

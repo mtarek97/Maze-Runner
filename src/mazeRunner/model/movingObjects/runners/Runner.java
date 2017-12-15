@@ -1,8 +1,10 @@
 package mazeRunner.model.movingObjects.runners;
 
 import java.awt.Point;
+import java.util.List;
 
 import mazeRunner.model.utilities.GameContract;
+import mazeRunner.model.weapons.Weapon;
 
 public abstract class Runner implements IRunner{
 
@@ -13,7 +15,8 @@ public abstract class Runner implements IRunner{
 	private Point mappedPosition;
 	private int health;
 	// imageLink{UP, Down, Right, Left}
-	private String[] imageLinks;
+	protected String[] imageLinks;
+	protected List<Weapon> supportedWeapons;
 	
 	@Override
 	public void setSpeed(int speed) {
@@ -101,8 +104,19 @@ public abstract class Runner implements IRunner{
 	}
 
 	@Override
-	public Point gettMappedPosition() {
+	public Point getMappedPosition() {
 		return mappedPosition;
 		
+	}
+
+	
+	@Override
+	public List<Weapon> getSupportedWeapons() {
+		return supportedWeapons;
+	}
+
+	@Override
+	public void setSupportedWeapons(List<Weapon> supportedWeapons) {
+		this.supportedWeapons = supportedWeapons;
 	}
 }
