@@ -19,7 +19,7 @@ public class ViewBuilder extends Pane{
     private GridPane movingObjectsLayerPane = new GridPane();
     private GridPane solidWallAndWaysLayerPane = new GridPane();
     private MapCellView nodeCell;
-    private MapCellViewFactory factory;
+    private MapCellViewFactory factory = new MapCellViewFactory();
     private Scene scene;
     private static ViewBuilder viewBuilder = new ViewBuilder();
 

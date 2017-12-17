@@ -29,13 +29,14 @@ import java.io.IOException;
  */
 public class MovingController {
     private IMapBuilder mapBuilder;
-    public MovingController(IMapBuilder mapBuilder) throws Exception {
+    public MovingController(IMapBuilder mapBuilder) {
         this.mapBuilder = mapBuilder;
     }
     private Map map = mapBuilder.getGeneratedMap();
     private Object[][] movingObjectsLayerArray = map.getMovingObjectsLayer();
     private MapCell[][] mapCellsArray = map.getCellsLayer();
     private MapCell[][] SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
+    private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
     Scene scene = playingView.getScene();
     IRunner runner = map.getRunner();
@@ -47,7 +48,7 @@ public class MovingController {
         }
         return false;
     }
-    //TODO pictures rotation
+
     public void actionHandeling(){
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.UP) {
@@ -60,6 +61,7 @@ public class MovingController {
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
                     runner.moveUp();
+                    interactions.update();
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -70,7 +72,8 @@ public class MovingController {
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.DOWN));
-                    runner.moveUp();
+                    runner.moveDown();
+                    interactions.update();
                 }
             } else if (event.getCode() == KeyCode.RIGHT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -81,7 +84,8 @@ public class MovingController {
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.RIGHT));
-                    runner.moveUp();
+                    runner.moveRight();
+                    interactions.update();
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -92,7 +96,8 @@ public class MovingController {
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
-                    runner.moveUp();
+                    runner.moveLeft();
+                    interactions.update();
                 }
             }
             event.consume();

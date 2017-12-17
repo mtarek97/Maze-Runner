@@ -5,13 +5,17 @@ package mazeRunner.model.mapBuilder;
  */
 public class _2DArrayIterator implements Iterator{
     private Object[][] array;
+    private int numberOfRows;
+    private int numberOfColumns;
+
     public  _2DArrayIterator(Object[][] array){
         this.array = array;
+        numberOfRows = array.length;
+        numberOfColumns = array[0].length;
+
     }
-    private int rowIndex = -1;
+    private int rowIndex = 0;
     private int columnIndex = -1;
-    private int numberOfRows = array.length;
-    private int numberOfColumns = array[0].length;
     @Override
     public boolean hasNext() {
         if(rowIndex >= numberOfRows && columnIndex >= numberOfColumns){

@@ -11,6 +11,7 @@ public class PlayingController implements Runnable {
     private IMapBuilder mapBuilder;
     private ILevelFactory levelFactory;
     private BuildingController buildingController;
+    private MovingController movingController;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
@@ -22,11 +23,16 @@ public class PlayingController implements Runnable {
             //TODO
             mapBuilder.setLevel(levelFactory.getLevel(i));
             buildingController = new BuildingController(mapBuilder);
-            buildingController.updateCellsLayerPane();
-            buildingController.updatemovingObjectsLayerPane();
-            buildingController.updateSolidWallAndWaysLayerPane();
+            movingController = new MovingController(mapBuilder);
+            updateView();
+            movingController.actionHandeling();
 
         }
     }
-    // building controller, MovingController and RunnerInteractions will be used here together
+
+    private void updateView(){
+        buildingController.updateCellsLayerPane();
+        buildingController.updatemovingObjectsLayerPane();
+        buildingController.updateSolidWallAndWaysLayerPane();
+    }
 }

@@ -53,7 +53,7 @@ public class BuildingController {
         while (iterator.hasNext()){
             MapCell cell = (MapCell) iterator.next();
             if(cell != null) {
-                playingView.putCellInCellsLayer(getCellName((MapCell) iterator.next()), iterator.rowIndex(),
+                playingView.putCellInCellsLayer(getCellName(cell), iterator.rowIndex(),
                         iterator.columnIndex(), cell.getImageLink());
             }
         }
@@ -64,7 +64,7 @@ public class BuildingController {
         while (iterator.hasNext()){
             MapCell cell = (MapCell) iterator.next();
             if(cell != null) {
-                playingView.putCellInMovingObjectsLayer(getCellName((MapCell) iterator.next()), iterator.rowIndex(),
+                playingView.putCellInMovingObjectsLayer(getCellName(cell), iterator.rowIndex(),
                         iterator.columnIndex(), cell.getImageLink());
             }
         }

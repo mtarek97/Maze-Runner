@@ -14,7 +14,7 @@ public class MainController {
     //this controller will controle main menu actions
     private static MainController controller = new MainController();
     private MainMenu menu;
-    private PlayingController playingController = new PlayingController();;
+    private PlayingController playingController = new PlayingController();
     private MainController(){
         this.menu = new MainMenu();
 
