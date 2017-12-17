@@ -24,14 +24,15 @@ public class PlayingController implements Runnable {
             mapBuilder.setLevel(levelFactory.getLevel(i));
             buildingController = new BuildingController(mapBuilder);
             movingController = new MovingController(mapBuilder);
-            updateView();
-            movingController.actionHandeling();
-
+            buildingController.updateCellsLayerPane();
+            while (true) {
+                updateView();
+                movingController.actionHandeling();
+            }
         }
     }
 
-    private void updateView(){
-        buildingController.updateCellsLayerPane();
+    public void updateView(){
         buildingController.updatemovingObjectsLayerPane();
         buildingController.updateSolidWallAndWaysLayerPane();
     }
