@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import mazeRunner.Main;
+import mazeRunner.StartGame;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
@@ -41,7 +41,7 @@ public class MenuItem extends Pane {
         text = new Text(name);
         text.setTranslateX(7);
         text.setTranslateY(20);
-        text.setFont(Font.loadFont(Main.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(), 13));
+        text.setFont(Font.loadFont(StartGame.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(), 13));
         text.setFill(Color.WHITE);
 
         text.effectProperty().bind(

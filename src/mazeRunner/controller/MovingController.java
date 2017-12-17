@@ -11,8 +11,10 @@ import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.movingObjects.runners.IRunner;
+import mazeRunner.model.movingObjects.runners.Runner;
 import mazeRunner.view.ViewBuilder;
 import mazeRunner.model.utilities.GameContract;
+import mazeRunner.view.mapCellsView.RunnerView;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -51,38 +53,56 @@ public class MovingController {
             if (event.getCode() == KeyCode.UP) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
-                Point newPosition = new Point(currentMapedPosition.x-1,currentMapedPosition.y);
-                if(!isNestPositionAWall(newPosition)) {
-
+                Point newMapedPosition = new Point(currentMapedPosition.x-1,currentMapedPosition.y);
+                if(!isNestPositionAWall(newMapedPosition)) {
+                    Point newPosition = new Point(currentPosition.x-1,currentPosition.y);
+                    movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+                    movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
+                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
                     runner.moveUp();
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
-                if (true) {
-
+                Point currentMapedPosition = runner.getMappedPosition();
+                Point currentPosition = runner.getPosition();
+                Point newMapedPosition = new Point(currentMapedPosition.x+1,currentMapedPosition.y);
+                if(!isNestPositionAWall(newMapedPosition)) {
+                    Point newPosition = new Point(currentPosition.x+1,currentPosition.y);
+                    movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+                    movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
+                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.DOWN));
+                    runner.moveUp();
                 }
             } else if (event.getCode() == KeyCode.RIGHT) {
-                if (true) {
-
+                Point currentMapedPosition = runner.getMappedPosition();
+                Point currentPosition = runner.getPosition();
+                Point newMapedPosition = new Point(currentMapedPosition.x,currentMapedPosition.y+1);
+                if(!isNestPositionAWall(newMapedPosition)) {
+                    Point newPosition = new Point(currentPosition.x,currentPosition.y+1);
+                    movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+                    movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
+                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.RIGHT));
+                    runner.moveUp();
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
-                if (true) {
-
+                Point currentMapedPosition = runner.getMappedPosition();
+                Point currentPosition = runner.getPosition();
+                Point newMapedPosition = new Point(currentMapedPosition.x,currentMapedPosition.y-1);
+                if(!isNestPositionAWall(newMapedPosition)) {
+                    Point newPosition = new Point(currentPosition.x,currentPosition.y-1);
+                    movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+                    movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
+                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
+                    runner.moveUp();
                 }
             }
             event.consume();
         });
     }
-    private void setImageDirection(int newDirection){
+    private ImageView getImageDirection(int newDirection){
         ImageView imageView = new ImageView(new javafx.scene.image.Image((runner.getImageLink())));
         for (int i = 1; i < newDirection; i++){
             imageView.setRotate(imageView.getRotate() + 90);
-            File outputFile = new File("C:/Users/Mustafa/IdeaProjects/Maze-Runner/src/mazeRunner/themes/theme1/media/images");
-            BufferedImage bImage = SwingFXUtils.fromFXImage(imageView.getImage(), null);
-            try {
-                ImageIO.write(bImage, "gif", outputFile);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         }
+        return imageView;
     }
 }

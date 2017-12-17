@@ -15,15 +15,25 @@ import mazeRunner.view.ViewBuilder;
 public class BuildingController {
 
     private IMapBuilder mapBuilder;
+    private Map map;
+    private ViewBuilder playingView;
+    private MapCell[][] mapCellsArray;
+    private MapCell[][] SolidWallAndWaysArray;
+    private Object[][] movingObjectsLayerArray;
 
-    public BuildingController(IMapBuilder mapBuilder) throws Exception {
+    public BuildingController(IMapBuilder mapBuilder){
         this.mapBuilder = mapBuilder;
+        try {
+            map = mapBuilder.getMap();
+        } catch (Exception e) {
+            throw new RuntimeException("here");
+        }
+        playingView = ViewBuilder.getViewBuilder();
+        mapCellsArray = map.getCellsLayer();
+        SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
+        movingObjectsLayerArray = map.getMovingObjectsLayer();
+
     }
-    private ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    private Map map = mapBuilder.getMap();
-    private MapCell[][] mapCellsArray = map.getCellsLayer();
-    private MapCell[][] SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
-    private Object[][] movingObjectsLayerArray = map.getMovingObjectsLayer();
     // cellsLayerPane
     // movingObjectsLayerPane
     // solidWallAndWaysLayerPane
