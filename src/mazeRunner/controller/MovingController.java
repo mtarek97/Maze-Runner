@@ -36,7 +36,7 @@ public class MovingController {
     private Object[][] movingObjectsLayerArray = map.getMovingObjectsLayer();
     private MapCell[][] mapCellsArray = map.getCellsLayer();
     private MapCell[][] SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
-    private RunnerInteractions interactions = new RunnerInteractions(map);
+  //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
     Scene scene = playingView.getScene();
     IRunner runner = map.getRunner();
@@ -61,7 +61,7 @@ public class MovingController {
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
                     runner.moveUp();
-                    interactions.update();
+        //TODO            interactions.update();
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -73,7 +73,7 @@ public class MovingController {
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.DOWN));
                     runner.moveDown();
-                    interactions.update();
+        //TODO            interactions.update();
                 }
             } else if (event.getCode() == KeyCode.RIGHT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -85,7 +85,7 @@ public class MovingController {
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.RIGHT));
                     runner.moveRight();
-                    interactions.update();
+        //TODO            interactions.update();
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -97,7 +97,7 @@ public class MovingController {
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
                     playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
                     runner.moveLeft();
-                    interactions.update();
+        //TODO            interactions.update();
                 }
             }
             event.consume();
