@@ -1,45 +1,42 @@
 package mazeRunner.controller;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.Map;
+import mazeRunner.model.mapBuilder.MapBuilder;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.movingObjects.runners.IRunner;
-import mazeRunner.model.movingObjects.runners.Runner;
 import mazeRunner.view.ViewBuilder;
 import mazeRunner.model.utilities.GameContract;
-import mazeRunner.view.mapCellsView.RunnerView;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Mustafa on 12/12/2017.
  */
 public class MovingController {
     private IMapBuilder mapBuilder;
+    private Map map;
+    private Object[][] movingObjectsLayerArray;
+    private MapCell[][] mapCellsArray;
+    private MapCell[][] SolidWallAndWaysArray;
+    private IRunner runner;
     public MovingController(IMapBuilder mapBuilder) {
         this.mapBuilder = mapBuilder;
+        map = mapBuilder.getGeneratedMap();
+        movingObjectsLayerArray = map.getMovingObjectsLayer();
+        mapCellsArray = map.getCellsLayer();
+        SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
+        runner = map.getRunner();
     }
-    private Map map = mapBuilder.getGeneratedMap();
-    private Object[][] movingObjectsLayerArray = map.getMovingObjectsLayer();
-    private MapCell[][] mapCellsArray = map.getCellsLayer();
-    private MapCell[][] SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
+
+
   //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
     Scene scene = playingView.getScene();
-    IRunner runner = map.getRunner();
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
