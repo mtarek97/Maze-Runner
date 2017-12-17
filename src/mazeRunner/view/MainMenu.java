@@ -2,6 +2,7 @@ package mazeRunner.view;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.effect.DropShadow;
@@ -16,6 +17,7 @@ import javafx.util.Duration;
 import javafx.util.Pair;
 import mazeRunner.view.mapCellsView.Recources;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,7 +50,7 @@ public class MainMenu {
     }
 
     private void addBackground() {
-        ImageView imageView = (recources.getImage("res/Civ6_bg2.png"));
+        ImageView imageView = new ImageView(new Image(getClass().getResource("res/Civ6_bg2.png").toExternalForm()));
         imageView.setFitWidth(WIDTH);
         imageView.setFitHeight(HEIGHT);
 

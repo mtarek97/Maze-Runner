@@ -23,10 +23,11 @@ public class Recources {
         if(pictures.containsKey(path)){
             return pictures.get(path);
         }
-        ImageView imageView = new ImageView(new Image(getClass().getResource("move.png").toExternalForm()));
+        ImageView imageView = new ImageView(new Image(path));
         imageView.setFitWidth(20);
         imageView.setFitHeight(20);
         pictures.put(path,imageView);
         return imageView;
     }
+
 }

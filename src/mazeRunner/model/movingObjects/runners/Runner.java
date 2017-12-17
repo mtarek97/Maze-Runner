@@ -15,7 +15,7 @@ public abstract class Runner implements IRunner{
 	private Point mappedPosition;
 	private int health;
 	// imageLink{UP, Down, Right, Left}
-	protected String[] imageLinks;
+	protected String imageLinks;
 	protected List<Weapon> supportedWeapons;
 	
 	@Override
@@ -42,26 +42,38 @@ public abstract class Runner implements IRunner{
 
 	@Override
 	public void moveUp() {
+	    Point currentPosition = this.position;
+	    Point newPosition = new Point();
+	    newPosition.setLocation(currentPosition.x-1,currentPosition.y);
+        this.SetPosition(newPosition);
 		this.direction = GameContract.Direction.UP;
-		// TODO : implement movement
 	}
 
 	@Override
 	public void moveDown() {
-		this.direction = GameContract.Direction.DOWN;
-		// TODO : implement movement
+        Point currentPosition = this.position;
+        Point newPosition = new Point();
+        newPosition.setLocation(currentPosition.x+1,currentPosition.y);
+        this.SetPosition(newPosition);
+	    this.direction = GameContract.Direction.DOWN;
 	}
 
 	@Override
 	public void moveRight() {
+        Point currentPosition = this.position;
+        Point newPosition = new Point();
+        newPosition.setLocation(currentPosition.x,currentPosition.y+1);
+        this.SetPosition(newPosition);
 		this.direction = GameContract.Direction.RIGHT;
-		// TODO : implement movement
 	}
 
 	@Override
 	public void moveLeft() {
+        Point currentPosition = this.position;
+        Point newPosition = new Point();
+        newPosition.setLocation(currentPosition.x,currentPosition.y-1);
+        this.SetPosition(newPosition);
 		this.direction = GameContract.Direction.LEFT;
-		// TODO : implement movement
 	}
 
 	@Override
@@ -89,23 +101,29 @@ public abstract class Runner implements IRunner{
 
 	@Override
 	public String getImageLink() {
-		return imageLinks[getDirection()-1];
+		return imageLinks;
 	}
 
 	@Override
-	public void setImageLinks(String[] imageLinks) {
+	public void setImageLinks(String imageLinks) {
 		this.imageLinks = imageLinks;
 	}
 	
 	@Override
 	public void setMappedPosition(Point mappedPosition) {
-		this.mappedPosition = mappedPosition;
+
+	    this.mappedPosition = mappedPosition;
 		
 	}
 
 	@Override
 	public Point getMappedPosition() {
-		return mappedPosition;
+		Point truePosition = this.getPosition();
+		int mapedRow = truePosition.x / 3;
+		int mapedColumn = truePosition.y / 3;
+		Point mapedPosition = new Point();
+		mapedPosition.setLocation(mapedRow,mapedColumn);
+		return mapedPosition;
 		
 	}
 
@@ -118,5 +136,10 @@ public abstract class Runner implements IRunner{
 	@Override
 	public void setSupportedWeapons(List<Weapon> supportedWeapons) {
 		this.supportedWeapons = supportedWeapons;
+	}
+
+	@Override
+	public String getLayer(){
+		return "movingObjectsLayerPane";
 	}
 }

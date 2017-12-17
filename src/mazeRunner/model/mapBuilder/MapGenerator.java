@@ -1,6 +1,7 @@
 package mazeRunner.model.mapBuilder;
 
 
+import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapCells.*;
 import mazeRunner.themes.theme1.Bullets1;
@@ -23,7 +24,6 @@ public class MapGenerator {
 	int numberOfNeededBullets = 0;
 	CellFactory factory = new CellFactory();
 	Stack<Point> allFreeCells = new Stack<>();
-
 	public MapGenerator(boolean[][] maze, Map map) {
 		this.level = map.getLevel();
 		this.map = map;

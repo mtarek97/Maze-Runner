@@ -11,24 +11,22 @@ import mazeRunner.model.weapons.Pistol;
  * Created by Mustafa on 12/10/2017.
  */
 public class MapCellViewFactory {
-    public  MapCellView getMapCellView(Object object){
-        if(object instanceof Way){
+    //TODO monster view
+    public  MapCellView getMapCellView(String object){
+        if(object.equalsIgnoreCase("Way")){
             return  new WayView();
         }
-        else  if(object instanceof Wall){
+        else  if(object.equalsIgnoreCase("Wall")){
             return  new WallView();
         }
-        else  if(object instanceof Obstacle){
-            return  new WallView();
+        else  if(object.equalsIgnoreCase("Obstacle")){
+            return  new BombView();
         }
-        else  if(object instanceof Gifts){
-            return  new WallView();
+        else  if(object.equalsIgnoreCase("Gifts")){
+            return  new GiftView();
         }
-        else  if(object instanceof Runner){
-            return  new WallView();
-        }
-        else  if(object instanceof Pistol){
-            return  new WallView();
+        else  if(object.equalsIgnoreCase("Runner")){
+            return  new RunnerView();
         }
         return  null;
     }

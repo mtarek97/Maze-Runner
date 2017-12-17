@@ -6,7 +6,7 @@ import mazeRunner.model.weapons.Weapon;
 
 public class Runner3 extends Runner{
 	public Runner3(){
-		setImageLinks(new String[]{"","","",""});
+		setImageLinks(new String());
 		setSupportedWeapons(new ArrayList<Weapon>());
 	}
 }

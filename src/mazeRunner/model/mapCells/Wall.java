@@ -29,6 +29,9 @@ public abstract class Wall implements MapCell {
 	public int getDamage() {
 		return 0;
 	}
-	
+	@Override
+	public String getLayer(){
+		return "solidWallAndWaysLayerPane";
+	}
 	
 }

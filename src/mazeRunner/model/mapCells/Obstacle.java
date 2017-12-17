@@ -28,5 +28,9 @@ public abstract  class Obstacle implements MapCell {
 	public boolean isDestroyable() {
 		return true;
 	}
+	@Override
+	public String getLayer(){
+		return "cellsLayerPane";
+	}
 
 }

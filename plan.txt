@@ -33,8 +33,8 @@ Our (initially) MainMenu :
 7- state --------------------- health (tarek)
 8- abstractFactory ------------------ model (tarek)
 9- decorator ------------------ map elements (tarek)
-10- observer ----------------- bullets & monsters (Abdo)
-11-strategy ------------------ abdo
+10- observer ----------------- bullets & monsters (Labib)
+11-strategy ------------------ (Abdo)
 -----------------------------------------------------------------------------------------
 
 

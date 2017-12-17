@@ -46,7 +46,7 @@ public interface MapCell {
 	 * updates the situation of the current object based on he damage received(full damage) ,
 	 * if that damage caused a change to the type of the cell , it will return true 
 	 * then you can get the result from getUpdateResult();
-	 * @param direction
+	 * @param //direction
 	 * @param fullDamage
 	 * @return true if there is data in getUpdateResult();
 	 */
@@ -75,5 +75,7 @@ public interface MapCell {
 	 * @return the current image source
 	 */
 	public String getImageLink();
+
+	public String getLayer();
 	
 }

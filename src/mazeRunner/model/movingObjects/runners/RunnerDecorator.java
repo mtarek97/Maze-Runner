@@ -70,7 +70,7 @@ public  class RunnerDecorator implements IRunner{
 	}
 
 	@Override
-	public void setImageLinks(String[] imageLinks) {
+	public void setImageLinks(String imageLinks) {
 		decoratedRunner.setImageLinks(imageLinks);
 		
 	}
@@ -89,6 +89,11 @@ public  class RunnerDecorator implements IRunner{
 	@Override
 	public Point getMappedPosition() {
 		return decoratedRunner.getMappedPosition();
+	}
+
+	@Override
+	public String getLayer() {
+		return "movingObjectsLayerPane";
 	}
 
 	@Override

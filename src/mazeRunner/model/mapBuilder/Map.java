@@ -1,6 +1,8 @@
 package mazeRunner.model.mapBuilder;
+import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.movingObjects.runners.IRunner;
 
 import java.awt.*;
 
@@ -11,8 +13,9 @@ public class Map {
 	private MapCell[][] solidWallAndWaysLayer;
 	private ILevel level;
 	private Point endPoint;
-	
-	public ILevel getLevel() {
+    private GameSetting setting = new GameSetting();
+    private IRunner runner = setting.getCurrentRunner();
+    public ILevel getLevel() {
 		return level;
 	}
 	public MapCell[][] getCellsLayer() {
@@ -39,6 +42,18 @@ public class Map {
 		this.endPoint = endPoint;
 	}
 
+	public void setRunnerInitalPosition(){
+        runner.SetPosition(new Point(1,1));
+        this.movingObjectsLayer[1][1] = runner;
+    }
+
+    public IRunner getRunner() {
+        return runner;
+    }
+
+    public void setRunner(IRunner runner) {
+        this.runner = runner;
+    }
 
 	public void addCellAtRunTime(MapCell mapcell, int x,int y) {
 		cellsLayer[x][y] = mapcell;

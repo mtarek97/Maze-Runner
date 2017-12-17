@@ -67,10 +67,10 @@ strategy in moster
 4-Labib
 -------
 1- observer design pattern
-2- runner movement
+2- runner movement (done)
 3- moving controller
 4- playingController
-5- BuildingController
-6- MainController
+5- BuildingController (done)
+6- MainController (done)
 7- gameSetting view
 8- gameSetting controller

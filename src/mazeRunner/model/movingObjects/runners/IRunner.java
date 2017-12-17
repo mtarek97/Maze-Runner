@@ -14,4 +14,5 @@ public interface IRunner extends MovingObject {
 	public List<Weapon> getSupportedWeapons();
 
 	public void setSupportedWeapons(List<Weapon> supportedWeapons);
+
 }

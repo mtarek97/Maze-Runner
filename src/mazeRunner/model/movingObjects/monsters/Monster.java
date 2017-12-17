@@ -12,7 +12,7 @@ public abstract class Monster implements IMonster{
 	private Point mappedPosition;
 	private int health;
 	//imageLink{UP, Down, Right, Left}
-	private String[] imageLinks;
+	private String imageLinks;
 
 	
 	@Override
@@ -84,11 +84,11 @@ public abstract class Monster implements IMonster{
 	
 	@Override
 	public String getImageLink() {
-		return imageLinks[getDirection()-1];
+		return imageLinks;
 	}
 
 	@Override
-	public void setImageLinks(String[] imageLinks) {
+	public void setImageLinks(String imageLinks) {
 		this.imageLinks = imageLinks;
 	}
 	
@@ -102,5 +102,10 @@ public abstract class Monster implements IMonster{
 	public Point getMappedPosition() {
 		return mappedPosition;
 		
+	}
+
+	@Override
+	public String getLayer(){
+		return "movingObjectsLayerPane";
 	}
 }

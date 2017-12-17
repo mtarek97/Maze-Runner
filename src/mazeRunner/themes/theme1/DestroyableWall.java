@@ -55,5 +55,8 @@ public class DestroyableWall extends Wall{
 	public String getImageLink() {
 		return this.standardImageLink;
 	}
-
+	@Override
+	public String getLayer(){
+		return "cellsLayerPane";
+	}
 }

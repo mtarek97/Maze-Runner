@@ -56,5 +56,9 @@ public abstract class Way implements MapCell {
 	public boolean update(int fullDamage) {
 		return false;
 	}
+	@Override
+	public String getLayer(){
+		return "solidWallAndWaysLayerPane";
+	}
 
 }
