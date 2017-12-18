@@ -5,11 +5,11 @@ import mazeRunner.model.mapCells.MapCell;
 
 public class HealthGift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.medicine";
+	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.medicine";
 
 
-	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.healthhit";
+	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.healthhit";
 	private  int health = 1;
 	private final int giftDamage = 0;
 	
