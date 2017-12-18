@@ -13,21 +13,16 @@ public class GameSetting {
 	
 	// the current runner
 	private IRunner currentRunner = new Runner1();
-	
 	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>();
 	
 	//i comment it because i don't know how we will deal with it in the game logic
 	//private List<Class<? extends IMonster>> supportedMonsters = new ArrayList<Class<? extends IMonster>>();
     
-	public GameSetting(){
-		setSupportedRunners();
-		// the default runner
-		try {
-			setCurrentRunner(getSupportedRunners().get(0).newInstance());
-		} catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
+	private static GameSetting gameSetting = new GameSetting();
+	public static GameSetting getGameSetting() {
+		return gameSetting;
 	}
+	
 
 	public IRunner getCurrentRunner() {
 		return currentRunner;

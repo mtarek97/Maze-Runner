@@ -1,6 +1,5 @@
 package mazeRunner.controller;
 
-import mazeRunner.StartGame;
 import mazeRunner.model.levels.ILevelFactory;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.MapBuilder;
@@ -19,7 +18,7 @@ public class PlayingController implements Runnable {
     }
     @Override
     public void run() {
-        int i = 1;
+        int i = 3;
 
             //TODO
             mapBuilder.setLevel(levelFactory.getLevel(i));

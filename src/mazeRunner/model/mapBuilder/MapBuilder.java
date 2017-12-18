@@ -1,11 +1,9 @@
 package mazeRunner.model.mapBuilder;
 
-import mazeRunner.model.GameSetting;
+import java.util.HashMap;
+
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.movingObjects.runners.IRunner;
-
-import java.util.HashMap;
 
 public class MapBuilder implements IMapBuilder{
 	
@@ -31,7 +29,7 @@ public class MapBuilder implements IMapBuilder{
 		map.setLevel(level);
 		map.setEndPoint(end.getEnd());
 		map.setCorrectWay(end.getCorrectWay());
-		map.setRunnerInitalPosition();
+		//map.setRunnerInitalPosition();
 		MapGenerator mapGenerator = new MapGenerator(maze, map);
 		map = mapGenerator.generateMap();
 		return map;

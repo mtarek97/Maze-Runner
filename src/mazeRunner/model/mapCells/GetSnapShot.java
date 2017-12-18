@@ -1,7 +1,6 @@
 package mazeRunner.model.mapCells;
 
 import mazeRunner.model.mapBuilder.Map;
-
 import mazeRunner.model.movingObjects.runners.Runner;
 
 public class GetSnapShot {
@@ -19,7 +18,6 @@ public class GetSnapShot {
         map.setEndPoint(snapOfmap.getEndPoint());
         map.setRunner(snapOfmap.getRunner());
         map.setMovingObjectsLayer(snapOfmap.getMovingObjectsLayer());
-        map.setSetting(snapOfmap.getSetting());
 
 
         runner.setImageLinks(snapOfrunner.getImageLinks());

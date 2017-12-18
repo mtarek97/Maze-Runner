@@ -1,11 +1,11 @@
 package mazeRunner.model.mapBuilder;
+import java.awt.Point;
+import java.util.ArrayList;
+
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.movingObjects.runners.IRunner;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Map {
 
@@ -14,8 +14,7 @@ public class Map {
 	private MapCell[][] solidWallAndWaysLayer;
 	private ILevel level;
 	private Point endPoint;
-	private GameSetting setting = new GameSetting();
-	private IRunner runner = setting.getCurrentRunner();
+	private IRunner runner = GameSetting.getGameSetting().getCurrentRunner();
 	private ArrayList<Point> correctWay = new ArrayList<>();
 
 
@@ -24,10 +23,6 @@ public class Map {
 	}
 	public MapCell[][] getCellsLayer() {
 		return cellsLayer;
-	}
-
-	public void setSetting(GameSetting setting) {
-		this.setting = setting;
 	}
 
 	public void setMovingObjectsLayer(Object[][] movingObjectsLayer) {
@@ -39,10 +34,7 @@ public class Map {
 		return endPoint;
 	}
 
-	public GameSetting getSetting() {
 
-		return setting;
-	}
 
 	public MapCell[][] getSolidWallAndWaysLayer() {
 		return solidWallAndWaysLayer;
