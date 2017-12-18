@@ -18,7 +18,7 @@ public class _2DArrayIterator implements Iterator{
     private int columnIndex = -1;
     @Override
     public boolean hasNext() {
-        if(rowIndex >= numberOfRows && columnIndex >= numberOfColumns){
+        if(rowIndex+1 >= numberOfRows && columnIndex+1 >= numberOfColumns){  
             return  false;
         }
         return  true;

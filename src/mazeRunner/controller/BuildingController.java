@@ -39,8 +39,11 @@ public class BuildingController {
         while (iterator.hasNext()){
             MapCell cell = (MapCell) iterator.next();
             if(cell != null) {
-                playingView.putCellInSolidWallAndWaysLayer(getCellName((MapCell) iterator.next()), iterator.rowIndex(),
-                        iterator.columnIndex(), cell.getImageLink());
+                playingView.putCellInSolidWallAndWaysLayer(
+                		getCellName(cell),             //TODO abdelrahman 18 / 12
+                		iterator.rowIndex(),
+                        iterator.columnIndex(),
+                        cell.getImageLink());
             }
         }
     }

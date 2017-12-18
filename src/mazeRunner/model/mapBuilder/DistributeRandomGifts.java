@@ -29,10 +29,17 @@ public class DistributeRandomGifts {
         DFS(1,1, allFreeCells);
         Collections.shuffle(allFreeCells);
         return allFreeCells.peek();
+        
     }
 
     public void  DFS(int x, int y, Stack<Point> allFreeCells ) {
-        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true|| !(maze[x][y] instanceof Way)) {
+    	boolean isSubOfWay =true ;
+    	try{
+    		 maze[x][y].getClass().asSubclass(Way.class);
+    	}catch(Exception e){
+    		isSubOfWay =true;
+    	}
+        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true||!isSubOfWay) {
             return;
         }
 

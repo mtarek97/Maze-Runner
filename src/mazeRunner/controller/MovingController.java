@@ -36,7 +36,7 @@ public class MovingController {
 
   //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    Scene scene = playingView.getScene();
+    Scene scene = playingView.getScene();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
