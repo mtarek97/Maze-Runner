@@ -21,13 +21,10 @@ public class BuildingController {
     private MapCell[][] SolidWallAndWaysArray;
     private Object[][] movingObjectsLayerArray;
 
-    public BuildingController(IMapBuilder mapBuilder){
+    public BuildingController(IMapBuilder mapBuilder) throws Exception {
         this.mapBuilder = mapBuilder;
-        try {
             map = mapBuilder.getMap();
-        } catch (Exception e) {
-            throw new RuntimeException("here");
-        }
+
         playingView = ViewBuilder.getViewBuilder();
         mapCellsArray = map.getCellsLayer();
         SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();

@@ -18,13 +18,13 @@ import java.awt.*;
  * Created by Mustafa on 12/12/2017.
  */
 public class MovingController {
-    private IMapBuilder mapBuilder;
+    private IMapBuilder mapBuilder = MapBuilder.createMapBuilder();
     private Map map;
     private Object[][] movingObjectsLayerArray;
     private MapCell[][] mapCellsArray;
     private MapCell[][] SolidWallAndWaysArray;
     private IRunner runner;
-    public MovingController(IMapBuilder mapBuilder) {
+    public MovingController() {
         this.mapBuilder = mapBuilder;
         map = mapBuilder.getGeneratedMap();
         movingObjectsLayerArray = map.getMovingObjectsLayer();

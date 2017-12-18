@@ -5,8 +5,8 @@ import mazeRunner.model.mapCells.MapCell;
 
 public class AKgift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.ak";
-	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
+	private final String standardImageLink ="mazeRunner/themes/theme1/media/images/ak";
+	private final String destroySound = "mazeRunner.themes.theme1.media/soundEffects/giftdestroy";
 	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;
 	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/

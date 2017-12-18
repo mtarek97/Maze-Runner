@@ -1,11 +1,14 @@
 package mazeRunner;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import org.omg.CORBA.portable.ApplicationException;
+
+import javafx.application.*;
+import javafx.scene.*;
+import javafx.stage.*;
 import mazeRunner.controller.MainController;
 import mazeRunner.view.MainMenu;
+
+import static javafx.application.Application.launch;
 
 public class StartGame extends Application {
     private MainController mainController;

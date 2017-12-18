@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class MapBuilder implements IMapBuilder{
 	
 	ILevel level;
-	Map map;
+	Map map = new Map();
 	HashMap<MapCell, Integer> mapElementsType;
 	private static MapBuilder builder = new MapBuilder();
 	public static MapBuilder createMapBuilder() {
@@ -22,12 +22,12 @@ public class MapBuilder implements IMapBuilder{
 		MazeGenerator mazeGenerator = new MazeGenerator(level.getMapSize());
 		boolean[][] maze = mazeGenerator.generateMaze();
 		GetEndPoint end = new GetEndPoint(maze);
-		Map map = new Map();
 		map.setLevel(level);
 		map.setEndPoint(end.getEnd());
 		//map.setRunnerInitalPosition();
 		MapGenerator mapGenerator = new MapGenerator(maze, map);
-		return mapGenerator.generateMap();
+		map = mapGenerator.generateMap();
+		return map;
 	}
 
 	@Override
