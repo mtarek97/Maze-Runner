@@ -6,7 +6,7 @@ import mazeRunner.model.mapCells.Gifts;
 
 public class Bullets1 extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.bullets";
+	private final String standardImageLink ="images/bullets.jpg";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";

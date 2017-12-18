@@ -8,8 +8,6 @@ import javafx.scene.image.ImageView;
  */
 public class WallView extends MapCellView{
     public WallView() {
-        ImageView imageView = new ImageView(new Image(getClass().getResource("wall.png").toExternalForm()));
-        this.getChildren().add(imageView);
-        this.setPrefSize(20, 20);
+        //this.setPrefSize(20, 20);
     }
 }

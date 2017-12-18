@@ -27,9 +27,9 @@ public class ViewBuilder extends Pane{
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
+        map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
         map.getChildren().add(movingObjectsLayerPane);
-        map.getChildren().add(solidWallAndWaysLayerPane);
         scene = new Scene(map);
     }
 

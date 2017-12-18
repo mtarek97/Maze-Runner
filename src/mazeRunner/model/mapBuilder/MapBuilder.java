@@ -31,7 +31,7 @@ public class MapBuilder implements IMapBuilder{
 		map.setLevel(level);
 		map.setEndPoint(end.getEnd());
 		map.setCorrectWay(end.getCorrectWay());
-		//map.setRunnerInitalPosition();
+		map.setRunnerInitalPosition();
 		MapGenerator mapGenerator = new MapGenerator(maze, map);
 		map = mapGenerator.generateMap();
 		return map;

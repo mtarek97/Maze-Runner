@@ -7,7 +7,7 @@ import mazeRunner.model.mapCells.Obstacle;
 
 public class HugeBomb extends Obstacle  {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.Dynamite";
+	private final String standardImageLink ="images/Dynamite.png";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.bombdestroy";

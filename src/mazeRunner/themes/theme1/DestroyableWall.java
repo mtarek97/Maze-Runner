@@ -8,7 +8,7 @@ import mazeRunner.model.mapCells.Wall;
 public class DestroyableWall extends Wall{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.box";
+	private final String standardImageLink ="images/box.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";

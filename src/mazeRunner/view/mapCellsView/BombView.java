@@ -5,7 +5,6 @@ package mazeRunner.view.mapCellsView;
  */
 public class BombView extends MapCellView{
     public BombView() {
-        setStyle("-fx-background-color: red");
-        this.setPrefSize(20, 20);
+        this.setPrefSize(60, 60);
     }
 }

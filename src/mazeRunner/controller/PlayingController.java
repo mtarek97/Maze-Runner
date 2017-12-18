@@ -1,5 +1,6 @@
 package mazeRunner.controller;
 
+import mazeRunner.StartGame;
 import mazeRunner.model.levels.ILevelFactory;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.MapBuilder;
@@ -37,8 +38,6 @@ public class PlayingController implements Runnable {
             buildingController.updateSolidWallAndWaysLayerPane();
                 updateView();
                 movingController.actionHandeling();
-
-
 
     }
 

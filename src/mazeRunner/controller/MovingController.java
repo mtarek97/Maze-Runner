@@ -50,7 +50,7 @@ public class MovingController {
 
     public void actionHandeling(){
         StartGame.rootPane.getChildren().setAll(playingPane);
-        playingPane.setOnKeyPressed(event -> {
+        StartGame.scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.UP) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();

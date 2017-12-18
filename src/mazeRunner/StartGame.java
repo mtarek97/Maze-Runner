@@ -13,7 +13,7 @@ import static javafx.application.Application.launch;
 
 public class StartGame extends Application {
     private MainController mainController;
-    private Scene scene;
+    public static Scene scene;
     private Stage window;
     public static Pane rootPane;
     public StartGame() {

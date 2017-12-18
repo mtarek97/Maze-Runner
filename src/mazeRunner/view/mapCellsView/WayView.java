@@ -9,8 +9,8 @@ public class WayView extends MapCellView{
         this.path = path;
     }
     public WayView() {
-        setStyle("-fx-background-color: white");
-        this.setPrefSize(20, 20);
+
+      //  this.setPrefSize(20, 20);
     }
 
 }

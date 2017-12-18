@@ -21,11 +21,14 @@ public class Recources {
 
     public ImageView getImage(String path){
         if(pictures.containsKey(path)){
-            return pictures.get(path);
+            ImageView imageView = new ImageView(pictures.get(path).getImage());
+            imageView.setFitWidth(60);
+            imageView.setFitHeight(60);
+            return imageView;
         }
-        ImageView imageView = new ImageView(new Image(path));
-        imageView.setFitWidth(20);
-        imageView.setFitHeight(20);
+        ImageView imageView = new ImageView(new Image(getClass().getResource(path).toExternalForm()));
+        imageView.setFitWidth(60);
+        imageView.setFitHeight(60);
         pictures.put(path,imageView);
         return imageView;
     }
