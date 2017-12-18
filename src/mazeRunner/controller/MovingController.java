@@ -3,6 +3,7 @@ package mazeRunner.controller;
 import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
 import mazeRunner.StartGame;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.Map;
@@ -37,7 +38,7 @@ public class MovingController {
 
   //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    Scene scene = playingView.getPlayingViewScene();//TODO abdelrahman 18/12
+    Pane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
@@ -48,8 +49,8 @@ public class MovingController {
     }
 
     public void actionHandeling(){
-        StartGame.window.setScene(scene);
-        scene.setOnKeyPressed(event -> {
+        StartGame.rootPane.getChildren().setAll(playingPane);
+        playingPane.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.UP) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();

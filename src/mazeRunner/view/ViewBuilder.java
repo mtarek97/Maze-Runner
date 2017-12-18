@@ -49,20 +49,20 @@ public class ViewBuilder extends Pane{
         movingObjectsLayerPane.add(nodeCell,column,row);
     }
 
-    public void putCellInSolidWallAndWaysLayer(String cell, int row, int column,String imageLink){
-        nodeCell = factory.getMapCellView(cell);
-        nodeCell.setImage(recources.getImage(imageLink));
-        solidWallAndWaysLayerPane.add(nodeCell,column,row);
-    }
-
     public void putCellInMovingObjectsLayer(String cell, int row, int column, javafx.scene.image.ImageView imageView){
         nodeCell = factory.getMapCellView(cell);
         nodeCell.setImage(imageView);
+        movingObjectsLayerPane.add(nodeCell,column,row);
+    }
+
+    public void putCellInSolidWallAndWaysLayer(String cell, int row, int column,String imageLink){
+        nodeCell = factory.getMapCellView(cell);
+        nodeCell.getChildren().add(recources.getImage(imageLink));
         solidWallAndWaysLayerPane.add(nodeCell,column,row);
     }
 
-    public Scene getPlayingViewScene(){
-        return this.scene;
+    public Pane getPlayingPane(){
+        return this.map;
     }
 }
 
