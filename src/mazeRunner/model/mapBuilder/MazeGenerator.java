@@ -11,6 +11,9 @@ public class MazeGenerator {
 	private  int x;
 	private  int y;
 	private  int[][] maze;
+	public MazeGenerator(MapSize size){
+		this.size = size;
+	}
 	public void MazeGenerator(int x, int y) {
 		this.x = x/2;
 		this.y = y/2;
@@ -58,9 +61,7 @@ public class MazeGenerator {
 			this.dy = dy;
 		}
 	};
-	public MazeGenerator(MapSize size){
-		this.size = size;
-	}
+
 	public void display() {
 		for (int i = 0; i < y; i++) {
 			// draw the north edge
@@ -83,7 +84,7 @@ public class MazeGenerator {
 
 	public boolean[][] generateMaze() {
 		MazeGenerator(size.getWidth(), size.getHeight());
-		boolean[][] boolMaze = new boolean[size.getWidth()*2+1][size.getHeight()*2+1];
+		boolean[][] boolMaze = new boolean[x*2+1][y*2+1];
 		display();
 		int u = 0;
 		int z = 0;

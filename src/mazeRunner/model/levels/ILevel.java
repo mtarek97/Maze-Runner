@@ -10,6 +10,11 @@ public interface ILevel {
 	 * @return MapSize object
 	 */
 	public MapSize getMapSize();
+	/**
+	 * get Number of Check Points.
+	 * @return Number of Check Points.
+	 */
+	public int getNumberOfCheckPoints();
 
 	/**
 	 * get level theme.

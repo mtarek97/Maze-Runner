@@ -14,6 +14,7 @@ public abstract class Level implements ILevel {
 	protected List<Class<?>> supportedMapCells;
 	protected Map<String, Integer> supportedMapCellsCounts = new HashMap<>();
 	protected int runnerSpeed;
+	protected int numberOfCheckPoints;
 
 	@Override
 	public MapSize getMapSize() {
@@ -76,5 +77,9 @@ public abstract class Level implements ILevel {
 	private int nonObstaclesCount() {
 		// TODO : we need some logic here
 		return 5;
+	}
+	@Override
+	public int getNumberOfCheckPoints() {
+		return this.numberOfCheckPoints;
 	}
 }

@@ -19,18 +19,18 @@ public class MapGenerator {
 
 	private MapCell[][] maze;
 	private Map map;
-	ILevel level;
 	java.util.Map<String, Integer> mapElementType;
 	int numberOfNeededBullets = 0;
 	CellFactory factory = new CellFactory();
 	Stack<Point> allFreeCells = new Stack<>();
 	public MapGenerator(boolean[][] maze, Map map) {
-		this.level = map.getLevel();
 		this.map = map;
 		MapCell[][] solidWallAndWaysLayer = new MapCell[maze.length][maze[0].length];
 		this.mapElementType = map.getLevel().getSupportedMapCellsCounts();
 		this.maze = new MapCell[maze.length][maze[0].length];
 		map.setCellsLayer(this.maze);
+		GenerateCheckPoint.map = map;
+		GenerateCheckPoint.generate();
 		for (int i = 0; i < maze.length; i++) {
 			for (int j = 0; j < maze[0].length; j++) {
 				if (maze[i][j]) {
@@ -55,8 +55,8 @@ public class MapGenerator {
 	public Map generateMap() throws Exception {
 
 		ArrayList<String> classesName = new ArrayList<>();
-		for (int i = 0; i < level.getSupportedMapCells().size(); i++) {
-			classesName.add(level.getSupportedMapCells().get(i).getName());
+		for (int i = 0; i < map.getLevel().getSupportedMapCells().size(); i++) {
+			classesName.add(map.getLevel().getSupportedMapCells().get(i).getName());
 		}
 		factory.setClasses(classesName);
 		for (java.util.Map.Entry<String, Integer> entry : this.mapElementType.entrySet()) {
