@@ -13,6 +13,7 @@ import static javafx.application.Application.launch;
 public class StartGame extends Application {
     private MainController mainController;
     private Scene scene;
+    public static Stage window;
     public StartGame() {
         mainController = MainController.getController();
         scene = new Scene(mainController.getMenu().createContent());
@@ -20,9 +21,10 @@ public class StartGame extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("MAZE RUNNER");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        window = primaryStage;
+        window.setTitle("MAZE RUNNER");
+        window.setScene(scene);
+        window.show();
     }
 
     public static void main(String[] args) {
