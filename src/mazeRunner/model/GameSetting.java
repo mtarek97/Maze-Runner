@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mazeRunner.model.movingObjects.runners.IRunner;
+import mazeRunner.model.movingObjects.runners.Runner1;
 
 /**
  * Created by Mustafa on 12/10/2017.
@@ -11,7 +12,7 @@ import mazeRunner.model.movingObjects.runners.IRunner;
 public class GameSetting {
 	
 	// the current runner
-	private IRunner currentRunner;
+	private IRunner currentRunner = new Runner1();
 	
 	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>();
 	
