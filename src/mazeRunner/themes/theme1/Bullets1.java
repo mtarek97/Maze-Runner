@@ -6,11 +6,11 @@ import mazeRunner.model.mapCells.Gifts;
 
 public class Bullets1 extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.bullets";
+	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.bullets";
 
 
-	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.gifthit";
+	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.gifthit";
 	private  int health = 1;
 	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
 	private final int giftDamage = 1;

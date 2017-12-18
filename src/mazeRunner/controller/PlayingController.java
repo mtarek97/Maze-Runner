@@ -1,13 +1,50 @@
 package mazeRunner.controller;
 
+import mazeRunner.model.levels.ILevelFactory;
+import mazeRunner.model.mapBuilder.IMapBuilder;
+import mazeRunner.model.mapBuilder.MapBuilder;
+
 /**
  * Created by Mustafa on 12/14/2017.
  */
 public class PlayingController implements Runnable {
+    private IMapBuilder mapBuilder;
+    private ILevelFactory levelFactory;
+    private BuildingController buildingController;
+    private MovingController movingController;
+    public PlayingController(){
+        mapBuilder = MapBuilder.createMapBuilder();
+        levelFactory = new ILevelFactory();
+    }
     @Override
     public void run() {
+        int i = 1;
+        while (true) {
+            //TODO
+            mapBuilder.setLevel(levelFactory.getLevel(i));
+            try {
+                buildingController = new BuildingController(mapBuilder);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            movingController = new MovingController();
+            buildingController.updateSolidWallAndWaysLayerPane();
+            while (true) {
+                updateView();
+                movingController.actionHandeling();
+
+            }
+        }
     }
-    // building controller, MovingController and RunnerInteractions will be used here together
-    // TODO Labib will do this
+
+    public void updateView(){
+        buildingController.updateCellsLayerPane();
+        buildingController.updatemovingObjectsLayerPane();
+    }
 }

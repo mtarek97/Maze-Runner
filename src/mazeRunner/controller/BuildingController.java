@@ -15,15 +15,22 @@ import mazeRunner.view.ViewBuilder;
 public class BuildingController {
 
     private IMapBuilder mapBuilder;
+    private Map map;
+    private ViewBuilder playingView;
+    private MapCell[][] mapCellsArray;
+    private MapCell[][] SolidWallAndWaysArray;
+    private Object[][] movingObjectsLayerArray;
 
     public BuildingController(IMapBuilder mapBuilder) throws Exception {
         this.mapBuilder = mapBuilder;
+            map = mapBuilder.getMap();
+
+        playingView = ViewBuilder.getViewBuilder();
+        mapCellsArray = map.getCellsLayer();
+        SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
+        movingObjectsLayerArray = map.getMovingObjectsLayer();
+
     }
-    private ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    private Map map = mapBuilder.getMap();
-    private MapCell[][] mapCellsArray = map.getCellsLayer();
-    private MapCell[][] SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
-    private Object[][] movingObjectsLayerArray = map.getMovingObjectsLayer();
     // cellsLayerPane
     // movingObjectsLayerPane
     // solidWallAndWaysLayerPane
@@ -43,7 +50,7 @@ public class BuildingController {
         while (iterator.hasNext()){
             MapCell cell = (MapCell) iterator.next();
             if(cell != null) {
-                playingView.putCellInCellsLayer(getCellName((MapCell) iterator.next()), iterator.rowIndex(),
+                playingView.putCellInCellsLayer(getCellName(cell), iterator.rowIndex(),
                         iterator.columnIndex(), cell.getImageLink());
             }
         }
@@ -54,7 +61,7 @@ public class BuildingController {
         while (iterator.hasNext()){
             MapCell cell = (MapCell) iterator.next();
             if(cell != null) {
-                playingView.putCellInMovingObjectsLayer(getCellName((MapCell) iterator.next()), iterator.rowIndex(),
+                playingView.putCellInMovingObjectsLayer(getCellName(cell), iterator.rowIndex(),
                         iterator.columnIndex(), cell.getImageLink());
             }
         }

@@ -36,7 +36,7 @@ public class MainMenu {
     private Line line;
     public Parent createContent() {
         addBackground();
-        addTitle();
+       // addTitle();
 
         double lineX = WIDTH / 2 - 100;
         double lineY = HEIGHT / 3 + 50;

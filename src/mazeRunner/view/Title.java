@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import mazeRunner.Main;
+import mazeRunner.StartGame;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
@@ -20,7 +20,7 @@ public class Title extends Pane {
         }
 
         text = new Text(spread);
-        text.setFont(Font.loadFont(Main.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(), 48));
+        text.setFont(Font.loadFont(StartGame.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(), 48));
         text.setFill(Color.WHITE);
         text.setEffect(new DropShadow(30, Color.BLACK));
 

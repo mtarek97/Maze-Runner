@@ -7,6 +7,8 @@ import mazeRunner.view.mapCellsView.MapCellView;
 import mazeRunner.view.mapCellsView.MapCellViewFactory;
 import mazeRunner.view.mapCellsView.Recources;
 
+import javax.swing.text.html.ImageView;
+
 /**
  * Created by Mustafa on 12/14/2017.
  */
@@ -17,9 +19,10 @@ public class ViewBuilder extends Pane{
     private GridPane movingObjectsLayerPane = new GridPane();
     private GridPane solidWallAndWaysLayerPane = new GridPane();
     private MapCellView nodeCell;
-    private MapCellViewFactory factory;
+    private MapCellViewFactory factory = new MapCellViewFactory();
     private Scene scene;
     private static ViewBuilder viewBuilder = new ViewBuilder();
+
     private ViewBuilder() {
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
@@ -39,19 +42,27 @@ public class ViewBuilder extends Pane{
         nodeCell.setImage(recources.getImage(imageLink));
         cellsLayerPane.add(nodeCell,column,row);
     }
+
     public void putCellInMovingObjectsLayer(String cell, int row, int column,String imageLink){
         nodeCell = factory.getMapCellView(cell);
         nodeCell.setImage(recources.getImage(imageLink));
         movingObjectsLayerPane.add(nodeCell,column,row);
     }
+
     public void putCellInSolidWallAndWaysLayer(String cell, int row, int column,String imageLink){
         nodeCell = factory.getMapCellView(cell);
         nodeCell.setImage(recources.getImage(imageLink));
         solidWallAndWaysLayerPane.add(nodeCell,column,row);
     }
+
+    public void putCellInMovingObjectsLayer(String cell, int row, int column, javafx.scene.image.ImageView imageView){
+        nodeCell = factory.getMapCellView(cell);
+        nodeCell.setImage(imageView);
+        solidWallAndWaysLayerPane.add(nodeCell,column,row);
+    }
+
     public Scene getPlayingViewScene(){
         return this.scene;
     }
-
 }
 

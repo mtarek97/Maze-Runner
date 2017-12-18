@@ -5,10 +5,10 @@ import mazeRunner.model.mapCells.MapCell;
 
 public class Coin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="mazeRunner.themes.theme1.media.images.Coin";
+	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.Coin";
 
-	private final String destroySound = "mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "mazeRunner.themes.theme1.media.soundEffects.coin";
+	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";
 	private  int health = 2;
 	
 
