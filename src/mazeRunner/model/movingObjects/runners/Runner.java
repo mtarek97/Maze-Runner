@@ -29,6 +29,14 @@ public abstract class Runner implements IRunner{
 		return speed;
 	}
 
+	public String getImageLinks() {
+		return imageLinks;
+	}
+
+	public void setPosition(Point position) {
+		this.position = position;
+	}
+
 	@Override
 	public void setDirection(int direction) {
 		this.direction = direction;

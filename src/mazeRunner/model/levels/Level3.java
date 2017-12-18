@@ -8,6 +8,6 @@ public class Level3 extends Level{
 		addSupportedMapCells();
 		setSupportedMapCellsCount();
 		this.runnerSpeed = 30;
-		
+		this.numberOfCheckPoints = 3;
 	}
 }
