@@ -42,8 +42,10 @@ public class MovingController {
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
-        if(SolidWallAndWaysArray[row][column] instanceof Wall || mapCellsArray[row][column] instanceof  Wall){
-            return true;
+        if(!(row < 0 || column < 0)) {
+            if (SolidWallAndWaysArray[row][column] instanceof Wall || mapCellsArray[row][column] instanceof Wall) {
+                return true;
+            }
         }
         return false;
     }

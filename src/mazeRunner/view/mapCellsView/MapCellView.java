@@ -10,7 +10,6 @@ public abstract class MapCellView extends Pane{
     public MapCellView(){
         this.setPrefSize(60, 60);
     }
-
     public void setImage(ImageView imageView){
         this.getChildren().add(imageView);
     }

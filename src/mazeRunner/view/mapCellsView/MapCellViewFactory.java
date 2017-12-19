@@ -28,6 +28,6 @@ public class MapCellViewFactory {
         else  if(object.equalsIgnoreCase("Runner")){
             return  new RunnerView();
         }
-        return  null;
+        return  new EmptyRunnerPosition();
     }
 }

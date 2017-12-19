@@ -64,7 +64,7 @@ public class Map {
 	}
 	public void setRunnerInitalPosition(){
 		runner.SetPosition(new Point(1,1));
-		this.movingObjectsLayer[1][1] = runner;
+		this.movingObjectsLayer[3][3] = runner;
 	}
 
 	public void setRunner(IRunner runner) {

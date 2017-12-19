@@ -27,6 +27,7 @@ public class ViewBuilder extends Pane{
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
+        movingObjectsLayerPane.setGridLinesVisible(true);
         map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
         map.getChildren().add(movingObjectsLayerPane);
@@ -52,6 +53,11 @@ public class ViewBuilder extends Pane{
     public void putCellInMovingObjectsLayer(String cell, int row, int column, javafx.scene.image.ImageView imageView){
         nodeCell = factory.getMapCellView(cell);
         nodeCell.setImage(imageView);
+        movingObjectsLayerPane.add(nodeCell,column,row);
+    }
+
+    public void putCellInMovingObjectsLayer(String cell, int row, int column){
+        nodeCell = factory.getMapCellView(cell);
         movingObjectsLayerPane.add(nodeCell,column,row);
     }
 

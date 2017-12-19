@@ -46,11 +46,7 @@ public class BuildingController {
 		while (iterator.hasNext()) {
 			MapCell cell = (MapCell) iterator.next();
 			if (cell != null) {
-				playingView.putCellInSolidWallAndWaysLayer(getCellName(cell), // TODO
-																				// abdelrahman
-																				// 18
-																				// /
-																				// 12
+				playingView.putCellInSolidWallAndWaysLayer(getCellName(cell),
 						iterator.rowIndex(), iterator.columnIndex(), cell.getImageLink());
 			}
 		}
@@ -70,15 +66,18 @@ public class BuildingController {
 	public void updatemovingObjectsLayerPane() {
 		Iterator iterator = new _2DArrayIterator(movingObjectsLayerArray);
 		while (iterator.hasNext()) {
-			MapCell cell = (MapCell) iterator.next();
+			IRunner cell = (IRunner) iterator.next();
 			if (cell != null) {
 				playingView.putCellInMovingObjectsLayer(getCellName(cell), iterator.rowIndex(), iterator.columnIndex(),
 						cell.getImageLink());
 			}
+			else {
+				playingView.putCellInMovingObjectsLayer(getCellName(cell), iterator.rowIndex(), iterator.columnIndex());
+			}
 		}
 	}
 
-	private String getCellName(MapCell cell) {
+	private String getCellName(Object cell) {
 		if (cell instanceof Gifts) {
 			return "Gifts";
 		} else if (cell instanceof Obstacle) {
@@ -92,6 +91,6 @@ public class BuildingController {
 		} else if (cell instanceof IMonster) {
 			return "Monster";
 		}
-		return null;
+		return "";
 	}
 }

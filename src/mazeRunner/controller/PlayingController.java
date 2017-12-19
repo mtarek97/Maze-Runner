@@ -18,7 +18,7 @@ public class PlayingController implements Runnable {
     }
     @Override
     public void run() {
-        int i = 3;
+        int i = 1;
 
             //TODO
             mapBuilder.setLevel(levelFactory.getLevel(i));

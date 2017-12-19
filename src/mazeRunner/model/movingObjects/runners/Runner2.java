@@ -7,7 +7,7 @@ import mazeRunner.model.weapons.Weapon;
 public class Runner2 extends Runner {
 
 	public Runner2(){
-		setImageLinks(new String("C/Users/Mustafa/IdeaProjects/Maze-Runner/src/mazeRunner/themes/theme1/media/images/mainRunner.gif"));
+		setImageLinks(new String("images/mainRunner.gif"));
 		setSupportedWeapons(new ArrayList<Weapon>());
 	}
 }
