@@ -4,4 +4,6 @@ import mazeRunner.model.movingObjects.MovingObject;
 
 public interface Projectile extends MovingObject{
 
+    public void moveInTheSameDirection();
+
 }

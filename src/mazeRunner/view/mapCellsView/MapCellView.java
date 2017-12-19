@@ -8,9 +8,8 @@ import javafx.scene.layout.Pane;
  */
 public abstract class MapCellView extends Pane{
     public MapCellView(){
-        this.setPrefSize(20, 20);
+        this.setPrefSize(60, 60);
     }
-
     public void setImage(ImageView imageView){
         this.getChildren().add(imageView);
     }

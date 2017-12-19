@@ -13,11 +13,37 @@ public class Bullet implements Projectile{
 	private Point mappedPosition;
 	//imageLink{UP, Down, Right, Left}
 	private String imageLinks;
-	
+
+
+	public void setPosition(Point position) {
+		this.position = position;
+	}
+
+	@Override
+	public void moveInTheSameDirection() {
+
+		Point currentPosition = this.position;
+		Point newPosition;
+
+		if(this.direction == GameContract.Direction.UP)
+			newPosition = new Point(currentPosition.x-1,currentPosition.y);
+		else if(this.direction == GameContract.Direction.DOWN)
+			newPosition = new Point(currentPosition.x+1,currentPosition.y);
+		else if(this.direction == GameContract.Direction.LEFT)
+			newPosition= new Point(currentPosition.x,currentPosition.y + 1);
+		else if(this.direction == GameContract.Direction.RIGHT)
+			newPosition = new Point(currentPosition.x+1,currentPosition.y - 1);
+		else
+			newPosition = this.position;
+
+		this.SetPosition(newPosition);
+
+	}
+
 	@Override
 	public void setSpeed(int speed) {
 		this.speed = speed;
-		
+
 	}
 
 	@Override
@@ -28,7 +54,7 @@ public class Bullet implements Projectile{
 	@Override
 	public void setDirection(int direction) {
 		this.direction = direction;
-		
+
 	}
 
 	@Override
@@ -63,7 +89,7 @@ public class Bullet implements Projectile{
 	@Override
 	public void SetPosition(Point position) {
 		this.position = position;
-		
+
 	}
 
 	@Override
@@ -85,13 +111,13 @@ public class Bullet implements Projectile{
 	@Override
 	public void setMappedPosition(Point mappedPosition) {
 		this.mappedPosition = mappedPosition;
-		
+
 	}
 
 	@Override
 	public Point getMappedPosition() {
 		return mappedPosition;
-		
+
 	}
 
 	@Override

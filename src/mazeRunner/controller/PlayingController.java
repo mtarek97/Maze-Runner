@@ -10,7 +10,7 @@ import mazeRunner.model.mapBuilder.MapBuilder;
 public class PlayingController implements Runnable {
     private IMapBuilder mapBuilder;
     private ILevelFactory levelFactory;
-    private BuildingController buildingController;
+    public static BuildingController buildingController;
     private MovingController movingController;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
@@ -18,8 +18,8 @@ public class PlayingController implements Runnable {
     }
     @Override
     public void run() {
-        int i = 1;
-        while (true) {
+        int i = 0;
+
             //TODO
             mapBuilder.setLevel(levelFactory.getLevel(i));
             try {
@@ -35,12 +35,9 @@ public class PlayingController implements Runnable {
             }
             movingController = new MovingController();
             buildingController.updateSolidWallAndWaysLayerPane();
-            while (true) {
                 updateView();
                 movingController.actionHandeling();
 
-            }
-        }
     }
 
     public void updateView(){

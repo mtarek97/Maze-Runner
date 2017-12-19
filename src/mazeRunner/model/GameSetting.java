@@ -1,31 +1,42 @@
 package mazeRunner.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import mazeRunner.model.levels.MapSize;
 import mazeRunner.model.movingObjects.runners.IRunner;
+import mazeRunner.model.movingObjects.runners.Runner1;
+import mazeRunner.model.utilities.GameContract;
 
 /**
  * Created by Mustafa on 12/10/2017.
  */
 public class GameSetting {
-	
-	// the current runner
-	private IRunner currentRunner;
-	
+
+	/** shared setting (for all the game) **/
+	private IRunner currentRunner = new Runner1();
 	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>();
 	
-	//i comment it because i don't know how we will deal with it in the game logic
-	//private List<Class<? extends IMonster>> supportedMonsters = new ArrayList<Class<? extends IMonster>>();
-    
-	public GameSetting(){
-		setSupportedRunners();
-		// the default runner
-		try {
-			setCurrentRunner(getSupportedRunners().get(0).newInstance());
-		} catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
+	
+	/** custom level setting **/
+	private int customDifficulty = GameContract.Difficulty.EASY;
+	private int customRunnerSpeed = GameContract.Speed.LOW;
+	private Map<String, String> customMapCellsImageLinks = new HashMap<String, String>() {
+		{
+			put("CustomBomb", "images/Dynamite.png");
+			put("CustomDestroyableWall", "images/box.png");
+			put("CustomHealthGift", "images/medicine.png");
+			put("CustomSolidWall", "images/wall.png");
+			put("CustomWay", "images/land.jpg");
 		}
+	};
+
+	private static GameSetting gameSetting = new GameSetting();
+
+	public static GameSetting getGameSetting() {
+		return gameSetting;
 	}
 
 	public IRunner getCurrentRunner() {
@@ -51,10 +62,35 @@ public class GameSetting {
 			e.printStackTrace();
 		}
 	}
+
+
+	public int getCustomRunnerSpeed() {
+		return customRunnerSpeed;
+	}
+
+	public void setCustomRunnerSpeed(int customRuunerSpeed) {
+		this.customRunnerSpeed = customRuunerSpeed;
+	}
+
+	public String getCustomMapCellImageLink(String CustomMapCellName){
+		return customMapCellsImageLinks.get(CustomMapCellName);
+	}
+
 	
-	// dynamic loading for runner
-	public void addRunner(){
+	public void addCustomMapCellImageLink(String CustomMapCellName){
 		// TODO : Dynamic Linkage
+	}
+	
+	public void addRunner() {
+		// TODO : Dynamic Linkage
+	}
+
+	public int getCustomDifficulty() {
+		return customDifficulty;
+	}
+
+	public void setCustomDifficulty(int customDifficulty) {
+		this.customDifficulty = customDifficulty;
 	}
 
 }

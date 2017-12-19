@@ -5,7 +5,7 @@ import mazeRunner.model.mapCells.MapCell;
 
 public class HealthGift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.medicine";
+	private final String standardImageLink ="images/medicine.png";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";

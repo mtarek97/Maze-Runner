@@ -5,7 +5,7 @@ import mazeRunner.model.mapCells.Wall;
 
 public class SolidWall extends Wall{
 
-	private final String standardImageLink ="file:mazeRunner.themes.theme1.media.images.wall";
+	private final String standardImageLink ="images/wall.png";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
 	@Override
 	public boolean isDestroyable() {

@@ -1,11 +1,6 @@
-package mazeRunner.view.mapCellsView;
+package mazeRunner.controller;
 
-import mazeRunner.model.mapCells.Gifts;
-import mazeRunner.model.mapCells.Obstacle;
-import mazeRunner.model.mapCells.Wall;
-import mazeRunner.model.mapCells.Way;
-import mazeRunner.model.movingObjects.runners.Runner;
-import mazeRunner.model.weapons.Pistol;
+import mazeRunner.view.mapCellsView.*;
 
 /**
  * Created by Mustafa on 12/10/2017.
@@ -28,6 +23,6 @@ public class MapCellViewFactory {
         else  if(object.equalsIgnoreCase("Runner")){
             return  new RunnerView();
         }
-        return  null;
+        return  new EmptyRunnerPosition();
     }
 }

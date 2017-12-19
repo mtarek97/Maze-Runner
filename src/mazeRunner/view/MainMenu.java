@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.Pair;
 import mazeRunner.view.mapCellsView.Recources;
@@ -37,7 +38,6 @@ public class MainMenu {
     public Parent createContent() {
         addBackground();
        // addTitle();
-
         double lineX = WIDTH / 2 - 100;
         double lineY = HEIGHT / 3 + 50;
 
