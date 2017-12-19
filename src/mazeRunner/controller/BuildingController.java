@@ -1,5 +1,7 @@
 package mazeRunner.controller;
 
+import java.awt.Point;
+
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.MapSize;
 import mazeRunner.model.mapBuilder.IMapBuilder;
@@ -15,8 +17,6 @@ import mazeRunner.model.movingObjects.monsters.IMonster;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.view.ViewBuilder;
 import mazeRunner.view.mapCellsView.MapCellView;
-
-import java.awt.*;
 
 /**
  * Created by Mustafa on 12/14/2017.

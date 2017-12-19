@@ -8,6 +8,7 @@ import java.util.Map;
 import mazeRunner.model.levels.MapSize;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.Runner1;
+import mazeRunner.model.utilities.GameContract;
 
 /**
  * Created by Mustafa on 12/10/2017.
@@ -20,8 +21,8 @@ public class GameSetting {
 	
 	
 	/** custom level setting **/
-	private MapSize customMapize = new MapSize(15, 15);
-	private int customRunnerSpeed = 1;
+	private int customDifficulty = GameContract.Difficulty.EASY;
+	private int customRunnerSpeed = GameContract.Speed.LOW;
 	private Map<String, String> customMapCellsImageLinks = new HashMap<String, String>() {
 		{
 			put("CustomBomb", "images/Dynamite.png");
@@ -63,15 +64,6 @@ public class GameSetting {
 	}
 
 
-
-	public MapSize getCustomMapize() {
-		return customMapize;
-	}
-
-	public void setCustomMapize(MapSize customMapize) {
-		this.customMapize = customMapize;
-	}
-
 	public int getCustomRunnerSpeed() {
 		return customRunnerSpeed;
 	}
@@ -91,6 +83,14 @@ public class GameSetting {
 	
 	public void addRunner() {
 		// TODO : Dynamic Linkage
+	}
+
+	public int getCustomDifficulty() {
+		return customDifficulty;
+	}
+
+	public void setCustomDifficulty(int customDifficulty) {
+		this.customDifficulty = customDifficulty;
 	}
 
 }

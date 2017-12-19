@@ -1,7 +1,8 @@
 package mazeRunner.controller;
 
-import javafx.scene.Scene;
-import javafx.scene.image.*;
+import java.awt.Point;
+
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import mazeRunner.StartGame;
@@ -11,12 +12,10 @@ import mazeRunner.model.mapBuilder.MapBuilder;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.movingObjects.runners.IRunner;
-import mazeRunner.view.ViewBuilder;
 import mazeRunner.model.utilities.GameContract;
+import mazeRunner.view.ViewBuilder;
 import mazeRunner.view.mapCellsView.MapCellView;
 import mazeRunner.view.mapCellsView.Recources;
-
-import java.awt.*;
 
 /**
  * Created by Mustafa on 12/12/2017.

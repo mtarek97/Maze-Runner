@@ -56,7 +56,7 @@ public class ViewBuilder extends Pane{
 
     public void putCellInMovingObjectsLayer(MapCellView nodeCell, int row, int column){ //TODO
         movingObjectsLayerPane.add(nodeCell,column,row);
-    }
+    } 
 
     public void putCellInSolidWallAndWaysLayer(MapCellView nodeCell, int row, int column,String imageLink){
         nodeCell.getChildren().add(recources.getImage(imageLink));
