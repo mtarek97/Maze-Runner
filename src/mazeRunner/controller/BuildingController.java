@@ -51,7 +51,7 @@ public class BuildingController {
 		size = map.getLevel().getMapSize();
 		mapCellsLayer = new MapCellView[size.getWidth()+1][size.getHeight()+1];
 		SolidWallAndWaysLayer = new MapCellView[size.getWidth()+1][size.getHeight()+1];
-		movingObjectsLayer = new MapCellView[(size.getWidth()+1)*9][(size.getHeight()+1)*9];
+		movingObjectsLayer = new MapCellView[(size.getWidth()+1)*3][(size.getHeight()+1)*3];
 	}
 
 	// cellsLayerPane

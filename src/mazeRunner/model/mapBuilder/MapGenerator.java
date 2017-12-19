@@ -80,6 +80,7 @@ public class MapGenerator {
 		return  map;
 	}
 	public void generateBulletsGift() throws Exception {
+		//TODO
 		Bullets1 initial = new Bullets1();
 		numberOfNeededBullets = numberOfNeededBullets - initial.getDamage() * 6;
 		int bulletsRunHas = 6*initial.getDamage();
@@ -89,7 +90,8 @@ public class MapGenerator {
 			DistributeRandomGifts randomGifts = new DistributeRandomGifts(maze, numberOfNeededBullets, bulletsRunHas);
 			Point random = randomGifts.getRandomPoint();
 			maze[random.x][random.y] = cell;
-			numberOfNeededBullets = numberOfNeededBullets - cell.getDamage();
+			int damage = ((Bullets1) cell).getOneBulletDamage() *  ((Bullets1) cell).getBulletsNumber();
+			numberOfNeededBullets = numberOfNeededBullets - damage;
 			bulletsRunHas += cell.getDamage();
 		}
 	}
