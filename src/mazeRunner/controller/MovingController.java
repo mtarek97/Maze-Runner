@@ -9,8 +9,11 @@ import mazeRunner.StartGame;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapBuilder.MapBuilder;
+import mazeRunner.model.mapCells.CheckPoint;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
+import mazeRunner.model.mapCells.Way;
+import mazeRunner.model.movingObjects.projectiles.Bullet;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.view.ViewBuilder;
@@ -19,8 +22,9 @@ import mazeRunner.view.mapCellsView.Recources;
 
 /**
  * Created by Mustafa on 12/12/2017.
+ * modified by Shazly on 19/12/2017.
  */
-public class MovingController {
+public class MovingController implements Runnable {
     private IMapBuilder mapBuilder = MapBuilder.createMapBuilder();
     private Map map;
     private Object[][] movingObjectsLayerArray;
@@ -41,7 +45,7 @@ public class MovingController {
     }
 
 
-  //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
+    //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
     Pane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
@@ -71,7 +75,7 @@ public class MovingController {
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP));
                     runner.moveUp();
-                //TODO interactions.update();
+                    //TODO interactions.update();
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -86,7 +90,7 @@ public class MovingController {
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN));
                     runner.moveDown();
-                //TODO interactions.update();
+                    //TODO interactions.update();
                 }
             } else if (event.getCode() == KeyCode.RIGHT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -101,7 +105,7 @@ public class MovingController {
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT));
                     runner.moveRight();
-                //TODO interactions.update();
+                    //TODO interactions.update();
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -116,11 +120,86 @@ public class MovingController {
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP));
                     runner.moveLeft();
-                //TODO interactions.update();
+                    //TODO interactions.update();
                 }
             }
+            else if(event.getCode() == KeyCode.SPACE) {
+
+                new Thread(this, "Buller Thread").start();
+                new Thread(
+                        new Runnable() {
+                            public void run() {
+
+                                Bullet bullet = new Bullet();
+
+                                bullet.setDirection(runner.getDirection());
+                                bullet.setMappedPosition(runner.getMappedPosition());
+                                bullet.setPosition(runner.getPosition());
+
+                                Point currentPosition = bullet.getPosition();
+                                Point currentMapedPosition = bullet.getMappedPosition();
+                                Point newMapedPosition = changePosition(bullet.getDirection(), currentMapedPosition);
+
+                                while (isCellAllowedForBullets(newMapedPosition)) {
+
+                                    Point newPosition = changePosition(bullet.getDirection(), currentPosition);
+                                    movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+                                    movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
+                                    buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+                                    MapCellView runnerView = viewFactory.getMapCellView("bullet");
+                                    buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
+                                    playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP));
+                                    bullet.moveInTheSameDirection();
+                                    newMapedPosition = changePosition(bullet.getDirection(), newMapedPosition);
+
+                                }
+
+                            }
+                        }
+                ).start();
+            }
+
             event.consume();
         });
+    }
+    public Point changePosition(int direction, Point oldPoint) {
+        Point newPosition ;
+        if(direction == GameContract.Direction.UP) {
+
+            newPosition = new Point(oldPoint.x - 1, oldPoint.y);
+        }
+        else if(direction == GameContract.Direction.DOWN) {
+
+            newPosition = new Point(oldPoint.x + 1, oldPoint.y);
+        }
+        else if(direction == GameContract.Direction.LEFT) {
+
+            newPosition = new Point(oldPoint.x, oldPoint.y + 1);
+        }
+        else if(direction == GameContract.Direction.RIGHT) {
+
+            newPosition = new Point(oldPoint.x + 1, oldPoint.y - 1);
+        }
+        else {
+            newPosition = new Point(oldPoint.x, oldPoint.y);
+        }
+
+        return newPosition;
+    }
+    public boolean isCellAllowedForBullets(Point newPosition ) {
+        int row = newPosition.x;
+        int column = newPosition.y;
+        if((row >= 0&& column >= 0&& row < SolidWallAndWaysArray.length&& column < SolidWallAndWaysArray[0].length)) {
+
+            if (SolidWallAndWaysArray[row][column] instanceof Way && mapCellsArray[row][column] instanceof CheckPoint) {
+                return true;
+            }
+
+            if (SolidWallAndWaysArray[row][column] instanceof Way && mapCellsArray[row][column] instanceof Way) {
+                return true;
+            }
+        }
+        return false;
     }
     private ImageView getImageDirection(int newDirection){
         ImageView imageView = recources.getImage(runner.getImageLink());
@@ -128,5 +207,10 @@ public class MovingController {
             imageView.setRotate(imageView.getRotate() + 90);
         }
         return imageView;
+    }
+
+    @Override
+    public void run() {
+
     }
 }

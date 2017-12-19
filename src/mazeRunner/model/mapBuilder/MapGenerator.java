@@ -31,16 +31,23 @@ public class MapGenerator {
 		map.setCellsLayer(this.maze);
 		GenerateCheckPoint.map = map;
 		GenerateCheckPoint.generate();
+
 		for (int i = 0; i < maze.length; i++) {
+
 			for (int j = 0; j < maze[0].length; j++) {
+
 				if (maze[i][j]) {
+
 					this.maze[i][j] = new SolidWall();
 					solidWallAndWaysLayer[i][j] = new SolidWall();
+
 				}
 				else {
+
 					this.maze[i][j] = new Way1();
 					solidWallAndWaysLayer[i][j] = new Way1();
 					allFreeCells.add(new Point(i, j));
+
 				}
 			}
 		}
