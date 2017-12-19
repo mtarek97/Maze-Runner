@@ -49,6 +49,7 @@ public class DistributeRandomGifts {
             }
             bulletsRunHas = bulletsRunHas - maze[x][y].getHealth();
         }
+        if(x != 1 || y != 1)
         allFreeCells.add(new Point(x, y));
         visited[x][y] = true;
         DFS(x + 1, y, allFreeCells);

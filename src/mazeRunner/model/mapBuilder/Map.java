@@ -16,6 +16,7 @@ public class Map {
 	private Point endPoint;
 	private IRunner runner = GameSetting.getGameSetting().getCurrentRunner();
 	private ArrayList<Point> correctWay = new ArrayList<>();
+	private boolean booleanMaze[][];
 
 
 	public ILevel getLevel() {
@@ -32,6 +33,14 @@ public class Map {
 	public Point getEndPoint() {
 
 		return endPoint;
+	}
+
+	public boolean[][] getBooleanMaze() {
+		return booleanMaze;
+	}
+
+	public void setBooleanMaze(boolean maze[][]) {
+		this.booleanMaze = maze;
 	}
 
 

@@ -2,6 +2,7 @@ package mazeRunner.model.movingObjects.monsters;
 
 import java.awt.Point;
 
+import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.utilities.GameContract;
 
 public abstract class Monster implements IMonster{
@@ -11,10 +12,15 @@ public abstract class Monster implements IMonster{
 	// position on runner layer
 	private Point mappedPosition;
 	private int health;
+	protected IMonsterBehavior behavior;
 	//imageLink{UP, Down, Right, Left}
 	private String imageLinks;
+	protected Map map;
 
-	
+	public void setMap(Map map) {
+		this.map = map;
+	}
+
 	@Override
 	public void setSpeed(int speed) {
 		this.speed = speed;
@@ -38,26 +44,38 @@ public abstract class Monster implements IMonster{
 
 	@Override
 	public void moveUp() {
+		Point currentPosition = this.position;
+		Point newPosition = new Point();
+		newPosition.setLocation(currentPosition.x-1,currentPosition.y);
+		this.setPosition(newPosition);
 		this.direction = GameContract.Direction.UP;
-		// TODO : implement movement
 	}
 
 	@Override
 	public void moveDown() {
+		Point currentPosition = this.position;
+		Point newPosition = new Point();
+		newPosition.setLocation(currentPosition.x+1,currentPosition.y);
+		this.setPosition(newPosition);
 		this.direction = GameContract.Direction.DOWN;
-		// TODO : implement movement
 	}
 
 	@Override
 	public void moveRight() {
+		Point currentPosition = this.position;
+		Point newPosition = new Point();
+		newPosition.setLocation(currentPosition.x,currentPosition.y+1);
+		this.setPosition(newPosition);
 		this.direction = GameContract.Direction.RIGHT;
-		// TODO : implement movement
 	}
 
 	@Override
 	public void moveLeft() {
+		Point currentPosition = this.position;
+		Point newPosition = new Point();
+		newPosition.setLocation(currentPosition.x,currentPosition.y-1);
+		this.setPosition(newPosition);
 		this.direction = GameContract.Direction.LEFT;
-		// TODO : implement movement
 	}
 
 	@Override
@@ -72,16 +90,10 @@ public abstract class Monster implements IMonster{
 	}
 
 	@Override
-	public void setHealth(int health) {
-		this.health = health;
-		
+	public void move() {
+		behavior.run();
 	}
 
-	@Override
-	public int getHealth() {
-		return health;
-	}
-	
 	@Override
 	public String getImageLinks() {
 		return imageLinks;

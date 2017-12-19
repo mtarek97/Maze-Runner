@@ -46,7 +46,8 @@ public class MapGenerator {
 
 					this.maze[i][j] = new Way1();
 					solidWallAndWaysLayer[i][j] = new Way1();
-					allFreeCells.add(new Point(i, j));
+					if(i != 1 || j != 1)
+						allFreeCells.add(new Point(i, j));
 
 				}
 			}

@@ -18,7 +18,7 @@ public class GetSnapShot {
         map.setEndPoint(snapOfmap.getEndPoint());
         map.setRunner(snapOfmap.getRunner());
         map.setMovingObjectsLayer(snapOfmap.getMovingObjectsLayer());
-
+        map.setBooleanMaze(snapOfmap.getBooleanMaze());
 
         runner.setImageLinks(snapOfrunner.getImageLinks());
         runner.setDirection(snapOfrunner.getDirection());
