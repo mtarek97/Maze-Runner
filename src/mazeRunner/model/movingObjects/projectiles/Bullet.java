@@ -14,29 +14,25 @@ public class Bullet implements Projectile{
 	//imageLink{UP, Down, Right, Left}
 	private String imageLinks;
 
-
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
 	@Override
 	public void moveInTheSameDirection() {
 
 		Point currentPosition = this.position;
 		Point newPosition;
 
-		if(this.direction == GameContract.Direction.UP)
+		if(this.direction == GameContract.Direction.UP) {
 			newPosition = new Point(currentPosition.x-1,currentPosition.y);
-		else if(this.direction == GameContract.Direction.DOWN)
+		} else if(this.direction == GameContract.Direction.DOWN) {
 			newPosition = new Point(currentPosition.x+1,currentPosition.y);
-		else if(this.direction == GameContract.Direction.LEFT)
+		} else if(this.direction == GameContract.Direction.LEFT) {
 			newPosition= new Point(currentPosition.x,currentPosition.y + 1);
-		else if(this.direction == GameContract.Direction.RIGHT)
+		} else if(this.direction == GameContract.Direction.RIGHT) {
 			newPosition = new Point(currentPosition.x+1,currentPosition.y - 1);
-		else
+		} else {
 			newPosition = this.position;
+		}
 
-		this.SetPosition(newPosition);
+		this.setPosition(newPosition);
 
 	}
 
@@ -87,7 +83,7 @@ public class Bullet implements Projectile{
 	}
 
 	@Override
-	public void SetPosition(Point position) {
+	public void setPosition(Point position) {
 		this.position = position;
 
 	}
@@ -103,7 +99,7 @@ public class Bullet implements Projectile{
 	}
 
 	@Override
-	public String getImageLink() {
+	public String getImageLinks() {
 		return imageLinks;
 	}
 

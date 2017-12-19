@@ -3,10 +3,6 @@ package mazeRunner.model.movingObjects;
 import java.awt.Point;
 
 public interface MovingObject {
-
-	public void setSpeed(int speed);
-	
-	public int getSpeed();
 	
 	public void moveUp();
 	
@@ -20,13 +16,13 @@ public interface MovingObject {
 	
 	public int getDirection();
 	
-	public void SetPosition(Point position);
+	public void setPosition(Point position);
 	
 	public Point getPosition();
 	
 	public void setImageLinks(String imageLinks);
 	
-	public String getImageLink();
+	public String getImageLinks();
 	
 	public void setMappedPosition(Point mappedPosition);
 	

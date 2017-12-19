@@ -1,11 +1,12 @@
 package mazeRunner;
 
 import mazeRunner.model.GameSetting;
+import mazeRunner.model.levels.ILevel;
+import mazeRunner.model.levels.ILevelFactory;
+import mazeRunner.model.movingObjects.runners.DefaultSpeedState;
+import mazeRunner.model.movingObjects.runners.HalfHealthSpeedState;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.IRunnerFactory;
-import mazeRunner.model.movingObjects.runners.WithA4;
-import mazeRunner.model.movingObjects.runners.WithAK;
-import mazeRunner.model.movingObjects.runners.WithPistol;
 
 public class mainForTest {
 
@@ -55,7 +56,7 @@ public class mainForTest {
 			System.out.println();*/
 		//--------------------------------decorator---------------------------------//
 
-		 GameSetting setting = new GameSetting();
+/*		 GameSetting setting = new GameSetting();
 		 IRunnerFactory runnerFactory = new IRunnerFactory(setting);
 		 IRunner runner = runnerFactory.getRunner("Runner1");
 		 runner.setSpeed(30);
@@ -77,7 +78,25 @@ public class mainForTest {
 		 runner2 = new WithPistol(runner2, 6);
 		 runner2.setSpeed(20);
 		 System.out.println(runner2.getSpeed());
-		 System.out.println(runner2.getSupportedWeapons());
+		 System.out.println(runner2.getSupportedWeapons());*/
+		
+		// --------------------state design pattern ------------------- //
+		GameSetting setting = GameSetting.getGameSetting();
+		 IRunnerFactory runnerFactory = new IRunnerFactory(setting);
+		 ILevelFactory levelFactory = new ILevelFactory();
+		 IRunner runner = runnerFactory.getRunner("Runner1");
+		 System.out.println(runner);
+		 ILevel level = levelFactory.getLevel(3);
+		 
+		 DefaultSpeedState defaultSpeedState = new DefaultSpeedState(level.getRunnerSpeed());
+		 defaultSpeedState.setRunnerSpeedState(runner);
+		 System.out.println(runner.getSpeedState());
+		 System.out.println(runner.getSpeedState().getSpeedValue());
+	
+		 HalfHealthSpeedState HalfHealthSpeedState = new HalfHealthSpeedState(level.getRunnerSpeed());
+		 HalfHealthSpeedState.setRunnerSpeedState(runner);
+		 System.out.println(runner.getSpeedState());
+		 System.out.println(runner.getSpeedState().getSpeedValue());
 	}
 
 }

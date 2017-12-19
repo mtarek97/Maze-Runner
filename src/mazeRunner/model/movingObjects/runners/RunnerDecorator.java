@@ -13,16 +13,7 @@ public  class RunnerDecorator implements IRunner{
 		this.decoratedRunner = runner;
 	}
 	
-	@Override
-	public void setSpeed(int speed) {
-		decoratedRunner.setSpeed(speed);
-		
-	}
 
-	@Override
-	public int getSpeed() {
-		return decoratedRunner.getSpeed();
-	}
 
 	@Override
 	public void moveUp() {
@@ -59,9 +50,8 @@ public  class RunnerDecorator implements IRunner{
 	}
 
 	@Override
-	public void SetPosition(Point position) {
-		decoratedRunner.SetPosition(position);
-		
+	public void setPosition(Point position) {
+		decoratedRunner.setPosition(position);
 	}
 
 	@Override
@@ -76,8 +66,8 @@ public  class RunnerDecorator implements IRunner{
 	}
 
 	@Override
-	public String getImageLink() {
-		return decoratedRunner.getImageLink();
+	public String getImageLinks() {
+		return decoratedRunner.getImageLinks();
 	}
 
 	@Override
@@ -116,6 +106,21 @@ public  class RunnerDecorator implements IRunner{
 	public void setSupportedWeapons(List<Weapon> supportedWeapons) {
 		decoratedRunner.setSupportedWeapons(supportedWeapons);
 		
+	}
+
+
+
+	@Override
+	public void setSpeedState(SpeedState speedState) {
+		decoratedRunner.setSpeedState(speedState);
+		
+	}
+
+
+
+	@Override
+	public SpeedState getSpeedState() {
+		return decoratedRunner.getSpeedState();
 	}
 	
 }

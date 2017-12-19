@@ -128,7 +128,8 @@ public class MovingController implements Runnable {
                 new Thread(this, "Buller Thread").start();
                 new Thread(
                         new Runnable() {
-                            public void run() {
+                            @Override
+							public void run() {
 
                                 Bullet bullet = new Bullet();
 
@@ -202,7 +203,7 @@ public class MovingController implements Runnable {
         return false;
     }
     private ImageView getImageDirection(int newDirection){
-        ImageView imageView = recources.getImage(runner.getImageLink());
+        ImageView imageView = recources.getImage(runner.getImageLinks());
         for (int i = 1; i < newDirection; i++){
             imageView.setRotate(imageView.getRotate() + 90);
         }

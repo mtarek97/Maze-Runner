@@ -14,6 +14,7 @@ import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.mapCells.Way;
 import mazeRunner.model.movingObjects.monsters.IMonster;
+import mazeRunner.model.movingObjects.runners.DefaultSpeedState;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.view.ViewBuilder;
 import mazeRunner.view.mapCellsView.MapCellView;
@@ -39,9 +40,10 @@ public class BuildingController {
 		viewFactory = new MapCellViewFactory();
 		this.mapBuilder = mapBuilder;
 		map = mapBuilder.getMap();
-		gameSetting.getCurrentRunner().SetPosition(new Point(3,3));
+		gameSetting.getCurrentRunner().setPosition(new Point(3,3));
 		map.setRunner(gameSetting.getCurrentRunner());
-		map.getRunner().setSpeed(map.getLevel().getRunnerSpeed());
+		DefaultSpeedState defaultSpeedState = new DefaultSpeedState(map.getLevel().getRunnerSpeed());
+		defaultSpeedState.setRunnerSpeedState(map.getRunner());
 		playingView = ViewBuilder.getViewBuilder();
 		mapCellsArray = map.getCellsLayer();
 		SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
@@ -89,7 +91,7 @@ public class BuildingController {
 				MapCellView node = viewFactory.getMapCellView(getCellName(cell));
 				movingObjectsLayer[iterator.rowIndex()][iterator.columnIndex()] = node;
 				playingView.putCellInMovingObjectsLayer(node, iterator.rowIndex(), iterator.columnIndex(),
-						cell.getImageLink());
+						cell.getImageLinks());
 			}
 			else {
 				MapCellView node = viewFactory.getMapCellView(getCellName(cell));

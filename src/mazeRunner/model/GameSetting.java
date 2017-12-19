@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mazeRunner.model.levels.MapSize;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.Runner1;
 import mazeRunner.model.utilities.GameContract;
@@ -17,7 +16,19 @@ public class GameSetting {
 
 	/** shared setting (for all the game) **/
 	private IRunner currentRunner = new Runner1();
-	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>();
+	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>(){
+		{
+			ClassLoader classLoader = this.getClass().getClassLoader();
+			String packageBinName = "mazeRunner.model.movingObjects.runners.";
+			try {
+				add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner1")));
+				add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner2")));
+				add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner3")));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	};
 	
 	
 	/** custom level setting **/
@@ -50,20 +61,7 @@ public class GameSetting {
 	public List<Class<? extends IRunner>> getSupportedRunners() {
 		return supportedRunners;
 	}
-
-	private void setSupportedRunners() {
-		ClassLoader classLoader = this.getClass().getClassLoader();
-		String packageBinName = "mazeRunner.model.movingObjects.runners.";
-		try {
-			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner1")));
-			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner2")));
-			supportedRunners.add((Class<? extends IRunner>) classLoader.loadClass(packageBinName.concat("Runner3")));
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-
+	
 	public int getCustomRunnerSpeed() {
 		return customRunnerSpeed;
 	}

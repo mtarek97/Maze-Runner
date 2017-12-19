@@ -66,7 +66,7 @@ public abstract class Monster implements IMonster{
 	}
 
 	@Override
-	public void SetPosition(Point position) {
+	public void setPosition(Point position) {
 		this.position = position;
 		
 	}
@@ -83,7 +83,7 @@ public abstract class Monster implements IMonster{
 	}
 	
 	@Override
-	public String getImageLink() {
+	public String getImageLinks() {
 		return imageLinks;
 	}
 

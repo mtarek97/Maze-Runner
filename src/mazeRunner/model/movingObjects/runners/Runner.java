@@ -8,33 +8,24 @@ import mazeRunner.model.weapons.Weapon;
 
 public abstract class Runner implements IRunner{
 
-	private int speed;
+	private SpeedState speedState;
 	private int direction;
 	private Point position;
 	// position on runner layer
 	private Point mappedPosition;
-	private int health;
-	// imageLink{UP, Down, Right, Left}
+	private int health = 100;
 	protected String imageLinks;
 	protected List<Weapon> supportedWeapons;
 	
-	@Override
-	public void setSpeed(int speed) {
-		this.speed = speed;
-		
-	}
 
 	@Override
-	public int getSpeed() {
-		return speed;
+	public SpeedState getSpeedState() {
+		return speedState;
 	}
-
-	public String getImageLinks() {
-		return imageLinks;
-	}
-
-	public void setPosition(Point position) {
-		this.position = position;
+	
+	@Override
+	public void setSpeedState(SpeedState speedState){
+		this.speedState = speedState;
 	}
 
 	@Override
@@ -53,7 +44,7 @@ public abstract class Runner implements IRunner{
 	    Point currentPosition = this.position;
 	    Point newPosition = new Point();
 	    newPosition.setLocation(currentPosition.x-1,currentPosition.y);
-        this.SetPosition(newPosition);
+        this.setPosition(newPosition);
 		this.direction = GameContract.Direction.UP;
 	}
 
@@ -62,7 +53,7 @@ public abstract class Runner implements IRunner{
         Point currentPosition = this.position;
         Point newPosition = new Point();
         newPosition.setLocation(currentPosition.x+1,currentPosition.y);
-        this.SetPosition(newPosition);
+        this.setPosition(newPosition);
 	    this.direction = GameContract.Direction.DOWN;
 	}
 
@@ -71,7 +62,7 @@ public abstract class Runner implements IRunner{
         Point currentPosition = this.position;
         Point newPosition = new Point();
         newPosition.setLocation(currentPosition.x,currentPosition.y+1);
-        this.SetPosition(newPosition);
+        this.setPosition(newPosition);
 		this.direction = GameContract.Direction.RIGHT;
 	}
 
@@ -80,12 +71,12 @@ public abstract class Runner implements IRunner{
         Point currentPosition = this.position;
         Point newPosition = new Point();
         newPosition.setLocation(currentPosition.x,currentPosition.y-1);
-        this.SetPosition(newPosition);
+        this.setPosition(newPosition);
 		this.direction = GameContract.Direction.LEFT;
 	}
 
 	@Override
-	public void SetPosition(Point position) {
+	public void setPosition(Point position) {
 		this.position = position;
 		
 	}
@@ -108,7 +99,7 @@ public abstract class Runner implements IRunner{
 
 
 	@Override
-	public String getImageLink() {
+	public String getImageLinks() {
 		return imageLinks;
 	}
 

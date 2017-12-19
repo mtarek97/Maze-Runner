@@ -24,7 +24,7 @@ public class GetSnapShot {
         runner.setDirection(snapOfrunner.getDirection());
         runner.setHealth(snapOfrunner.getHealth());
         runner.setMappedPosition(snapOfrunner.getMappedPosition());
-        runner.setSpeed(snapOfrunner.getSpeed());
+        runner.setSpeedState(snapOfrunner.getSpeedState());
         runner.setSupportedWeapons(snapOfrunner.getSupportedWeapons());
         runner.setPosition(snapOfrunner.getPosition());
 

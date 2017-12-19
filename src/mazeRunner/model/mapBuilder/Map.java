@@ -63,7 +63,7 @@ public class Map {
 		this.correctWay = correctWay;
 	}
 	public void setRunnerInitalPosition(){
-		runner.SetPosition(new Point(1,1));
+		runner.setPosition(new Point(1,1));
 		this.movingObjectsLayer[3][3] = runner;
 	}
 
