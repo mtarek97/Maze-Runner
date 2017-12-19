@@ -13,6 +13,8 @@ import mazeRunner.model.mapCells.Wall;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.view.ViewBuilder;
 import mazeRunner.model.utilities.GameContract;
+import mazeRunner.view.mapCellsView.MapCellView;
+import mazeRunner.view.mapCellsView.Recources;
 
 import java.awt.*;
 
@@ -24,9 +26,13 @@ public class MovingController {
     private Map map;
     private Object[][] movingObjectsLayerArray;
     private MapCell[][] mapCellsArray;
+    private MapCellViewFactory viewFactory;
     private MapCell[][] SolidWallAndWaysArray;
+    private BuildingController buildingController = PlayingController.buildingController;
+    private Recources recources = Recources.getRecources();
     private IRunner runner;
     public MovingController() {
+        viewFactory = new MapCellViewFactory();
         this.mapBuilder = mapBuilder;
         map = mapBuilder.getGeneratedMap();
         movingObjectsLayerArray = map.getMovingObjectsLayer();
@@ -61,7 +67,10 @@ public class MovingController {
                     Point newPosition = new Point(currentPosition.x-1,currentPosition.y);
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
-                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
+                    buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+                    MapCellView runnerView = viewFactory.getMapCellView("runner");
+                    buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
+                    playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP));
                     runner.moveUp();
                 //TODO interactions.update();
                 }
@@ -73,7 +82,10 @@ public class MovingController {
                     Point newPosition = new Point(currentPosition.x+1,currentPosition.y);
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
-                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.DOWN));
+                    buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+                    MapCellView runnerView = viewFactory.getMapCellView("runner");
+                    buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
+                    playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN));
                     runner.moveDown();
                 //TODO interactions.update();
                 }
@@ -85,7 +97,10 @@ public class MovingController {
                     Point newPosition = new Point(currentPosition.x,currentPosition.y+1);
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
-                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.RIGHT));
+                    buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+                    MapCellView runnerView = viewFactory.getMapCellView("runner");
+                    buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
+                    playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT));
                     runner.moveRight();
                 //TODO interactions.update();
                 }
@@ -97,7 +112,10 @@ public class MovingController {
                     Point newPosition = new Point(currentPosition.x,currentPosition.y-1);
                     movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
                     movingObjectsLayerArray[newPosition.x][newPosition.y] = runner;
-                    playingView.putCellInMovingObjectsLayer("runner",newPosition.y,newPosition.x,getImageDirection(GameContract.Direction.UP));
+                    buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+                    MapCellView runnerView = viewFactory.getMapCellView("runner");
+                    buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
+                    playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP));
                     runner.moveLeft();
                 //TODO interactions.update();
                 }
@@ -106,7 +124,7 @@ public class MovingController {
         });
     }
     private ImageView getImageDirection(int newDirection){
-        ImageView imageView = new ImageView(new javafx.scene.image.Image((runner.getImageLink())));
+        ImageView imageView = recources.getImage(runner.getImageLink());
         for (int i = 1; i < newDirection; i++){
             imageView.setRotate(imageView.getRotate() + 90);
         }

@@ -10,7 +10,7 @@ import mazeRunner.model.mapBuilder.MapBuilder;
 public class PlayingController implements Runnable {
     private IMapBuilder mapBuilder;
     private ILevelFactory levelFactory;
-    private BuildingController buildingController;
+    public static BuildingController buildingController;
     private MovingController movingController;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
