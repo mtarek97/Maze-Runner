@@ -29,5 +29,6 @@ public  abstract class Gifts implements MapCell,IGift {
 	public String getLayer(){
 		return "cellsLayerPane";
 	}
+
 	
 }

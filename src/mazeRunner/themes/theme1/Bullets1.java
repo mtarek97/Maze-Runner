@@ -18,7 +18,13 @@ public class Bullets1 extends Gifts {
 	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
 	private final int giftDamage = 0;
 	private int bulletsNumber = 3 ;
-	private int oneBulletDamage = 4 ;	
+	private int oneBulletDamage = 4 ;
+	private int BulletsDamage = 12;
+
+	public int getBulletsDamage() {
+		return BulletsDamage;
+	}
+
 
 	@Override
 	public String getDestroyingSound() {

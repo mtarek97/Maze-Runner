@@ -91,7 +91,7 @@ public class MapGenerator {
 			DistributeRandomGifts randomGifts = new DistributeRandomGifts(maze, numberOfNeededBullets, bulletsRunHas);
 			Point random = randomGifts.getRandomPoint();
 			maze[random.x][random.y] = cell;
-			int damage = ((Bullets1) cell).getOneBulletDamage() *  ((Bullets1) cell).getBulletsNumber();
+			int damage = ((IGift) cell).getOneBulletDamage() *  ((IGift) cell).getBulletsNumber();
 			numberOfNeededBullets = numberOfNeededBullets - damage;
 			bulletsRunHas += cell.getDamage();
 		}
