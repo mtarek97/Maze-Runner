@@ -64,7 +64,4 @@ public class CustomHealthGift extends Gifts{
 		return false;
 	}
 
-
-
-	
 }
