@@ -11,7 +11,7 @@ public class Bullet implements Projectile{
 	private Point position;
 	// position on runner layer
 	private Point mappedPosition;
-	//imageLink{UP, Down, Right, Left}
+	private String ImageLink = "images/bullet1.png";
 	private String imageLinks;
 
 	@Override
@@ -100,7 +100,7 @@ public class Bullet implements Projectile{
 
 	@Override
 	public String getImageLinks() {
-		return imageLinks;
+		return ImageLink;
 	}
 
 
@@ -112,7 +112,12 @@ public class Bullet implements Projectile{
 
 	@Override
 	public Point getMappedPosition() {
-		return mappedPosition;
+		Point truePosition = this.getPosition();
+		int mapedRow = truePosition.x / 3;
+		int mapedColumn = truePosition.y / 3;
+		Point mapedPosition = new Point();
+		mapedPosition.setLocation(mapedRow,mapedColumn);
+		return mapedPosition;
 
 	}
 

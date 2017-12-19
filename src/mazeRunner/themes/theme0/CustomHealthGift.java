@@ -3,6 +3,7 @@ package mazeRunner.themes.theme0;
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.weapons.Weapon;
 import mazeRunner.themes.theme1.ashes;
 
 public class CustomHealthGift extends Gifts{
@@ -64,4 +65,33 @@ public class CustomHealthGift extends Gifts{
 		return false;
 	}
 
+	@Override
+	public int getGiftType() {
+		return 0;
+	}
+
+	@Override
+	public Class<? extends Weapon> getWeaponClass() {
+		return null;
+	}
+
+	@Override
+	public int getBulletsNumber() {
+		return 0;
+	}
+
+	@Override
+	public int getOneBulletDamage() {
+		return 0;
+	}
+
+	@Override
+	public int getGivenHealth() {
+		return 0;
+	}
+
+	@Override
+	public int getScore() {
+		return 0;
+	}
 }

@@ -23,6 +23,9 @@ public class MapCellViewFactory {
         else  if(object.equalsIgnoreCase("Runner")){
             return  new RunnerView();
         }
+        else  if(object.equalsIgnoreCase("bullet")){
+            return  new BulletView();
+        }
         return  new EmptyRunnerPosition();
     }
 }

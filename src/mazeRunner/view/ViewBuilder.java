@@ -24,6 +24,7 @@ public class ViewBuilder extends Pane{
         cellsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setGridLinesVisible(true);
+        cellsLayerPane.setGridLinesVisible(true);
         map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
         map.getChildren().add(movingObjectsLayerPane);

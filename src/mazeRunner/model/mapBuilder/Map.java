@@ -60,7 +60,7 @@ public class Map {
 	}
 	public void setSolidWallAndWaysLayer(MapCell[][] solidWallAndWaysLayer) {
 		this.solidWallAndWaysLayer = solidWallAndWaysLayer;
-		this.movingObjectsLayer = new Object[9*solidWallAndWaysLayer.length][9*solidWallAndWaysLayer[0].length];
+		this.movingObjectsLayer = new Object[3*solidWallAndWaysLayer.length][3*solidWallAndWaysLayer[0].length];
 	}
 	public void setLevel(ILevel level) {
 		this.level = level;
