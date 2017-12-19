@@ -1,16 +1,22 @@
 package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapCells.Gifts;
+import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.model.utilities.GameContract;
+import mazeRunner.model.weapons.Weapon;
 
-public class AKgift extends Gifts{
+public class AKgift extends Gifts {
 	private MapCell afterUpdate = null;
 	private final String standardImageLink ="images/ak.jpg";
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;
-	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
-	private final int giftDamage = 10;
+	private final int giftDamage = 0;
+	private int bulletsNumber = 3 ;
+	private int oneBulletDamage = 4 ;
+	private Class<? extends Weapon> weapon ;
+
 	@Override
 	public boolean isCauseDamage() {
 		return true;
@@ -54,6 +60,40 @@ public class AKgift extends Gifts{
 	@Override
 	public String getImageLink() {
 		return this.standardImageLink;
+	}
+
+	@Override
+	public int getGiftType() {
+		return GameContract.GiftsTypes.WEAPON;
+	}
+
+	@Override
+	public int getBulletsNumber() {
+		return this.bulletsNumber;
+	}
+
+	@Override
+	public int getOneBulletDamage() {
+		return this.oneBulletDamage;
+	}
+
+	@Override
+	public int getScore() {
+		return 0;
+	}
+	@Override
+	public Class<? extends Weapon> getWeaponClass() {
+		try {
+			weapon = (Class<? extends Weapon>) Class.forName("mazeRunner.model.weapons.AK");
+		} catch (ClassNotFoundException e) {
+			return null;
+		}
+		return weapon;
+	}
+
+	@Override
+	public int getGivenHealth() {
+		return 0;
 	}
 
 }

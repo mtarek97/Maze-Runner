@@ -3,7 +3,7 @@ package mazeRunner.model.mapCells;
 
 import mazeRunner.themes.theme1.Way1;
 
-public  abstract class Gifts implements MapCell {
+public  abstract class Gifts implements MapCell,IGift {
 	@Override
 	public boolean isWall(){
 		return false;

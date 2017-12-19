@@ -1,5 +1,7 @@
 package mazeRunner.model.mapCells;
 
+import mazeRunner.model.weapons.Weapon;
+
 public interface IGift {
 /**
  * returns the type of the gift (weapon , health , bullets)
@@ -9,7 +11,7 @@ public int getGiftType();
 /**
  * retuns the name of the weapon if the gift is weapon , null otherwise
  */
-public String getWeaponName();
+public Class<? extends Weapon> getWeaponClass();
 /**
  * returns the number of the bullets if the gift is a bullet
  */
@@ -22,7 +24,7 @@ public int getOneBulletDamage();
 /**
  * returns the health to give to the runner
  */
-public int getHealth();
+public int getGivenHealth();
 /**
  * returns the score if coins 
  */
