@@ -15,8 +15,8 @@ public class MazeGenerator {
 		this.size = size;
 	}
 	public void MazeGenerator(int x, int y) {
-		this.x = x/2;
-		this.y = y/2;
+		this.x = x;
+		this.y = y;
 		maze = new int[this.x][this.y];
 		generateMaze(0, 0);
 	}
@@ -83,7 +83,7 @@ public class MazeGenerator {
 	}
 
 	public boolean[][] generateMaze() {
-		MazeGenerator(size.getWidth(), size.getHeight());
+		MazeGenerator(size.getWidth()/2, size.getHeight()/2);
 		boolean[][] boolMaze = new boolean[x*2+1][y*2+1];
 		display();
 		int u = 0;
@@ -112,8 +112,8 @@ public class MazeGenerator {
 			boolMaze[u][z] = true;
 			u++;
 		}
-		for (int j = 0; j < maze[0].length; j++) {
-		boolMaze[maze.length - 1][j] = true;
+		for (int j = 0; j < boolMaze[0].length; j++) {
+		boolMaze[boolMaze.length - 1][j] = true;
 		}
 			return boolMaze;
 	}
