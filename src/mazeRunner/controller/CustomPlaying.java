@@ -5,31 +5,32 @@ import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.MapBuilder;
 
 /**
- * Created by Mustafa on 12/14/2017.
+ * Created by Mustafa on 12/19/2017.
  */
-public class PlayingController implements Runnable {
+public class CustomPlaying implements Runnable{
     private IMapBuilder mapBuilder;
     private ILevelFactory levelFactory;
     public static BuildingController buildingController;
     private MovingController movingController;
-    public PlayingController(){
+    public CustomPlaying(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
     }
     @Override
     public void run() {
-        int i = 2;
-        mapBuilder.setLevel(levelFactory.getLevel(i));
-        try {
-            buildingController = new BuildingController(mapBuilder);
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (true) {
+            mapBuilder.setLevel(levelFactory.getLevel(0));
+            try {
+                buildingController = new BuildingController(mapBuilder);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            movingController = new MovingController();
+            buildingController.updateSolidWallAndWaysLayerPane();
+            updateView();
+            movingController.actionHandeling();
+            //TODO
         }
-        movingController = new MovingController();
-        buildingController.updateSolidWallAndWaysLayerPane();
-        updateView();
-        movingController.actionHandeling();
-        //TODO
 
     }
 

@@ -1,6 +1,7 @@
 package mazeRunner;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import org.omg.CORBA.portable.ApplicationException;
 
 import javafx.application.*;
@@ -15,11 +16,13 @@ public class StartGame extends Application {
     private MainController mainController;
     public static Scene scene;
     private Stage window;
+    public static VBox root = new VBox();
     public static Pane rootPane;
     public StartGame() {
         mainController = MainController.getController();
         rootPane = (Pane) mainController.getMenu().createContent();
-        scene = new Scene(rootPane);
+        root.getChildren().addAll(rootPane);
+        scene = new Scene(root);
     }
 
     @Override

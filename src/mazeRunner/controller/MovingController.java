@@ -6,6 +6,7 @@ import java.util.concurrent.CountDownLatch;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -53,7 +54,7 @@ public class MovingController{
 
     //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    Pane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
+    ScrollPane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
@@ -66,9 +67,9 @@ public class MovingController{
     }
 
     public void actionHandeling(){
-        StartGame.rootPane.getChildren().setAll(playingPane);
+        StartGame.root.getChildren().setAll(playingPane);
         StartGame.scene.setOnKeyPressed((KeyEvent event) -> {
-            if (event.getCode() == KeyCode.UP) {
+            if (event.getCode() == KeyCode.W) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
                 Point newPosition = new Point(currentPosition.x-1,currentPosition.y);
@@ -83,7 +84,7 @@ public class MovingController{
                     runner.moveUp();
                     //TODO interactions.update();
                 }
-            } else if (event.getCode() == KeyCode.DOWN) {
+            } else if (event.getCode() == KeyCode.S) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
                 Point newPosition = new Point(currentPosition.x+1,currentPosition.y);
@@ -98,7 +99,7 @@ public class MovingController{
                     runner.moveDown();
                     //TODO interactions.update();
                 }
-            } else if (event.getCode() == KeyCode.RIGHT) {
+            } else if (event.getCode() == KeyCode.D) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
                 Point newPosition = new Point(currentPosition.x,currentPosition.y+1);
@@ -113,7 +114,7 @@ public class MovingController{
                     runner.moveRight();
                     //TODO interactions.update();
                 }
-            } else if (event.getCode() == KeyCode.LEFT) {
+            } else if (event.getCode() == KeyCode.A) {
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
                 Point newPosition = new Point(currentPosition.x,currentPosition.y-1);
@@ -164,12 +165,6 @@ public class MovingController{
                                                 bullet.moveInTheSameDirection();
                                                 currentPosition = newPosition;
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-                                                event.consume();
-                                                try {
-                                                    Thread.sleep(300);
-                                                } catch (InterruptedException e) {
-                                                    e.printStackTrace();
-                                                }
                                                 System.out.println("count me");
                                             }
 

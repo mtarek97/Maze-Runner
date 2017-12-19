@@ -1,6 +1,7 @@
 package mazeRunner.view;
 
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import mazeRunner.view.mapCellsView.MapCellView;
@@ -11,12 +12,12 @@ import mazeRunner.view.mapCellsView.Recources;
  */
 public class ViewBuilder extends Pane{
     private Recources recources = Recources.getRecources();
+    private ScrollPane mainPane = new ScrollPane();
     private Pane map = new Pane();
     private GridPane cellsLayerPane = new GridPane();
     private GridPane movingObjectsLayerPane = new GridPane();
     private GridPane solidWallAndWaysLayerPane = new GridPane();
     private MapCellView nodeCell;
-    private Scene scene;
     private static ViewBuilder viewBuilder = new ViewBuilder();
 
     private ViewBuilder() {
@@ -28,7 +29,7 @@ public class ViewBuilder extends Pane{
         map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
         map.getChildren().add(movingObjectsLayerPane);
-        scene = new Scene(map);
+        mainPane.setContent(map);
     }
 
     public static ViewBuilder getViewBuilder(){
@@ -74,8 +75,10 @@ public class ViewBuilder extends Pane{
         solidWallAndWaysLayerPane.getChildren().remove(node);
     }
 
-    public Pane getPlayingPane(){
-        return this.map;
+    public ScrollPane getPlayingPane(){
+        mainPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        mainPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        return this.mainPane;
     }
 }
 
