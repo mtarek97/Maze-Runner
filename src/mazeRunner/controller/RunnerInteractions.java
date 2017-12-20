@@ -10,6 +10,9 @@ import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.WithA4;
 import mazeRunner.model.movingObjects.runners.WithAK;
 import mazeRunner.model.movingObjects.runners.WithPistol;
+import mazeRunner.model.movingObjects.runners.WithSpaceGun1;
+import mazeRunner.model.movingObjects.runners.WithSpaceGun2;
+import mazeRunner.model.movingObjects.runners.WithSpaceGun3;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
 
@@ -77,6 +80,15 @@ public class RunnerInteractions {
 				}else if(weaponName.equals("A4")){
 					runner = new WithA4(runner, gift.getBulletsNumber(),gift.getOneBulletDamage());
 					System.out.println("decorator with A4");
+				}else if(weaponName.equals("spaceGun1")){
+					runner = new WithSpaceGun1(runner, gift.getBulletsNumber(),gift.getOneBulletDamage());
+					System.out.println("decorator with spaceGun1");
+				}else if(weaponName.equals("spaceGun2")){
+					runner = new WithSpaceGun2(runner, gift.getBulletsNumber(),gift.getOneBulletDamage());
+					System.out.println("decorator with spaceGun2");
+				}else if(weaponName.equals("spaceGun3")){
+					runner = new WithSpaceGun3(runner, gift.getBulletsNumber(),gift.getOneBulletDamage());
+					System.out.println("decorator with spaceGun3");
 				}
 			}else{
 				weapon.setFullAmmo();
@@ -107,7 +119,6 @@ public class RunnerInteractions {
     	buildingController.removeFromCellsLayer(runnerMappedPositionX, runnerMappedPositionY);
     	
     }
-
 
     private void performAction(String action){
         //perform specific action based on its name
