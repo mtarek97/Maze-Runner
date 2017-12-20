@@ -9,10 +9,8 @@ public class Bullet implements Projectile{
 	private int speed;
 	private int direction;
 	private Point position;
-	// position on runner layer
 	private Point mappedPosition;
 	private String ImageLink = "images/bullet1.png";
-	private String imageLinks;
 
 	@Override
 	public void moveInTheSameDirection() {
@@ -57,31 +55,7 @@ public class Bullet implements Projectile{
 	public int getDirection() {
 		return direction;
 	}
-
-	@Override
-	public void moveUp() {
-		this.direction = GameContract.Direction.UP;
-		// TODO : implement movement
-	}
-
-	@Override
-	public void moveDown() {
-		this.direction = GameContract.Direction.DOWN;
-		// TODO : implement movement
-	}
-
-	@Override
-	public void moveRight() {
-		this.direction = GameContract.Direction.RIGHT;
-		// TODO : implement movement
-	}
-
-	@Override
-	public void moveLeft() {
-		this.direction = GameContract.Direction.LEFT;
-		// TODO : implement movement
-	}
-
+	
 	@Override
 	public void setPosition(Point position) {
 		this.position = position;

@@ -47,7 +47,7 @@ public class RunnerInteractions {
     	return runnerCell instanceof Obstacle || runnerCell instanceof Gifts;
     }
 
-    private void runnerGiftInterAction(){
+    private void runnerGiftInteraction(){
         //runner gift interaction logic will be here
     	IGift gift = (IGift) runnerCell;
     	int giftType = gift.getGiftType();
@@ -99,7 +99,7 @@ public class RunnerInteractions {
     	if(action == "BombAction"){
     		runnerBombInteraction();
     	}else if(action == "GiftAction"){
-    		runnerGiftInterAction();
+    		runnerGiftInteraction();
     	}
 
     }

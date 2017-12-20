@@ -3,6 +3,14 @@ package mazeRunner.model.movingObjects.monsters;
 import mazeRunner.model.movingObjects.MovingObject;
 
 public interface IMonster extends MovingObject{
+	
+	public void moveUp();
+
+	public void moveDown();
+
+	public void moveRight();
+
+	public void moveLeft();
 
 	public void setSpeed(int speed);
 

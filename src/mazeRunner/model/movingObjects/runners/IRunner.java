@@ -6,6 +6,14 @@ import mazeRunner.model.movingObjects.MovingObject;
 import mazeRunner.model.weapons.Weapon;
 
 public interface IRunner extends MovingObject {
+	
+	public void moveUp();
+
+	public void moveDown();
+
+	public void moveRight();
+
+	public void moveLeft();
 
 	public void setSpeedState(SpeedState speedState);
 

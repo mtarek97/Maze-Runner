@@ -1,14 +1,13 @@
 package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapCells.Gifts;
-import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
 
 public class AKgift extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/ak.jpg";
+	private final String standardImageLink ="images/ak.png";
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;
@@ -88,7 +87,7 @@ public class AKgift extends Gifts {
 		} catch (ClassNotFoundException e) {
 			return null;
 		}
-		return weapon;
+		return weapon; 
 	}
 
 	@Override
