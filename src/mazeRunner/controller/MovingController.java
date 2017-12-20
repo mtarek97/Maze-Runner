@@ -167,6 +167,8 @@ public class MovingController{
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
                                                 System.out.println("count me");
                                             }
+                                            
+                                         
 
                                         }finally{
                                             latch.countDown();

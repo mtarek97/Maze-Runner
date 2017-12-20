@@ -20,8 +20,7 @@ import mazeRunner.model.weapons.Weapon;
  * Created by Mustafa on 12/12/2017.
  */
 public class RunnerInteractions {
-    // TODO : implement interactions methods (connect view with model)
-    // all data that you will need to perform the task must be in map i sent that map from MovingController
+  
     Map map;
     IRunner runner;
     MapCell runnerCell;
@@ -47,7 +46,7 @@ public class RunnerInteractions {
     }
 
     private boolean isThereAnAction(){
-        //get current runner mapped position and see if there is any thing in that position
+        //see if there is any thing in that position
     	return runnerCell instanceof Obstacle || runnerCell instanceof Gifts;
     }
 
