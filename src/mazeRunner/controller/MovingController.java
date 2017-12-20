@@ -38,8 +38,7 @@ public class MovingController{
     private MapCell[][] SolidWallAndWaysArray;
     private BuildingController buildingController = PlayingController.buildingController;
     private Recources recources = Recources.getRecources();
-    private RunnerInteractions runnerInteractions;
-    private BulletInteractions bulletInteractions;
+    private RunnerInteractions interactions;
     private IRunner runner;
     public MovingController() {
         viewFactory = new MapCellViewFactory();
@@ -49,7 +48,7 @@ public class MovingController{
         mapCellsArray = map.getCellsLayer();
         SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
         runner = map.getRunner();
-        runnerInteractions = new RunnerInteractions(buildingController, map);
+        interactions = new RunnerInteractions(buildingController, map);
     }
 
 
@@ -83,7 +82,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP,runner));
                     runner.moveUp();
-                    runnerInteractions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.S) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -98,7 +103,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN,runner));
                     runner.moveDown();
-                    runnerInteractions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.D) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -113,7 +124,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT,runner));
                     runner.moveRight();
-                    runnerInteractions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.A) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -128,7 +145,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.LEFT,runner));
                     runner.moveLeft();
-                    runnerInteractions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             else if(event.getCode() == KeyCode.SPACE) {
@@ -167,11 +190,7 @@ public class MovingController{
                                                 currentPosition = newPosition;
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
                                                 System.out.println("count me");
-                                                
                                             }
-                                            bulletInteractions = new BulletInteractions(buildingController, map, bullet);
-                                            bulletInteractions.update();
-                                         
 
                                         }finally{
                                             latch.countDown();
