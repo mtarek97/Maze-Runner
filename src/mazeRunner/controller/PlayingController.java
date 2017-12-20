@@ -3,10 +3,6 @@ package mazeRunner.controller;
 import mazeRunner.model.levels.ILevelFactory;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.MapBuilder;
-import mazeRunner.model.mapCells.GetSnapShot;
-import mazeRunner.model.movingObjects.runners.IRunner;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Mustafa on 12/14/2017.
@@ -23,7 +19,7 @@ public class PlayingController implements Runnable {
     }
     @Override
     public  void run() {
-        int i = 1;
+        int i = 11;
 
         mapBuilder.setLevel(levelFactory.getLevel(i));
         try {
