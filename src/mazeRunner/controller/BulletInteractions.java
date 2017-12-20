@@ -26,7 +26,7 @@ public class BulletInteractions {
 		System.out.println("position : " + bullet.getPosition().x + " " + bullet.getPosition().y);
 		bulletCell = map.getCellsLayer()[bulletMappedPositionX][bulletMappedPositionY];
 		if (isThereAnAction()) {
-			performAction(getAction());
+			performBulletInteraction();
 		}
 	}
 
@@ -37,43 +37,20 @@ public class BulletInteractions {
 				|| (bulletCell.isWall() && bulletCell.isDestroyable());
 	}
 
-	private void bulletGiftInteraction() {
-		// bullet gift interaction logic will be here
-		
-	}
-
-	private void bulletBombInteraction() {
-		// bullet bomb interaction will be here
-		
-	}
-
-	public void bulletDestroyableWallInteraction() {
-		// bullet destroyableWall interaction will be here
-
-	}
-
-	private void performAction(String action) {
-		// perform specific action based on its name
-		if (action == "BombAction") {
-			bulletBombInteraction();
-		} else if (action == "GiftAction") {
-			bulletGiftInteraction();
-		} else if (action == "DestroyableWallAction") {
-			bulletDestroyableWallInteraction();
+	public void performBulletInteraction() {
+		// bullet interaction logic will be here
+		if(bulletCell.update(01)){
+			map.addCellAtRunTime(bulletCell.getUpdateResult(), bulletMappedPositionX, bulletMappedPositionY);
+	    	if(bulletCell.getUpdateResult() != null) {
+				//TODO : open thread to view ashes on the screen
+			}else{
+				buildingController.removeFromCellsLayer(bulletMappedPositionX, bulletMappedPositionY);
+			}	
 		}
-
 	}
 
-	private String getAction() {
-		// return the name of action
-		if (bulletCell.isObstacle()) {
-			return "BombAction";
-		} else if (bulletCell.isNonObstacle()) {
-			return "GiftAction";
-		}else if(bulletCell.isWall() && bulletCell.isDestroyable()){
-			return "DestroyableWallAction";
-		}
-		return null;
-	}
+	
+
+	
 
 }
