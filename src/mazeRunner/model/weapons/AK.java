@@ -3,11 +3,13 @@ package mazeRunner.model.weapons;
 public class AK implements Weapon{
 	private int ammo;
 	private int bulletsCount;
-	private String imageLink ="";
+	private int oneBulletDamage;
+	private String imageLink = "";
 
-	public AK(int ammo){
+	public AK(int ammo, int oneBulletDamage){
 		this.ammo = ammo;
 		this.bulletsCount = ammo;
+		this.oneBulletDamage = oneBulletDamage;
 	}
 
 
@@ -30,5 +32,15 @@ public class AK implements Weapon{
 		return imageLink;
 	}
 	
-	
+	@Override
+	public int getOneBulletDamage() {
+		return oneBulletDamage;
+	}
+
+
+	@Override
+	public void setFullAmmo() {
+		bulletsCount = ammo;
+		
+	}	
 }

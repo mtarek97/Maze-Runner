@@ -9,7 +9,7 @@ public interface IGift {
  */
 public int getGiftType();
 /**
- * retuns the name of the weapon if the gift is weapon , null otherwise
+ * returns the class of the weapon if the gift is weapon , null otherwise
  */
 public Class<? extends Weapon> getWeaponClass();
 /**

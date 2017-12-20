@@ -141,4 +141,14 @@ public abstract class Runner implements IRunner{
 	public String getLayer(){
 		return "movingObjectsLayerPane";
 	}
+	
+	@Override
+	public Weapon hasWeapon(String weaponName){
+		for(Weapon weapon : getSupportedWeapons()){
+			if(weapon.getClass().getSimpleName().equals(weaponName)){
+				return weapon;
+			}
+		}
+		return null;
+	}
 }

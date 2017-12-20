@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class WeaponFactory {
 
-	public Weapon getWeapon(String weaponName, int ammo) {
+	public Weapon getWeapon(String weaponName, int ammo, int oneBulletDamage) {
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		String packageBinName = "mazeRunner.model.weapons.";
 		Class weapon = null;
@@ -17,13 +17,13 @@ public class WeaponFactory {
 
 		Constructor<?> constuctor = null;
 		try {
-			Class cls[] = new Class[] { int.class };
+			Class cls[] = new Class[] { int.class , int.class};
 			constuctor = weapon.getConstructor(cls);
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 		try {
-			return (Weapon) constuctor.newInstance(ammo);
+			return (Weapon) constuctor.newInstance(ammo,oneBulletDamage);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
 			e.printStackTrace();

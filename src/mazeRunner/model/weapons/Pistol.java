@@ -4,12 +4,13 @@ public class Pistol implements Weapon{
 
 	private int ammo;
 	private int bulletsCount;
+	private int oneBulletDamage;
 	private String imageLink = "";
-	
 
-	public Pistol(int ammo){
+	public Pistol(int ammo, int oneBulletDamage){
 		this.ammo = ammo;
 		this.bulletsCount = ammo;
+		this.oneBulletDamage = oneBulletDamage;
 	}
 
 
@@ -31,5 +32,16 @@ public class Pistol implements Weapon{
 	public String getImageLink() {
 		return imageLink;
 	}
+	
+	@Override
+	public int getOneBulletDamage() {
+		return oneBulletDamage;
+	}
+
+
+	@Override
+	public void setFullAmmo() {
+		bulletsCount = ammo;
+	}	
 	
 }

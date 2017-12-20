@@ -1,7 +1,5 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapCells.DirectionContract;
-
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 

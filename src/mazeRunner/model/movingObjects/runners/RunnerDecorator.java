@@ -122,5 +122,12 @@ public  class RunnerDecorator implements IRunner{
 	public SpeedState getSpeedState() {
 		return decoratedRunner.getSpeedState();
 	}
+
+
+
+	@Override
+	public Weapon hasWeapon(String WeaponName) {
+		return decoratedRunner.hasWeapon(WeaponName);
+	}
 	
 }

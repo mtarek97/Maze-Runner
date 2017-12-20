@@ -12,6 +12,7 @@ public class PlayingController implements Runnable {
     private ILevelFactory levelFactory;
     public static BuildingController buildingController;
     private MovingController movingController;
+    public static int score = 0;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();

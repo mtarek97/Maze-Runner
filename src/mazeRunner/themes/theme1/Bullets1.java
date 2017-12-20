@@ -1,11 +1,9 @@
 package mazeRunner.themes.theme1;
 
-import mazeRunner.model.mapCells.DirectionContract;
+import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
-import mazeRunner.model.mapCells.Gifts;
-import mazeRunner.model.mapCells.IGift;
 
 public class Bullets1 extends Gifts {
 	private MapCell afterUpdate = null;
