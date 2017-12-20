@@ -38,7 +38,7 @@ public class HugeBomb extends Obstacle  {
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;
