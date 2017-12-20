@@ -1,9 +1,6 @@
 package mazeRunner.model.mapBuilder;
 
-import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.mapCells.Obstacle;
-import mazeRunner.model.mapCells.Wall;
-import mazeRunner.model.mapCells.Way;
+import mazeRunner.model.mapCells.*;
 import mazeRunner.themes.theme1.SolidWall;
 import mazeRunner.themes.theme1.Way1;
 
@@ -39,11 +36,11 @@ public class DistributeRandomGifts {
     	}catch(Exception e){
     		isSubOfWay =true;
     	}
-        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true||!isSubOfWay) {
+        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] == true||!maze[x][y].isWay() || maze[x][y] instanceof CheckPoint) {
             return;
         }
 
-        if (maze[x][y] instanceof Obstacle || (maze[x][y] instanceof Wall && maze[x][y].isDestroyable() == true)) {
+        if (maze[x][y].isObstacle() || (maze[x][y].isWall() && maze[x][y].isDestroyable() == true)) {
             if(bulletsRunHas - maze[x][y].getHealth() < 0){
                 return;
             }

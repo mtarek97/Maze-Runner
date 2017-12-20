@@ -72,7 +72,7 @@ public class MapGenerator {
 			for (int i = 0; i < entry.getValue(); i++) {
 				Point randomCell = getRandomCell(allFreeCells);
 				maze[randomCell.x][randomCell.y] = cell;
-				if (cell instanceof Obstacle || (cell instanceof Wall && cell.isDestroyable() == true)) {
+				if (cell.isObstacle() || (cell.isWall() && cell.isDestroyable() == true)) {
 					numberOfNeededBullets += cell.getHealth();
 				}
 			}
