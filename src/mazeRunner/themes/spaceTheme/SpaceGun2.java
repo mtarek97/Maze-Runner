@@ -8,7 +8,7 @@ import mazeRunner.themes.theme1.ashes;
 
 public class SpaceGun2 extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/saceTheme/gun2.png";
+	private final String standardImageLink ="images/spaceTheme/gun2.png";
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;

@@ -8,7 +8,7 @@ import mazeRunner.themes.theme1.ashes;
 
 public class SpaceHealthGift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/saceTheme/health.png";
+	private final String standardImageLink ="images/spaceTheme/health.png";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";

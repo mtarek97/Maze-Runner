@@ -7,7 +7,7 @@ import mazeRunner.themes.theme1.ashes;
 public class DestroyableWall2 extends Wall{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/saceTheme/destroyable2.png";
+	private final String standardImageLink ="images/spaceTheme/destroyable2.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";

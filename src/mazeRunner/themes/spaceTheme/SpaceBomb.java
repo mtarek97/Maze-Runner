@@ -8,7 +8,7 @@ import mazeRunner.model.mapCells.Obstacle;
 public class SpaceBomb extends Obstacle{
 
 		private MapCell afterUpdate = null;
-		private final String standardImageLink ="images/saceTheme/bomb1.png";
+		private final String standardImageLink ="images/spaceTheme/bomb1.png";
 
 
 		private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
