@@ -8,11 +8,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
         MapBuilder builer = new MapBuilder();
         builer.createMapBuilder();
-        builer.setLevel(new Level2());
-       Map map= builer.getMap();
-       @SuppressWarnings("unused")
-	MapSize mapl = new MapSize(7,7);
-       System.out.println("");
+        builer.setLevel(new Level1());
+        Map map = builer.getMap();
+/*	MapSize mapl = new MapSize(40,40);
+     //  System.out.println("");
      MazeGenerator generator = new MazeGenerator(mapl);
    boolean[][] maze =  generator.generateMaze();
       for(int i = 0; i < maze.length; i++) {
@@ -25,5 +24,7 @@ public class Main {
         System.out.println(end.getEnd().x);
         System.out.println(end.getEnd().y);
 
+    }
+    */
     }
 }

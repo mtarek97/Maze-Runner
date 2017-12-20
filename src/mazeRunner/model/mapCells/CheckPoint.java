@@ -72,7 +72,7 @@ public class CheckPoint implements MapCell {
 
     @Override
     public String getImageLink() {
-        return "mazeRunner.view.mapCellsView.images.CheckPoint.png";
+        return "images/CheckPoint.png";
     }
 
     @Override

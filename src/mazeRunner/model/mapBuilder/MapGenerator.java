@@ -56,9 +56,6 @@ public class MapGenerator {
 						this.maze[i][j] = factory.getWay(); // if it is check point donot put way
 					}
 					solidWallAndWaysLayer[i][j] = factory.getWay();
-					if((map.getCellsLayer()[i][j] instanceof CheckPoint)) {
-						System.out.println("ss");
-					}
 					if((i != 1 || j != 1)&& !(map.getCellsLayer()[i][j] instanceof CheckPoint))
 						allFreeCells.add(new Point(i, j));
 

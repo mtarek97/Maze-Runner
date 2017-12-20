@@ -25,6 +25,9 @@ public class DistributeRandomGifts {
         Stack<Point> allFreeCells = new Stack<>();
         DFS(1,1, allFreeCells);
         Collections.shuffle(allFreeCells);
+        if(allFreeCells.size() == 0) {
+            System.out.println("sd");
+        }
         while (allFreeCells.peek().x == 1&& allFreeCells.peek().y == 1) {
             Collections.shuffle(allFreeCells);
         }
@@ -34,7 +37,7 @@ public class DistributeRandomGifts {
 
     public void  DFS(int x, int y, Stack<Point> allFreeCells ) {
 
-        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y] ||!(maze[x][y].isWay())|| maze[x][y] instanceof CheckPoint ) {
+        if( y >= visited[0].length|| x >= visited.length|| x < 0|| y < 0|| visited[x][y]  ) {
             return;
         }
 
@@ -44,7 +47,7 @@ public class DistributeRandomGifts {
             }
             bulletsRunHas = bulletsRunHas - maze[x][y].getHealth();
         }
-        if(x != 1 || y != 1)
+        if((x != 1 || y != 1)&& ((maze[x][y].isWay())))
         allFreeCells.add(new Point(x, y));
         visited[x][y] = true;
         DFS(x + 1, y, allFreeCells);

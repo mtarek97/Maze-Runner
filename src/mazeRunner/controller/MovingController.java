@@ -66,7 +66,7 @@ public class MovingController{
         return false;
     }
 
-    public void actionHandeling(){
+    public  void actionHandeling(){
         StartGame.root.getChildren().setAll(playingPane);
         StartGame.scene.setOnKeyPressed((KeyEvent event) -> {
             if (event.getCode() == KeyCode.W) {
@@ -91,6 +91,7 @@ public class MovingController{
                     }
                 }
             } else if (event.getCode() == KeyCode.S) {
+
                 Point currentMapedPosition = runner.getMappedPosition();
                 Point currentPosition = runner.getPosition();
                 Point newPosition = new Point(currentPosition.x+1,currentPosition.y);
@@ -211,7 +212,9 @@ public class MovingController{
             event.consume();
         });
     }
+
     public Point changePosition(int direction, Point oldPoint) {
+
         Point newPosition ;
         if(direction == GameContract.Direction.UP) {
 

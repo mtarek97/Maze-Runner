@@ -6,6 +6,8 @@ import mazeRunner.model.mapBuilder.MapBuilder;
 import mazeRunner.model.mapCells.GetSnapShot;
 import mazeRunner.model.movingObjects.runners.IRunner;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Mustafa on 12/14/2017.
  */
@@ -20,7 +22,7 @@ public class PlayingController implements Runnable {
         levelFactory = new ILevelFactory();
     }
     @Override
-    public void run() {
+    public  void run() {
         int i = 1;
 
         mapBuilder.setLevel(levelFactory.getLevel(i));
@@ -29,6 +31,7 @@ public class PlayingController implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        int x = 0;
         movingController = new MovingController();
         buildingController.updateSolidWallAndWaysLayerPane();
         updateView();
