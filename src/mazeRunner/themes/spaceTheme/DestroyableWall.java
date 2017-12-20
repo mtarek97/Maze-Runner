@@ -17,14 +17,12 @@ public class DestroyableWall extends Wall{
 	public boolean isDestroyable() {
 		return true;
 	}
-
+	
 	@Override
 	public MapCell getUpdateResult() {
 		return this.afterUpdate;
 	}
-
-
-
+	
 	@Override
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
