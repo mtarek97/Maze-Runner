@@ -82,7 +82,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP,runner));
                     runner.moveUp();
-                    interactions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.S) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -97,7 +103,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN,runner));
                     runner.moveDown();
-                    interactions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.D) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -112,7 +124,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT,runner));
                     runner.moveRight();
-                    interactions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (event.getCode() == KeyCode.A) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -127,7 +145,13 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.LEFT,runner));
                     runner.moveLeft();
-                    interactions.update();
+                    try {
+                        interactions.update();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             else if(event.getCode() == KeyCode.SPACE) {

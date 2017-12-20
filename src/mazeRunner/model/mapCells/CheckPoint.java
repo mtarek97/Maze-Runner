@@ -40,7 +40,7 @@ public class CheckPoint implements MapCell {
 
         return null;
     }
-    public void takeSnapShot(Map map, Runner runner) {
+    public void takeSnapShot(Map map, Runner runner) throws InstantiationException, IllegalAccessException {
 
         GetSnapShot.takeSnapShot(runner, map);
     }
@@ -72,11 +72,11 @@ public class CheckPoint implements MapCell {
 
     @Override
     public String getImageLink() {
-        return null;
+        return "mazeRunner.view.mapCellsView.images.CheckPoint.png";
     }
 
     @Override
     public String getLayer() {
-        return null;
+        return "cellsLayerPane";
     }
 }

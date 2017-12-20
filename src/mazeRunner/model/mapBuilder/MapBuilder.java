@@ -30,7 +30,7 @@ public class MapBuilder implements IMapBuilder{
 		map.setBooleanMaze(maze);
 		map.setEndPoint(end.getEnd());
 		map.setCorrectWay(end.getCorrectWay());
-		MapGenerator mapGenerator = new MapGenerator(maze, map);
+		MapGenerator mapGenerator = new MapGenerator( map);
 		map = mapGenerator.generateMap();
 		map.setRunnerInitalPosition();
 		return map;

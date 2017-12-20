@@ -5,7 +5,7 @@ import mazeRunner.model.utilities.GameContract;
 public class Level1 extends Level{
 
 	public Level1(){
-		this.mapSize = new MapSize(10, 10);
+		this.mapSize = new MapSize(40, 40);
 		this.theme = 1;
 		addSupportedMapCells();
 		setSupportedMapCellsCount();

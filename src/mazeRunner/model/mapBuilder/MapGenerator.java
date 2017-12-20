@@ -23,20 +23,28 @@ public class MapGenerator {
 	int numberOfNeededBullets = 0;
 	CellFactory factory = new CellFactory();
 	Stack<Point> allFreeCells = new Stack<>();
-	public MapGenerator(boolean[][] maze, Map map) {
+	public MapGenerator( Map map) {
 		this.map = map;
-		MapCell[][] solidWallAndWaysLayer = new MapCell[maze.length][maze[0].length];
 		this.mapElementType = map.getLevel().getSupportedMapCellsCounts();
-		this.maze = new MapCell[maze.length][maze[0].length];
+		this.maze = new MapCell[map.getBooleanMaze().length][map.getBooleanMaze()[0].length];
 		map.setCellsLayer(this.maze);
 		GenerateCheckPoint.map = map;
 		GenerateCheckPoint.generate();
 
-		for (int i = 0; i < maze.length; i++) {
+			}
 
-			for (int j = 0; j < maze[0].length; j++) {
+	public Point getRandomCell(Stack<Point> allFreeCells) {
+		Collections.shuffle(allFreeCells);
+		return new Point(allFreeCells.pop());
 
-				if (maze[i][j]) {
+	}
+	public void setWallsAndWays() throws Exception {
+		MapCell[][] solidWallAndWaysLayer = new MapCell[map.getBooleanMaze().length][map.getBooleanMaze()[0].length];
+		for (int i = 0; i < map.getBooleanMaze().length; i++) {
+
+			for (int j = 0; j < map.getBooleanMaze()[0].length; j++) {
+
+				if (map.getBooleanMaze()[i][j]) {
 
 					this.maze[i][j] = new SolidWall();
 					solidWallAndWaysLayer[i][j] = new SolidWall();
@@ -44,8 +52,13 @@ public class MapGenerator {
 				}
 				else {
 
-					this.maze[i][j] = new Way1();
-					solidWallAndWaysLayer[i][j] = new Way1();
+					if(!(map.getCellsLayer()[i][j] instanceof CheckPoint)) {
+						this.maze[i][j] = factory.getWay(); // if it is check point donot put way
+					}
+					solidWallAndWaysLayer[i][j] = factory.getWay();
+					if((map.getCellsLayer()[i][j] instanceof CheckPoint)) {
+						System.out.println("ss");
+					}
 					if((i != 1 || j != 1)&& !(map.getCellsLayer()[i][j] instanceof CheckPoint))
 						allFreeCells.add(new Point(i, j));
 
@@ -53,11 +66,6 @@ public class MapGenerator {
 			}
 		}
 		map.setSolidWallAndWaysLayer(solidWallAndWaysLayer);
-	}
-
-	public Point getRandomCell(Stack<Point> allFreeCells) {
-		Collections.shuffle(allFreeCells);
-		return new Point(allFreeCells.pop());
 
 	}
 	public Map generateMap() throws Exception {
@@ -67,6 +75,7 @@ public class MapGenerator {
 			classesName.add(map.getLevel().getSupportedMapCells().get(i).getName());
 		}
 		factory.setClasses(classesName);
+		setWallsAndWays();
 		for (java.util.Map.Entry<String, Integer> entry : this.mapElementType.entrySet()) {
 			MapCell cell = factory.getInstanceByClassName(entry.getKey());
 			for (int i = 0; i < entry.getValue(); i++) {
