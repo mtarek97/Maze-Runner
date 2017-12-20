@@ -1,17 +1,16 @@
-package mazeRunner.themes.spaceTheme;
+package mazeRunner.themes.theme1;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
-import mazeRunner.themes.theme1.ashes;
 
-public class DestroyableWall extends Wall{
+public class DestroyableWall2 extends Wall{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/destroyable.png";
+	private final String standardImageLink ="images/box2.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
-	private  int health = 3;
+	private  int health = 1;
 	
 	@Override
 	public boolean isDestroyable() {
