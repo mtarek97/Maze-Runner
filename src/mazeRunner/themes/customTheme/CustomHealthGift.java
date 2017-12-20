@@ -1,21 +1,21 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.customTheme;
 
+import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
+import mazeRunner.themes.warTheme.ashes;
 
-public class HealthGift extends Gifts{
+public class CustomHealthGift extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/medicine.png";
+	private final String standardImageLink =GameSetting.getGameSetting().getCustomMapCellImageLink("CustomHealthGift");;
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.healthhit";
 	private  int health = 1;
 	private final int giftDamage = 0;
-	private  int Givenhealth = 4;
-
+	
 
 	@Override
 	public String getDestroyingSound() {
@@ -67,7 +67,7 @@ public class HealthGift extends Gifts{
 
 	@Override
 	public int getGiftType() {
-		return GameContract.GiftsTypes.HEALTH;
+		return 0;
 	}
 
 	@Override
@@ -86,16 +86,12 @@ public class HealthGift extends Gifts{
 	}
 
 	@Override
-	public int getScore() {
+	public int getGivenHealth() {
 		return 0;
 	}
 
 	@Override
-	public int getGivenHealth() {
-		return this.Givenhealth;
+	public int getScore() {
+		return 0;
 	}
-
-
-
-	
 }

@@ -1,27 +1,20 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.warTheme;
 
 import mazeRunner.model.mapCells.Gifts;
+import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
 
-public class Bullets1 extends Gifts {
+public class Coin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/bullets.png";
-
+	private final String standardImageLink ="images/Coin.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.gifthit";
-	private  int health = 1;
-	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";
+	private  int health = 2;
 	private final int giftDamage = 0;
-	private int bulletsNumber = 3 ;
-	private int oneBulletDamage = 4 ;
-	private int BulletsDamage = 12;
-
-	public int getBulletsDamage() {
-		return BulletsDamage;
-	}
+	private int CoinsNum = 3 ;
 
 
 	@Override
@@ -69,32 +62,33 @@ public class Bullets1 extends Gifts {
 
 	@Override
 	public boolean isCauseDamage() {
-		return true;
+		return false;
 	}
 
 	@Override
 	public int getGiftType() {
-		return GameContract.GiftsTypes.BULLETS;
+		return GameContract.GiftsTypes.COIN;
 	}
 
 	@Override
 	public Class<? extends Weapon> getWeaponClass() {
+		
 		return null;
 	}
 
 	@Override
 	public int getBulletsNumber() {
-		return this.bulletsNumber;
+		return 0;
 	}
 
 	@Override
 	public int getOneBulletDamage() {
-		return this.oneBulletDamage;
+		return 0;
 	}
 
 	@Override
 	public int getScore() {
-		return 0;
+		return this.CoinsNum;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.warTheme;
 
 import mazeRunner.model.mapCells.Way;
 

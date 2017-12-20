@@ -1,4 +1,4 @@
-package mazeRunner.themes.theme0;
+package mazeRunner.themes.customTheme;
 
 
 import mazeRunner.model.GameSetting;

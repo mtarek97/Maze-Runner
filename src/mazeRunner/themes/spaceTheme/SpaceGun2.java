@@ -4,7 +4,7 @@ import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
-import mazeRunner.themes.theme1.ashes;
+import mazeRunner.themes.warTheme.ashes;
 
 public class SpaceGun2 extends Gifts{
 	private MapCell afterUpdate = null;

@@ -2,7 +2,7 @@ package mazeRunner.themes.spaceTheme;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
-import mazeRunner.themes.theme1.ashes;
+import mazeRunner.themes.warTheme.ashes;
 
 public class DestroyableWall extends Wall{
 

@@ -1,32 +1,42 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.warTheme;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 
-public class SolidWall extends Wall{
+public class DestroyableWall2 extends Wall{
 
-	private final String standardImageLink ="images/wall.png";
+	private MapCell afterUpdate = null;
+	private final String standardImageLink ="images/box2.png";
+
+	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
+	private  int health = 1;
+	
 	@Override
 	public boolean isDestroyable() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public MapCell getUpdateResult() {
-		return null;
+		return this.afterUpdate;
 	}
 
-	
+
 
 	@Override
 	public boolean update(int fullDamage) {
+		this.health -= fullDamage;
+		if(this.getHealth()<=0){
+			this.afterUpdate = new ashes();
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public String getDestroyingSound() {
-		return null;
+		return this.destroySound;
 	}
 
 	@Override
@@ -36,12 +46,15 @@ public class SolidWall extends Wall{
 
 	@Override
 	public int getHealth() {
-		return Integer.MAX_VALUE;
+		return this.health;
 	}
 
 	@Override
 	public String getImageLink() {
 		return this.standardImageLink;
 	}
-
+	@Override
+	public String getLayer(){
+		return "cellsLayerPane";
+	}
 }

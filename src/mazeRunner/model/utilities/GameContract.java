@@ -25,4 +25,8 @@ public class GameContract {
         public static final int COIN = 4;
 
 	}
+	public class BombsTypes{
+        public static final int DECREASES_HEALTH = 1;
+        public static final int DECREASES_SCORE = 2;
+	}
 }

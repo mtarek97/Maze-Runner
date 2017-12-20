@@ -1,39 +1,27 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.customTheme;
 
 import mazeRunner.model.mapCells.Gifts;
-import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
+import mazeRunner.themes.warTheme.ashes;
 
-public class Coin extends Gifts {
+public class AKgift0 extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/Coin.png";
-
+	private final String standardImageLink ="images/ak.jpg";
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;
-	private final int giftDamage = 0;
-	private int CoinsNum = 3 ;
-
-
+	/*the full damage from this gift ,,, ex) gift that gives three bullets each causes 1 damage ,, then fulldamage is 3*/
+	private final int giftDamage = 10;
 	@Override
-	public String getDestroyingSound() {
-		return this.destroySound;
+	public boolean isCauseDamage() {
+		return true;
 	}
 
 	@Override
-	public String getHittingSound() {
-		return this.hittingSound;
+	public MapCell getUpdateResult() {
+		return null;
 	}
-
-	@Override
-	public int getHealth() {
-		return this.health;
-	}
-
-
-
 
 	@Override
 	public boolean update(int fullDamage) {
@@ -46,13 +34,13 @@ public class Coin extends Gifts {
 	}
 
 	@Override
-	public MapCell getUpdateResult() {
-		return this.afterUpdate;
+	public String getDestroyingSound() {
+		return this.destroySound;
 	}
 
 	@Override
-	public String getImageLink() {
-		return this.standardImageLink;
+	public String getHittingSound() {
+		return this.hittingSound;
 	}
 
 	@Override
@@ -61,18 +49,22 @@ public class Coin extends Gifts {
 	}
 
 	@Override
-	public boolean isCauseDamage() {
-		return false;
+	public int getHealth() {
+		return this.health;
+	}
+
+	@Override
+	public String getImageLink() {
+		return this.standardImageLink;
 	}
 
 	@Override
 	public int getGiftType() {
-		return GameContract.GiftsTypes.COIN;
+		return 0;
 	}
 
 	@Override
 	public Class<? extends Weapon> getWeaponClass() {
-		
 		return null;
 	}
 
@@ -87,16 +79,12 @@ public class Coin extends Gifts {
 	}
 
 	@Override
-	public int getScore() {
-		return this.CoinsNum;
-	}
-
-	@Override
 	public int getGivenHealth() {
 		return 0;
 	}
 
-
-
-	
+	@Override
+	public int getScore() {
+		return 0;
+	}
 }

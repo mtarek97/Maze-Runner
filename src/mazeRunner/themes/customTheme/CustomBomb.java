@@ -1,10 +1,10 @@
-package mazeRunner.themes.theme0;
+package mazeRunner.themes.customTheme;
 
 
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
-import mazeRunner.themes.theme1.ashes;
+import mazeRunner.themes.warTheme.ashes;
 
 public class CustomBomb extends Obstacle  {
 	private MapCell afterUpdate = null;

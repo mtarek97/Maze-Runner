@@ -1,12 +1,14 @@
-package mazeRunner.themes.theme1;
+package mazeRunner.themes.customTheme;
 
+import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
+import mazeRunner.themes.warTheme.ashes;
 
-public class DestroyableWall extends Wall{
+public class CustomDestroyableWall extends Wall{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/box.png";
+	private final String standardImageLink =GameSetting.getGameSetting().getCustomMapCellImageLink("CustomDestroyableWall");;
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
