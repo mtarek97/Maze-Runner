@@ -22,8 +22,8 @@ public class BulletInteractions {
 	public void update() {
 		bulletMappedPositionX = bullet.getMappedPosition().x;
 		bulletMappedPositionY = bullet.getMappedPosition().y;
-		System.out.println("mapped position : " + bulletMappedPositionX + " " + bulletMappedPositionY);
-		System.out.println("position : " + bullet.getPosition().x + " " + bullet.getPosition().y);
+		System.out.println("bullet mapped position : " + bulletMappedPositionX + " " + bulletMappedPositionY);
+		System.out.println("bullet position : " + bullet.getPosition().x + " " + bullet.getPosition().y);
 		bulletCell = map.getCellsLayer()[bulletMappedPositionX][bulletMappedPositionY];
 		if (isThereAnAction()) {
 			performBulletInteraction();
@@ -45,12 +45,7 @@ public class BulletInteractions {
 				//TODO : open thread to view ashes on the screen
 			}else{
 				buildingController.removeFromCellsLayer(bulletMappedPositionX, bulletMappedPositionY);
-			}	
+			}
 		}
 	}
-
-	
-
-	
-
 }

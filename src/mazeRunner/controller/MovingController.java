@@ -38,7 +38,8 @@ public class MovingController{
     private MapCell[][] SolidWallAndWaysArray;
     private BuildingController buildingController = PlayingController.buildingController;
     private Recources recources = Recources.getRecources();
-    private RunnerInteractions interactions;
+    private RunnerInteractions runnerInteractions;
+    private BulletInteractions bulletInteractions;
     private IRunner runner;
     public MovingController() {
         viewFactory = new MapCellViewFactory();
@@ -48,7 +49,7 @@ public class MovingController{
         mapCellsArray = map.getCellsLayer();
         SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
         runner = map.getRunner();
-        interactions = new RunnerInteractions(buildingController, map);
+        runnerInteractions = new RunnerInteractions(buildingController, map);
     }
 
 
@@ -82,7 +83,7 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP,runner));
                     runner.moveUp();
-                    interactions.update();
+                    runnerInteractions.update();
                 }
             } else if (event.getCode() == KeyCode.S) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -97,7 +98,7 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN,runner));
                     runner.moveDown();
-                    interactions.update();
+                    runnerInteractions.update();
                 }
             } else if (event.getCode() == KeyCode.D) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -112,7 +113,7 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT,runner));
                     runner.moveRight();
-                    interactions.update();
+                    runnerInteractions.update();
                 }
             } else if (event.getCode() == KeyCode.A) {
                 Point currentMapedPosition = runner.getMappedPosition();
@@ -127,7 +128,7 @@ public class MovingController{
                     buildingController.addToMovingLayer(newPosition.x,newPosition.y,runnerView);
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.LEFT,runner));
                     runner.moveLeft();
-                    interactions.update();
+                    runnerInteractions.update();
                 }
             }
             else if(event.getCode() == KeyCode.SPACE) {
@@ -166,8 +167,10 @@ public class MovingController{
                                                 currentPosition = newPosition;
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
                                                 System.out.println("count me");
+                                                
                                             }
-                                            
+                                            bulletInteractions = new BulletInteractions(buildingController, map, bullet);
+                                            bulletInteractions.update();
                                          
 
                                         }finally{
