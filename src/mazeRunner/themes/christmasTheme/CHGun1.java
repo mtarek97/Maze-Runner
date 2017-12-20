@@ -84,7 +84,7 @@ public class CHGun1 extends Gifts{
 	@Override
 	public Class<? extends Weapon> getWeaponClass() {
 		try {
-			weapon = (Class<? extends Weapon>) Class.forName("mazeRunner.model.weapons.spaceGun1"); 
+			weapon = (Class<? extends Weapon>) Class.forName("mazeRunner.model.weapons.CHGun1"); 
 		} catch (ClassNotFoundException e) {
 			return null;
 		}
