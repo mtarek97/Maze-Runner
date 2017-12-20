@@ -86,7 +86,7 @@ private boolean readyClasses=false;
 		}
 		return this.classes.get(name).newInstance();
 	}
-
+	
 	@Override
 	public MapCell getUndestroyableWall() throws Exception {
 		if(!this.readyClasses){
