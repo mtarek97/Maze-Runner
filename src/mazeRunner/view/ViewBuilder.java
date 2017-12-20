@@ -1,6 +1,5 @@
 package mazeRunner.view;
 
-import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -24,7 +23,7 @@ public class ViewBuilder extends Pane{
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
-        movingObjectsLayerPane.setGridLinesVisible(true);
+        //movingObjectsLayerPane.setGridLinesVisible(true);
         cellsLayerPane.setGridLinesVisible(true);
         map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
