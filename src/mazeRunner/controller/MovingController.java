@@ -53,7 +53,6 @@ public class MovingController{
     }
 
 
-    //TODO  private RunnerInteractions interactions = new RunnerInteractions(map);
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
     ScrollPane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
