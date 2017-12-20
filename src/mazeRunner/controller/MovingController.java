@@ -38,7 +38,8 @@ public class MovingController{
     private MapCell[][] SolidWallAndWaysArray;
     private BuildingController buildingController = PlayingController.buildingController;
     private Recources recources = Recources.getRecources();
-    private RunnerInteractions interactions;
+    private RunnerInteractions runnerInteractions;
+    private BulletInteractions bulletInteractions;
     private IRunner runner;
     public MovingController() {
         viewFactory = new MapCellViewFactory();
@@ -48,7 +49,7 @@ public class MovingController{
         mapCellsArray = map.getCellsLayer();
         SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
         runner = map.getRunner();
-        interactions = new RunnerInteractions(buildingController, map);
+        runnerInteractions = new RunnerInteractions(buildingController, map);
     }
 
 
@@ -83,7 +84,7 @@ public class MovingController{
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.UP,runner));
                     runner.moveUp();
                     try {
-                        interactions.update();
+                    	runnerInteractions.update();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
@@ -105,7 +106,7 @@ public class MovingController{
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.DOWN,runner));
                     runner.moveDown();
                     try {
-                        interactions.update();
+                    	runnerInteractions.update();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
@@ -126,7 +127,7 @@ public class MovingController{
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.RIGHT,runner));
                     runner.moveRight();
                     try {
-                        interactions.update();
+                    	runnerInteractions.update();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
@@ -147,7 +148,7 @@ public class MovingController{
                     playingView.putCellInMovingObjectsLayer(runnerView,newPosition.x,newPosition.y,getImageDirection(GameContract.Direction.LEFT,runner));
                     runner.moveLeft();
                     try {
-                        interactions.update();
+                    	runnerInteractions.update();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
@@ -192,6 +193,8 @@ public class MovingController{
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
                                                 System.out.println("count me");
                                             }
+                                            bulletInteractions = new BulletInteractions(buildingController, map, bullet);
+                                            bulletInteractions.update();
 
                                         }finally{
                                             latch.countDown();
