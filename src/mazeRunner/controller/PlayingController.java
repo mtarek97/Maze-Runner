@@ -19,7 +19,7 @@ public class PlayingController implements Runnable {
     }
     @Override
     public void run() {
-        int i = 2;
+        int i = 6;
         mapBuilder.setLevel(levelFactory.getLevel(i));
         try {
             buildingController = new BuildingController(mapBuilder);

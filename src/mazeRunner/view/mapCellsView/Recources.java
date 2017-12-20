@@ -1,9 +1,9 @@
 package mazeRunner.view.mapCellsView;
 
+import java.util.HashMap;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.util.HashMap;
 
 /**
  * Created by Mustafa on 12/10/2017.

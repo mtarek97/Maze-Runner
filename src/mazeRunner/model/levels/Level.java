@@ -42,8 +42,18 @@ public abstract class Level implements ILevel {
 	}
 
 	protected void addSupportedMapCells() {
+		String themeName = "";
+		if(theme == 1){
+			themeName = "warTheme";
+		}else if(theme == 2){
+			themeName = "spaceTheme";
+		}else if(theme == 3){
+			themeName = "christmasTheme";			
+		}else{
+			themeName = "customTheme";
+		}
 		supportedMapCells = ClassFinder
-				.findAllClassesInPackage("mazeRunner.themes.theme".concat(String.valueOf(theme)));
+				.findAllClassesInPackage("mazeRunner.themes.".concat(themeName));
 	}
 
 	protected void setSupportedMapCellsCount() {
@@ -65,18 +75,16 @@ public abstract class Level implements ILevel {
 	}
 
 	private int destroyableWallsCount() {
-		// TODO : we need some logic here
-		return 5;
+		return mapSize.getHeight()/(2*theme);
 	}
 
 	private int obstaclesCount() {
-		// TODO : we need some logic here
-		return 5;
+		
+		return mapSize.getHeight()/(3*theme);
 	}
 
 	private int nonObstaclesCount() {
-		// TODO : we need some logic here
-		return 5;
+		return mapSize.getHeight()*4/(7*theme);
 	}
 	@Override
 	public int getNumberOfCheckPoints() {

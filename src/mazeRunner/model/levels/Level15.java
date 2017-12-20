@@ -2,15 +2,14 @@ package mazeRunner.model.levels;
 
 import mazeRunner.model.utilities.GameContract;
 
-public class Level1 extends Level{
+public class Level15 extends Level{
 
-	public Level1(){
+	public Level15(){
 		this.mapSize = new MapSize(40, 40);
-		this.theme = 1;
+		this.theme = 3;
 		addSupportedMapCells();
 		setSupportedMapCellsCount();
-		this.runnerSpeed = GameContract.Speed.HIGH;
-		this.numberOfCheckPoints = 1;
+		this.runnerSpeed = GameContract.Speed.LOW;
+		this.numberOfCheckPoints = 3;
 	}
-	
 }
