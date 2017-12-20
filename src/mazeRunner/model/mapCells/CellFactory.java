@@ -17,7 +17,7 @@ private boolean readyClasses=false;
 	private HashMap<String,Class<? extends MapCell>> classes = new HashMap<String,Class<?extends MapCell>>();
 	private LinkedList<Class<? extends Wall>> Walls = new LinkedList<Class<?extends Wall>>();
 	private LinkedList<Class<? extends Way>> Ways = new LinkedList<Class<?extends Way>>();
-	private LinkedList<Class<? extends Way>> GiftDestroysObstacles = new LinkedList<Class<?extends Way>>();
+	private LinkedList<Class<? extends Gifts>> GiftDestroysObstacles = new LinkedList<Class<?extends Gifts>>();
 
 	@Override
 
@@ -32,7 +32,7 @@ private boolean readyClasses=false;
 				}else if(isWay(mapCellSubClass)){
 					this.Ways.add((Class<? extends Way>) mapCellSubClass);
 				}else if(isDestroyingObstacles(mapCellSubClass)){
-					this.GiftDestroysObstacles.add((Class<? extends Way>) mapCellSubClass);
+					this.GiftDestroysObstacles.add((Class<? extends Gifts>) mapCellSubClass);
 				}
 				classes.put(className,mapCellSubClass);
 			} catch (ClassNotFoundException e) {
