@@ -1,14 +1,12 @@
 package mazeRunner.controller;
 
 import mazeRunner.model.mapBuilder.Map;
-import mazeRunner.model.mapCells.*;
-import mazeRunner.model.movingObjects.runners.*;
-import mazeRunner.model.mapCells.Gifts;
+import mazeRunner.model.mapCells.CheckPoint;
 import mazeRunner.model.mapCells.IBombs;
 import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
-import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.movingObjects.runners.IRunner;
+import mazeRunner.model.movingObjects.runners.Runner;
 import mazeRunner.model.movingObjects.runners.WithA4;
 import mazeRunner.model.movingObjects.runners.WithAK;
 import mazeRunner.model.movingObjects.runners.WithPistol;
