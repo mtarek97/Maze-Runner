@@ -9,7 +9,7 @@ public class Level1 extends Level{
 		this.theme = 1;
 		addSupportedMapCells();
 		setSupportedMapCellsCount();
-		this.runnerSpeed = GameContract.Speed.LOW;
+		this.runnerSpeed = GameContract.Speed.HIGH;
 		this.numberOfCheckPoints = 1;
 	}
 	

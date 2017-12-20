@@ -1,8 +1,8 @@
 package mazeRunner.model.mapBuilder;
 
 import mazeRunner.model.mapCells.*;
-import mazeRunner.themes.theme1.SolidWall;
-import mazeRunner.themes.theme1.Way1;
+import mazeRunner.themes.warTheme.SolidWall;
+import mazeRunner.themes.warTheme.Way1;
 
 import java.awt.*;
 import java.util.Collections;

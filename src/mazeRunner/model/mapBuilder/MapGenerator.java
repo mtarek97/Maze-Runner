@@ -4,9 +4,9 @@ package mazeRunner.model.mapBuilder;
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.levels.ILevel;
 import mazeRunner.model.mapCells.*;
-import mazeRunner.themes.theme1.Bullets1;
-import mazeRunner.themes.theme1.SolidWall;
-import mazeRunner.themes.theme1.Way1;
+import mazeRunner.themes.warTheme.Bullets1;
+import mazeRunner.themes.warTheme.SolidWall;
+import mazeRunner.themes.warTheme.Way1;
 
 import java.awt.*;
 import java.util.ArrayList;

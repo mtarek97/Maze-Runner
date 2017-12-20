@@ -1,6 +1,6 @@
 package mazeRunner.model.mapCells;
 
-public abstract  class Obstacle implements MapCell {
+public abstract  class Obstacle implements MapCell ,IBombs{
 
 	@Override
 	public boolean isCauseDamage(){
