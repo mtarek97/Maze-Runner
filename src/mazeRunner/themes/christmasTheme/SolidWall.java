@@ -1,11 +1,11 @@
-package mazeRunner.themes.spaceTheme;
+package mazeRunner.themes.christmasTheme;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 
-public class spaceWall extends Wall{
+public class SolidWall extends Wall{
 
-	private final String standardImageLink ="images/spaceTheme/wallSpace.jpg";
+	private final String standardImageLink ="images/christmasTheme/solidwall.jpg";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
 	@Override
 	public boolean isDestroyable() {

@@ -2,12 +2,12 @@ package mazeRunner.themes.christmasTheme;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
-public class DestroyableWall2 extends Wall{
+public class DestroyableCandy extends Wall{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/destroyable2.png";
+	private final String standardImageLink ="images/christmasTheme/destroyable2.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.boxdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";
@@ -29,7 +29,7 @@ public class DestroyableWall2 extends Wall{
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;

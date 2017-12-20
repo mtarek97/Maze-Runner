@@ -4,10 +4,10 @@ import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.utilities.GameContract;
 
-public class SpaceScoreBomb extends Obstacle{
+public class ScoreBomb extends Obstacle{
 
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/bomb2.png";
+	private final String standardImageLink ="images/christmasTheme/bomb2.png";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
@@ -38,7 +38,7 @@ public class SpaceScoreBomb extends Obstacle{
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new SpaceDust();
+			this.afterUpdate = new ChristmasAshes();
 			return true;
 		}
 		return false;

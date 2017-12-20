@@ -2,8 +2,8 @@ package mazeRunner.themes.christmasTheme;
 
 import mazeRunner.model.mapCells.Way;
 
-public class spaceGround extends Way{
-	private final String standardImageLink ="images/spaceTheme/ground.jpg";
+public class SnowGround extends Way{
+	private final String standardImageLink ="images/christmasTheme/snow.jpg";
 
 
 	@Override

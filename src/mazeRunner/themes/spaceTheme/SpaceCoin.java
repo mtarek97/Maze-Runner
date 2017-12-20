@@ -1,21 +1,20 @@
-package mazeRunner.themes.christmasTheme;
+package mazeRunner.themes.spaceTheme;
 
 import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
-public class SpaceHealthGift extends Gifts{
+public class SpaceCoin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/health.png";
-
+	private final String standardImageLink ="images/spaceTheme/coin.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
-	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.healthhit";
-	private  int health = 1;
+	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";
+	private  int health = 2;
 	private final int giftDamage = 0;
-	private  int Givenhealth = 4;
+	private int CoinsNum = 5 ;
 
 
 	@Override
@@ -40,7 +39,7 @@ public class SpaceHealthGift extends Gifts{
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;
@@ -68,11 +67,12 @@ public class SpaceHealthGift extends Gifts{
 
 	@Override
 	public int getGiftType() {
-		return GameContract.GiftsTypes.HEALTH;
+		return GameContract.GiftsTypes.COIN;
 	}
 
 	@Override
 	public Class<? extends Weapon> getWeaponClass() {
+		
 		return null;
 	}
 
@@ -88,12 +88,12 @@ public class SpaceHealthGift extends Gifts{
 
 	@Override
 	public int getScore() {
-		return 0;
+		return this.CoinsNum;
 	}
 
 	@Override
 	public int getGivenHealth() {
-		return this.Givenhealth;
+		return 0;
 	}
 
 

@@ -1,14 +1,14 @@
-package mazeRunner.themes.spaceTheme;
+package mazeRunner.themes.christmasTheme;
 
 import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
-public class spaceCoin extends Gifts {
+public class Coin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/coin.png";
+	private final String standardImageLink ="images/christmasTheme/coin.png";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";
@@ -39,7 +39,7 @@ public class spaceCoin extends Gifts {
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;

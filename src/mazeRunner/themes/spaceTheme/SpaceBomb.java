@@ -40,7 +40,7 @@ public class SpaceBomb extends Obstacle{
 		public boolean update(int fullDamage) {
 			this.health -= fullDamage;
 			if(this.getHealth()<=0){
-				//this.afterUpdate = new ashes(); TODO
+				this.afterUpdate = new SpaceDust();
 				return true;
 			}
 			return false;

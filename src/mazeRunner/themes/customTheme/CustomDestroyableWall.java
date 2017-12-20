@@ -3,7 +3,7 @@ package mazeRunner.themes.customTheme;
 import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
 public class CustomDestroyableWall extends Wall{
 
@@ -30,7 +30,7 @@ public class CustomDestroyableWall extends Wall{
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;

@@ -5,7 +5,7 @@ import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.utilities.GameContract;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
 public class CustomBomb extends Obstacle  {
 	private MapCell afterUpdate = null;
@@ -40,7 +40,7 @@ public class CustomBomb extends Obstacle  {
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;

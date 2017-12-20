@@ -1,9 +1,9 @@
-package mazeRunner.themes.christmasTheme;
+package mazeRunner.themes.spaceTheme;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
 
-public class spaceWall extends Wall{
+public class SpaceWall extends Wall{
 
 	private final String standardImageLink ="images/spaceTheme/wallSpace.jpg";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.hit";

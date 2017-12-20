@@ -4,11 +4,11 @@ import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
-import mazeRunner.themes.warTheme.ashes;
+import mazeRunner.themes.warTheme.LandAshes;
 
-public class SpaceGun2 extends Gifts{
+public class CHGun2 extends Gifts{
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/spaceTheme/gun2.png";
+	private final String standardImageLink ="images/christmasTheme/gun2.png";
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.reload";
 	private  int health = 2;
@@ -31,7 +31,7 @@ public class SpaceGun2 extends Gifts{
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new LandAshes();
 			return true;
 		}
 		return false;

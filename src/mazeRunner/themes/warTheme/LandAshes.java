@@ -3,7 +3,7 @@ package mazeRunner.themes.warTheme;
 import mazeRunner.model.mapCells.Ashes;
 import mazeRunner.model.mapCells.Way;
 
-public class ashes extends Ashes {
+public class LandAshes extends Ashes {
 	
 	private final String ashes = "images/ashes.png";
 
