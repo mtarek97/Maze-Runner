@@ -46,7 +46,7 @@ public class MapGenerator {
 
 					this.maze[i][j] = new Way1();
 					solidWallAndWaysLayer[i][j] = new Way1();
-					if(i != 1 || j != 1)
+					if((i != 1 || j != 1)&& !(map.getCellsLayer()[i][j] instanceof CheckPoint))
 						allFreeCells.add(new Point(i, j));
 
 				}
@@ -81,10 +81,9 @@ public class MapGenerator {
 		return  map;
 	}
 	public void generateBulletsGift() throws Exception {
-		//TODO
 		Bullets1 initial = new Bullets1();
-		numberOfNeededBullets = numberOfNeededBullets - initial.getDamage() * 6;
-		int bulletsRunHas = 6*initial.getDamage();
+		numberOfNeededBullets = numberOfNeededBullets - initial.getOneBulletDamage() * 6;
+		int bulletsRunHas = 6*initial.getOneBulletDamage();
 
 		while (numberOfNeededBullets > 0) {
 			MapCell cell =	factory.getGiftDestroysObstacles();
@@ -93,7 +92,7 @@ public class MapGenerator {
 			maze[random.x][random.y] = cell;
 			int damage = ((IGift) cell).getOneBulletDamage() *  ((IGift) cell).getBulletsNumber();
 			numberOfNeededBullets = numberOfNeededBullets - damage;
-			bulletsRunHas += cell.getDamage();
+			bulletsRunHas += damage;
 		}
 	}
 
