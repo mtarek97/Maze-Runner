@@ -1,21 +1,19 @@
-package mazeRunner.themes.customTheme;
+package mazeRunner.themes.spaceTheme;
 
-
-import mazeRunner.model.GameSetting;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
 import mazeRunner.model.utilities.GameContract;
-import mazeRunner.themes.warTheme.ashes;
 
-public class CustomBomb extends Obstacle  {
+public class SpaceScoreBomb extends Obstacle{
+
 	private MapCell afterUpdate = null;
-	private final String standardImageLink = GameSetting.getGameSetting().getCustomMapCellImageLink("CustomBomb");
+	private final String standardImageLink ="images/spaceTheme/bomb2.png";
 
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.bombdestroy";
-	private  int health = 1;
-	private int damage = 3 ;
+	private  int health = 2;
+	private int damageToScore = 3;
 	
 
 	@Override
@@ -40,7 +38,7 @@ public class CustomBomb extends Obstacle  {
 	public boolean update(int fullDamage) {
 		this.health -= fullDamage;
 		if(this.getHealth()<=0){
-			this.afterUpdate = new ashes();
+			this.afterUpdate = new SpaceDust();
 			return true;
 		}
 		return false;
@@ -58,23 +56,24 @@ public class CustomBomb extends Obstacle  {
 
 	@Override
 	public int getDamage() {
-		return this.damage;
+		return this.damageToScore;
 	}
 
 	@Override
 	public int getBombType() {
-		return GameContract.BombsTypes.DECREASES_HEALTH;
+		return GameContract.BombsTypes.DECREASES_SCORE;
 	}
 
 	@Override
 	public int getBombDamage() {
-		return this.damage;
+		return -1;
 	}
 
 	@Override
 	public int getBombScore() {
-		return -1;
+		return this.damageToScore;
 	}
+
 
 
 

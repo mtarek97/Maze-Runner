@@ -4,6 +4,7 @@ import java.util.Observable;
 
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
+import mazeRunner.model.utilities.GameContract;
 
 public class SpaceBomb extends Obstacle{
 
@@ -58,6 +59,21 @@ public class SpaceBomb extends Obstacle{
 		@Override
 		public int getDamage() {
 			return this.damage;
+		}
+
+		@Override
+		public int getBombType() {
+			return GameContract.BombsTypes.DECREASES_HEALTH;
+		}
+
+		@Override
+		public int getBombDamage() {
+			return this.damage;
+		}
+
+		@Override
+		public int getBombScore() {
+			return -1;
 		}
 
 
