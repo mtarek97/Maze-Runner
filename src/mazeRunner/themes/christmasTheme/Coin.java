@@ -8,7 +8,7 @@ import mazeRunner.themes.warTheme.LandAshes;
 
 public class Coin extends Gifts {
 	private MapCell afterUpdate = null;
-	private final String standardImageLink ="images/christmasTheme/coin.png";
+	private final String standardImageLink ="images/christmasTheme/coin.jpg";
 
 	private final String destroySound = "file:mazeRunner.themes.theme1.media.soundEffects.giftdestroy";
 	private final String hittingSound = "file:mazeRunner.themes.theme1.media.soundEffects.coin";

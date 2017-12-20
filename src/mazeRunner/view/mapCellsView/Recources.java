@@ -32,7 +32,7 @@ public class Recources {
             }
             return imageView;
         }
-
+System.out.println(path);
         ImageView imageView = new ImageView(new Image(getClass().getResource(path).toExternalForm()));
         if(path.contains("Runner") || path.contains("bullet1")){
             imageView.setFitWidth(20);
