@@ -4,7 +4,7 @@ public class AK implements Weapon{
 	private int ammo;
 	private int bulletsCount;
 	private int oneBulletDamage;
-	private String imageLink = "";
+	private String imageLink = "images/ak.png";
 
 	public AK(int ammo, int oneBulletDamage){
 		this.ammo = ammo;

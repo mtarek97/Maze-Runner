@@ -5,7 +5,7 @@ public class Pistol implements Weapon{
 	private int ammo;
 	private int bulletsCount;
 	private int oneBulletDamage;
-	private String imageLink = "";
+	private String imageLink = "images/pistol.jpg";
 
 	public Pistol(int ammo, int oneBulletDamage){
 		this.ammo = ammo;

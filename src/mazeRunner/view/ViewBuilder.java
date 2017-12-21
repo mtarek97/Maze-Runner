@@ -1,14 +1,17 @@
 package mazeRunner.view;
 
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import mazeRunner.controller.PlayingController;
 import mazeRunner.view.mapCellsView.MapCellView;
 import mazeRunner.view.mapCellsView.Recources;
 
@@ -20,7 +23,10 @@ public class ViewBuilder extends Pane{
     private BorderPane borderPane = new BorderPane();
     private ScrollPane mainPane = new ScrollPane();
     private Pane map = new Pane();
-    private Label score = new Label("Score ");
+    private Label score = new Label("          Score    ");
+    private Label bulletsNm = new Label("Bullets Number : ");
+    private ImageView weapon ;
+
     private Label remainingLifes = new Label();
     private ProgressBar healthBar = new ProgressBar();
     private HBox parametersBarPane = new HBox();
@@ -100,14 +106,26 @@ public class ViewBuilder extends Pane{
         solidWallAndWaysLayerPane.getChildren().remove(node);
     }
 
-    public BorderPane getPlayingPane(){
+    public BorderPane getPlayingPane(int bullets , String imageWeapon){
+    	this.bulletsNm.setText("bullets number :" + bullets);
+    	System.out.println(imageWeapon);
+    	this.weapon = new ImageView("file:"+imageWeapon);
+    	weapon.setFitWidth(10);
+    	weapon.setFitHeight(10);
+    	this.score.setText("    score :" + PlayingController.score+"      ");
         healthBar.resize(20,100);
         healthBar.setProgress(1);
         mainPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         mainPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         borderPane.setCenter(mainPane);
+        parametersBarPane.getChildren().clear();
         parametersBarPane.getChildren().add(healthBar);
-        parametersBarPane.getChildren().add(score);
+
+        parametersBarPane.getChildren().add(this.bulletsNm);
+        parametersBarPane.getChildren().add(this.score);
+
+        parametersBarPane.getChildren().add(this.weapon);
+
         //parametersBarPane.getChildren().add(remainingLifes);
         return this.borderPane;
     }
@@ -119,7 +137,18 @@ public class ViewBuilder extends Pane{
     public ProgressBar getHealthBar(){
         return healthBar;
     }
-    public HBox getParametersBarPane(){
+    public HBox getParametersBarPane(int x , String y){
+    	this.bulletsNm.setText("bullets number :" + x);
+    	System.out.println(y);
+    	this.weapon = new ImageView("file:"+x);
+    	weapon.setFitWidth(10);
+    	weapon.setFitHeight(10);
+    	this.score.setText("    score :" + PlayingController.score+"      ");
+    	 parametersBarPane.getChildren().clear();
+         parametersBarPane.getChildren().add(healthBar);
+         parametersBarPane.getChildren().add(this.bulletsNm);
+         parametersBarPane.getChildren().add(this.score);
+         parametersBarPane.getChildren().add(this.weapon);
         return this.parametersBarPane;
     }
     public Label getScoreTextField(){

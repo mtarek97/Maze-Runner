@@ -42,6 +42,7 @@ public class MovingController{
     private BulletInteractions bulletInteractions;
     private IRunner runner;
     public MovingController(BuildingController buildingController) {
+    	
     	this.buildingController = buildingController;
         viewFactory = new MapCellViewFactory();
         this.mapBuilder = mapBuilder;
@@ -51,11 +52,14 @@ public class MovingController{
         SolidWallAndWaysArray = map.getSolidWallAndWaysLayer();
         runner = map.getRunner();
         runnerInteractions = new RunnerInteractions(buildingController, map);
+        playingPane = playingView.getPlayingPane(
+        		this.runner.getCurrentWeapon().getBulletsCount(),
+        		this.runner.getCurrentWeapon().getImageLink());
     }
 
 
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    BorderPane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
+    BorderPane playingPane ;
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;
@@ -68,6 +72,9 @@ public class MovingController{
     }
 
     public  void actionHandeling(){
+    	 playingPane = playingView.getPlayingPane(
+         		this.runner.getCurrentWeapon().getBulletsCount(),
+         		this.runner.getCurrentWeapon().getImageLink());
         StartGame.root.getChildren().setAll(playingPane);
         StartGame.scene.setOnKeyPressed((KeyEvent event) -> {
             if (event.getCode() == KeyCode.W) {
