@@ -17,7 +17,7 @@ public abstract class Runner implements IRunner {
 	protected String imageLinks;
 	protected List<Weapon> supportedWeapons = new ArrayList<Weapon>() {
 		{
-			add(new Pistol(6, 3));
+			add(new Pistol(50, 3));
 		}
 	};
 	private Weapon currentWeapon = supportedWeapons.get(0);

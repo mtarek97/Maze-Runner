@@ -11,7 +11,6 @@ import mazeRunner.model.mapCells.IBombs;
 import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.movingObjects.runners.IRunner;
-import mazeRunner.model.movingObjects.runners.Runner;
 import mazeRunner.model.movingObjects.runners.WithA4;
 import mazeRunner.model.movingObjects.runners.WithAK;
 //import mazeRunner.model.movingObjects.runners.WithCHGun1;
@@ -141,7 +140,13 @@ public class RunnerInteractions {
 	}
 
 	public void checkPointAction() throws IllegalAccessException, InstantiationException {
-		((CheckPoint) runnerCell).takeSnapShot(map, (Runner) runner);
+		CheckPoint checkPoint = (CheckPoint) runnerCell;
+		checkPoint.takeSnapShot(map);
+		LOGGER.setLevel(Level.CONFIG);
+		LOGGER.info("taking a snapshot");
+		map.addCellAtRunTime(runnerCell.getUpdateResult(), runnerMappedPositionX, runnerMappedPositionY);
+		buildingController.removeFromCellsLayer(runnerMappedPositionX, runnerMappedPositionY);
+		
 	}
 
 	private String getAction() {

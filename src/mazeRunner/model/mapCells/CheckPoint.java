@@ -1,7 +1,6 @@
 package mazeRunner.model.mapCells;
 
 import mazeRunner.model.mapBuilder.Map;
-import mazeRunner.model.movingObjects.runners.Runner;
 
 public class CheckPoint implements MapCell {
     @Override
@@ -40,9 +39,9 @@ public class CheckPoint implements MapCell {
 
         return null;
     }
-    public void takeSnapShot(Map map, Runner runner) throws InstantiationException, IllegalAccessException {
+    public void takeSnapShot(Map map) throws InstantiationException, IllegalAccessException {
 
-        GetSnapShot.takeSnapShot(runner, map);
+        GetSnapShot.takeSnapShot(map);
     }
 
     @Override
