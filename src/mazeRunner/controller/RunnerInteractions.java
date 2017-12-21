@@ -69,6 +69,7 @@ public class RunnerInteractions {
 
 	private void runnerGiftInteraction() {
 		// runner gift interaction logic will be here
+		PlayingController.collectedGifts++;
 		IGift gift = (IGift) runnerCell;
 		int giftType = gift.getGiftType();
 		System.out.println("hit with" + gift);
