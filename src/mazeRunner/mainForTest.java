@@ -1,12 +1,11 @@
 package mazeRunner;
 
 import mazeRunner.model.GameSetting;
-import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.levels.ILevelFactory;
-import mazeRunner.model.movingObjects.runners.DefaultSpeedState;
-import mazeRunner.model.movingObjects.runners.HalfHealthSpeedState;
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.IRunnerFactory;
+import mazeRunner.model.movingObjects.runners.WithA4;
+import mazeRunner.model.movingObjects.runners.WithAK;
+import mazeRunner.model.movingObjects.runners.WithPistol;
 
 public class mainForTest {
 
@@ -56,32 +55,21 @@ public class mainForTest {
 			System.out.println();*/
 		//--------------------------------decorator---------------------------------//
 
-/*		 GameSetting setting = new GameSetting();
+		 GameSetting setting = GameSetting.getGameSetting();
 		 IRunnerFactory runnerFactory = new IRunnerFactory(setting);
 		 IRunner runner = runnerFactory.getRunner("Runner1");
-		 runner.setSpeed(30);
-		 System.out.println(runner.getSpeed());
 		 System.out.println(runner.getSupportedWeapons());
-		 runner = new WithPistol(runner, 6);
-		 System.out.println(runner.getSpeed());
+		 runner = new WithPistol(runner, 6,3);
 		 System.out.println(runner.getSupportedWeapons());
-		 runner = new WithA4(runner, 6);
-		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getCurrentWeapon());
+		 runner = new WithA4(runner, 6,3);
 		 System.out.println(runner.getSupportedWeapons());
-		 runner = new WithAK(runner, 6);
-		 System.out.println(runner.getSpeed());
+		 System.out.println(runner.getCurrentWeapon());
+		 runner = new WithAK(runner, 6,3);
 		 System.out.println(runner.getSupportedWeapons());
-		 
-		 IRunner runner2 = runnerFactory.getRunner("Runner2");
-		 System.out.println(runner2.getSpeed());
-		 System.out.println(runner2.getSupportedWeapons());
-		 runner2 = new WithPistol(runner2, 6);
-		 runner2.setSpeed(20);
-		 System.out.println(runner2.getSpeed());
-		 System.out.println(runner2.getSupportedWeapons());*/
-		
+		 System.out.println(runner.getCurrentWeapon());
 		// --------------------state design pattern ------------------- //
-		GameSetting setting = GameSetting.getGameSetting();
+	/*	GameSetting setting = GameSetting.getGameSetting();
 		 IRunnerFactory runnerFactory = new IRunnerFactory(setting);
 		 ILevelFactory levelFactory = new ILevelFactory();
 		 IRunner runner = runnerFactory.getRunner("Runner1");
@@ -96,7 +84,7 @@ public class mainForTest {
 		 HalfHealthSpeedState HalfHealthSpeedState = new HalfHealthSpeedState(level.getRunnerSpeed());
 		 HalfHealthSpeedState.setRunnerSpeedState(runner);
 		 System.out.println(runner.getSpeedState());
-		 System.out.println(runner.getSpeedState().getSpeedValue());
+		 System.out.println(runner.getSpeedState().getSpeedValue());*/
 	}
 
 }

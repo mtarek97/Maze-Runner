@@ -13,6 +13,7 @@ public class WithCHGun3 extends RunnerDecorator {
 		List<Weapon> supportedWeapons = super.getSupportedWeapons();
 		supportedWeapons.add(newWeapon);
 		super.setSupportedWeapons(supportedWeapons);
+		super.setCurrentWeapon(newWeapon);
 	}
 
 }
