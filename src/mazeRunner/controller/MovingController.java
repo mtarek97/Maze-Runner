@@ -164,22 +164,11 @@ public class MovingController{
                 
              }
             else if(event.getCode() == KeyCode.SPACE) {
-                Service<Void> service = new Service<Void>() {
-                    @Override
-                    protected Task<Void> createTask() {
-                        return new Task<Void>() {
-                            @Override
-                            protected Void call() throws Exception {
-                                //Background work
-                                final CountDownLatch latch = new CountDownLatch(1);
-                                Platform.runLater(new Runnable() {
-                                    @Override
-                                    public void run() {
+                
                                     	if(runner.getCurrentWeapon().getBulletsCount() > 0) {
-											try{
+											
 												runner.getCurrentWeapon().shoot();
 											    Bullet bullet = new Bullet();
-											    System.out.println("he is in");
 											    bullet.setDirection(runner.getDirection());
 											    bullet.setMappedPosition(runner.getMappedPosition());
 											    bullet.setPosition(runner.getPosition());
@@ -189,10 +178,9 @@ public class MovingController{
 											    Point newPosition = changePosition(bullet.getDirection(), currentPosition);
 											    Point newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
 											    while (isCellAllowedForBullets(newMapedPosition)) {
-											        System.out.println("he is in while");
 											        newPosition = changePosition(bullet.getDirection(), currentPosition);
-											        movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
-											        movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
+											      //  movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+											      //  movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
 											        buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
 											        MapCellView bulletView = viewFactory.getMapCellView("bullet");
 											        buildingController.addToMovingLayer(newPosition.x,newPosition.y,bulletView);
@@ -200,26 +188,18 @@ public class MovingController{
 											        bullet.moveInTheSameDirection();
 											        currentPosition = newPosition;
 											        newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-											        System.out.println("count me");
 											    }
 											    bullet.setMappedPosition(newMapedPosition);
-											    bulletInteractions = new BulletInteractions(buildingController, map, bullet);
-											    bulletInteractions.update();
+											    System.out.println(newMapedPosition.x);
+											    this.mapCellsArray[newMapedPosition.x][newMapedPosition.y].update(3);
+											    this.mapCellsArray[newMapedPosition.x][newMapedPosition.y]=null;
+											  //  bulletInteractions = new BulletInteractions(buildingController, map, bullet);
+											 //   bulletInteractions.update();
 
-											}finally{
-											    latch.countDown();
-											}
+											
 										}
-                                    }
-                                });
-                                latch.await();
-                                //Keep with the background work
-                                return null;
-                            }
-                        };
-                    }
-                };
-                service.start();
+                                 
+         
 
             }
 
