@@ -45,7 +45,7 @@ public class RunnerInteractions {
 	}
 
 	public void update() throws IllegalAccessException, InstantiationException {
-		if(WininigCase()){
+		if(ifWin()){
 			StartGame.root.getChildren().setAll(StartGame.startMenuePane);
 			LOGGER.setLevel(Level.INFO);
 			LOGGER.info("Win!");
@@ -60,6 +60,8 @@ public class RunnerInteractions {
 			viewBuilder.getScoreTextField().setText(PlayingController.score + "");
 			viewBuilder.getRemainingLifesTextField().setText(PlayingController.ramainingLifes + "");
 			viewBuilder.getHealthBar().setProgress(runner.getHealth() / 100);
+			viewBuilder.getParametersBarPane(this.runner.getCurrentWeapon().getBulletsCount(), this.runner.getCurrentWeapon().getImageLink());
+
 		}
 
 	}
@@ -188,10 +190,9 @@ public class RunnerInteractions {
 		
 		} else if (weaponName.equals("CHGun3")) {
 			runner = new WithCHGun3(runner, bulletsNumber, oneBulletDamage);
-
 		}*/
 	}
-	private boolean WininigCase(){
+	private boolean ifWin(){
 		Point runnerPosition = runner.getMappedPosition();
 		Point endPoint = map.getEndPoint();
 		if(runnerPosition.x == endPoint.x && runnerPosition.y == endPoint.y){
