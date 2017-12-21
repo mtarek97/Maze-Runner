@@ -48,7 +48,7 @@ public class MovingController{
         runnerInteractions = new RunnerInteractions(buildingController, map);
         playingPane = playingView.getPlayingPane(
         		this.runner.getCurrentWeapon().getBulletsCount(),
-        		this.runner.getCurrentWeapon().getImageLink());
+        		this.runner.getCurrentWeapon().getImageLink(),this.runner.getCurrentWeapon().getClass().getSimpleName());
     }
 
 
@@ -68,7 +68,7 @@ public class MovingController{
     public  void actionHandeling(){
     	 playingPane = playingView.getPlayingPane(
          		this.runner.getCurrentWeapon().getBulletsCount(),
-         		this.runner.getCurrentWeapon().getImageLink());
+         		this.runner.getCurrentWeapon().getImageLink(),this.runner.getCurrentWeapon().getClass().getSimpleName());
         StartGame.root.getChildren().setAll(playingPane);
         StartGame.scene.setOnKeyPressed((KeyEvent event) -> {
             if (event.getCode() == KeyCode.W) {

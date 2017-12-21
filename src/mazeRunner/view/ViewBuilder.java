@@ -26,6 +26,7 @@ public class ViewBuilder extends Pane{
     private Label score = new Label("          Score    ");
     private Label bulletsNm = new Label("Bullets Number : ");
     private ImageView weapon ;
+    private Label weaponname = new Label();
 
     private Label remainingLifes = new Label();
     private ProgressBar healthBar = new ProgressBar();
@@ -37,6 +38,7 @@ public class ViewBuilder extends Pane{
     private static ViewBuilder viewBuilder = new ViewBuilder();
 
     private ViewBuilder() {
+    
         borderPane.setTop(parametersBarPane);
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
@@ -106,10 +108,11 @@ public class ViewBuilder extends Pane{
         solidWallAndWaysLayerPane.getChildren().remove(node);
     }
 
-    public BorderPane getPlayingPane(int bullets , String imageWeapon){
+    public BorderPane getPlayingPane(int bullets , String imageWeapon , String wn){
     	this.bulletsNm.setText("bullets number :" + bullets);
     	System.out.println(imageWeapon);
     	this.weapon = new ImageView("file:"+imageWeapon);
+    	weaponname.setText("weapon name : "+wn);
     	weapon.setFitWidth(10);
     	weapon.setFitHeight(10);
     	this.score.setText("    score :" + PlayingController.score+"      ");
@@ -123,6 +126,7 @@ public class ViewBuilder extends Pane{
 
         parametersBarPane.getChildren().add(this.bulletsNm);
         parametersBarPane.getChildren().add(this.score);
+        parametersBarPane.getChildren().add(this.weaponname);
 
         parametersBarPane.getChildren().add(this.weapon);
 
@@ -137,7 +141,9 @@ public class ViewBuilder extends Pane{
     public ProgressBar getHealthBar(){
         return healthBar;
     }
-    public HBox getParametersBarPane(int x , String y){
+    public HBox getParametersBarPane(int x , String y , String wn){
+    	weaponname.setText("weapon name : "+wn);
+
     	this.bulletsNm.setText("bullets number :" + x);
     	System.out.println(y);
     	this.weapon = new ImageView("file:"+x);
@@ -148,6 +154,8 @@ public class ViewBuilder extends Pane{
          parametersBarPane.getChildren().add(healthBar);
          parametersBarPane.getChildren().add(this.bulletsNm);
          parametersBarPane.getChildren().add(this.score);
+         parametersBarPane.getChildren().add(this.weaponname);
+
          parametersBarPane.getChildren().add(this.weapon);
         return this.parametersBarPane;
     }

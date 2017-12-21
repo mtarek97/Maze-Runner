@@ -60,7 +60,7 @@ public class RunnerInteractions {
 			viewBuilder.getScoreTextField().setText(PlayingController.score + "");
 			viewBuilder.getRemainingLifesTextField().setText(PlayingController.ramainingLifes + "");
 			viewBuilder.getHealthBar().setProgress(runner.getHealth() / 100);
-			viewBuilder.getParametersBarPane(this.runner.getCurrentWeapon().getBulletsCount(), this.runner.getCurrentWeapon().getImageLink());
+			viewBuilder.getParametersBarPane(this.runner.getCurrentWeapon().getBulletsCount(), this.runner.getCurrentWeapon().getImageLink(),this.runner.getCurrentWeapon().getClass().getSimpleName());
 
 		}
 
