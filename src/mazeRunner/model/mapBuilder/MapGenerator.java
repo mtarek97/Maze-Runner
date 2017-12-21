@@ -1,19 +1,18 @@
 package mazeRunner.model.mapBuilder;
 
 
-import mazeRunner.model.GameSetting;
-import mazeRunner.model.levels.ILevel;
-import mazeRunner.model.mapCells.*;
-import mazeRunner.themes.warTheme.Bullets1;
-import mazeRunner.themes.warTheme.SolidWall;
-import mazeRunner.themes.warTheme.Way1;
-
-import java.awt.*;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Stack;
-import java.util.logging.Level;
+
+import mazeRunner.model.mapCells.CellFactory;
+import mazeRunner.model.mapCells.CheckPoint;
+import mazeRunner.model.mapCells.Gate;
+import mazeRunner.model.mapCells.IGift;
+import mazeRunner.model.mapCells.MapCell;
+import mazeRunner.themes.warTheme.Bullets1;
+import mazeRunner.themes.warTheme.SolidWall;
 
 public class MapGenerator {
 
@@ -56,8 +55,9 @@ public class MapGenerator {
 						this.maze[i][j] = factory.getWay(); // if it is check point donot put way
 					}
 					solidWallAndWaysLayer[i][j] = factory.getWay();
-					if((i != 1 || j != 1)&& !(map.getCellsLayer()[i][j] instanceof CheckPoint))
+					if((i != 1 || j != 1)&& !(map.getCellsLayer()[i][j] instanceof CheckPoint)) {
 						allFreeCells.add(new Point(i, j));
+					}
 
 				}
 			}
@@ -84,6 +84,7 @@ public class MapGenerator {
 			}
 		}
 		generateBulletsGift();
+		addGate();
 		return  map;
 	}
 	public void generateBulletsGift() throws Exception {
@@ -99,6 +100,21 @@ public class MapGenerator {
 			int damage = ((IGift) cell).getOneBulletDamage() *  ((IGift) cell).getBulletsNumber();
 			numberOfNeededBullets = numberOfNeededBullets - damage;
 			bulletsRunHas += damage;
+		}
+	}
+	
+	private void addGate(){
+		Point end = map.getEndPoint();
+		_2DArrayIterator iterator = new _2DArrayIterator(map.getCellsLayer());
+		while(iterator.hasNext()){
+			MapCell cell = (MapCell) iterator.next();
+			if (iterator.rowIndex() == end.getX() && iterator.columnIndex() == end.getY()) {
+				try {
+					maze[end.x][end.y] = new Gate();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 

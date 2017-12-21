@@ -8,6 +8,7 @@ import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.Iterator;
 import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapBuilder._2DArrayIterator;
+import mazeRunner.model.mapCells.Gate;
 import mazeRunner.model.mapCells.Gifts;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Obstacle;
@@ -135,11 +136,15 @@ public class BuildingController {
 		} else if (cell instanceof Wall) {
 			return "wall";
 		} else if (cell instanceof Way) {
+			System.out.println("way");
 			return "Way";
 		} else if (cell instanceof IRunner) {
 			return "Runner";
 		} else if (cell instanceof IMonster) {
 			return "Monster";
+		} else if (cell instanceof Gate) {
+			System.out.println("gate");
+			return "Gate";
 		}
 		return "";
 	}

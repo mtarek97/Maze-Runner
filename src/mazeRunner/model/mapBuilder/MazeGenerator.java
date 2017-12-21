@@ -92,10 +92,11 @@ public class MazeGenerator {
 			z = 0;
 			for (int j = 0; j < maze[0].length; j++) {
 				boolMaze[u][z++] = true;
-				if((maze[j][i] & 1) == 0)
+				if((maze[j][i] & 1) == 0) {
 					boolMaze[u][z++] = true ;
-				else
+				} else {
 					boolMaze[u][z++] = false;
+				}
 
 			}
 			boolMaze[u][z] = true;
@@ -103,10 +104,11 @@ public class MazeGenerator {
 			z = 0;
 			for(int j = 0; j < maze[0].length; j++) {
 
-				if ((maze[j][i] & 8) == 0 )
+				if ((maze[j][i] & 8) == 0 ) {
 					boolMaze[u][z++] = true;
-				else
+				} else {
 					boolMaze[u][z++] =false;
+				}
 				boolMaze[u][z++] = false;
 			}
 			boolMaze[u][z] = true;

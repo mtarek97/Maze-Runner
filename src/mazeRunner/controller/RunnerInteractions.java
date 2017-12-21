@@ -45,7 +45,7 @@ public class RunnerInteractions {
 	}
 
 	public void update() throws IllegalAccessException, InstantiationException {
-		if(ifWin()){
+		if(WininigCase()){
 			StartGame.root.getChildren().setAll(StartGame.startMenuePane);
 			LOGGER.setLevel(Level.INFO);
 			LOGGER.info("Win!");
@@ -191,7 +191,7 @@ public class RunnerInteractions {
 
 		}*/
 	}
-	private boolean ifWin(){
+	private boolean WininigCase(){
 		Point runnerPosition = runner.getMappedPosition();
 		Point endPoint = map.getEndPoint();
 		if(runnerPosition.x == endPoint.x && runnerPosition.y == endPoint.y){
