@@ -182,7 +182,7 @@ public class MovingController {
 				}
 
 			} else if (event.getCode() == KeyCode.SPACE) {
-				if (/* runner.getCurrentWeapon().getBulletsCount() > 0 */ true) {
+				if ( runner.getCurrentWeapon().getBulletsCount() > 0 ) {
 					runner.getCurrentWeapon().shoot();
 					System.out.println("pressed space");
 					System.out.println(
