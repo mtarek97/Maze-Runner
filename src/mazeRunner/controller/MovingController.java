@@ -192,6 +192,7 @@ public class MovingController{
                                                 newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
                                                 System.out.println("count me");
                                             }
+                                            bullet.setMappedPosition(newMapedPosition);
                                             bulletInteractions = new BulletInteractions(buildingController, map, bullet);
                                             bulletInteractions.update();
 
@@ -245,7 +246,7 @@ public class MovingController{
         int column = newPosition.y;
         if((row >= 0&& column >= 0&& row < SolidWallAndWaysArray.length&& column < SolidWallAndWaysArray[0].length)) {
 
-            if (SolidWallAndWaysArray[row][column].isWay()&&!mapCellsArray[row][column].isObstacle()&&!mapCellsArray[row][column].isNonObstacle()) {
+            if (SolidWallAndWaysArray[row][column].isWay()&&mapCellsArray[row][column]==null&&mapCellsArray[row][column]==null) {
                 return true; 
             }
 
