@@ -24,7 +24,6 @@ public class Recources {
             ImageView imageView = new ImageView(pictures.get(path).getImage());
             return imageView;
         }
-System.out.println(path);
         ImageView imageView = new ImageView(new Image(getClass().getResource(path).toExternalForm()));
         pictures.put(path,imageView);
         return imageView;
