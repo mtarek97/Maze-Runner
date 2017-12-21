@@ -153,7 +153,7 @@ void setEasy(ActionEvent event) {
 	}
 
 	@FXML
-	void WeaponPictureAction(ActionEvent event) {
+	void weaponPictureAction(ActionEvent event) {
 		String path = FileChooser();
 		setting.addCustomMapCellImageLink("CustomWay", path);
 	}
