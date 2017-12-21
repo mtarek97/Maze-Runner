@@ -75,15 +75,23 @@ public abstract class Level implements ILevel {
 	}
 
 	private int destroyableWallsCount() {
+		if(theme==0) {
+			return mapSize.getHeight()/2;
+		}
 		return mapSize.getHeight()/(2*theme);
 	}
 
 	private int obstaclesCount() {
-		
+		if(theme==0) {
+			return mapSize.getHeight()/3;
+		}
 		return mapSize.getHeight()/(3*theme);
 	}
 
 	private int nonObstaclesCount() {
+		if(theme==0) {
+			return (mapSize.getHeight()*4)/7;
+		}
 		return mapSize.getHeight()*4/(7*theme);
 	}
 	@Override

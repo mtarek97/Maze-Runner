@@ -8,102 +8,40 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import mazeRunner.StartGame;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  */
 public class MenuItem extends Pane {
-    private Text text;
+	private Text text;
 
-    private Effect shadow = new DropShadow(5, Color.BLUE);
-    private Effect blur = new BoxBlur(1, 1, 3);
+	private Effect shadow = new DropShadow(5, Color.BLUE);
+	private Effect blur = new BoxBlur(1, 1, 3);
 
-    public MenuItem(String name) {
-        Polygon bg = new Polygon(
-                0, 0,
-                200, 0,
-                215, 15,
-                200, 30,
-                0, 30
-        );
-        bg.setStroke(Color.color(1, 1, 1, 0.75));
-        bg.setEffect(new GaussianBlur());
+	public MenuItem(String name) {
+		Polygon bg = new Polygon(0, 0, 200, 0, 215, 15, 200, 30, 0, 30);
+		bg.setStroke(Color.color(1, 1, 1, 0.75));
+		bg.setEffect(new GaussianBlur());
 
-        bg.fillProperty().bind(
-                Bindings.when(pressedProperty())
-                        .then(Color.color(0, 0, 0, 0.75))
-                        .otherwise(Color.color(0, 0, 0, 0.25))
-        );
+		bg.fillProperty().bind(Bindings.when(pressedProperty()).then(Color.color(0, 0, 0, 0.75))
+				.otherwise(Color.color(0, 0, 0, 0.25)));
 
-        text = new Text(name);
-        text.setTranslateX(7);
-        text.setTranslateY(20);
-   //     text.setFont(Font.loadFont(StartGame.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(), 13));
-        text.setFill(Color.WHITE);
+		text = new Text(name);
+		text.setTranslateX(7);
+		text.setTranslateY(20);
+		// text.setFont(Font.loadFont(StartGame.class.getResource("res/Penumbra-HalfSerif-Std_35114.ttf").toExternalForm(),
+		// 13));
+		text.setFill(Color.WHITE);
 
-        text.effectProperty().bind(
-                Bindings.when(hoverProperty())
-                        .then(shadow)
+		text.effectProperty().bind(Bindings.when(hoverProperty()).then(shadow)
 
+				.otherwise(blur));
 
+		getChildren().addAll(bg, text);
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        .otherwise(blur)
-        );
-
-        getChildren().addAll(bg, text);
-    }
-
-    public void setOnAction(Runnable action) {
-        setOnMouseClicked(e -> action.run());
-    }
+	public void setOnAction(Runnable action) {
+		setOnMouseClicked(e -> action.run());
+	}
 }

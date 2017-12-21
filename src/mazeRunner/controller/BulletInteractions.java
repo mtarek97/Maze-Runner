@@ -33,6 +33,9 @@ public class BulletInteractions {
 	private boolean isThereAnAction() {
 		// get current bullet mapped position and see if there is any thing in
 		// that position
+		if(bulletCell == null) {
+			return false;
+		}
 		return bulletCell.isObstacle() || bulletCell.isNonObstacle()
 				|| (bulletCell.isWall() && bulletCell.isDestroyable());
 	}

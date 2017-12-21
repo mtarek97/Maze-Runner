@@ -21,9 +21,9 @@ public class Level0 extends Level{
 		if(difficulty==GameContract.Difficulty.EASY){
 			return new MapSize(10, 10);
 		}else if(difficulty==GameContract.Difficulty.MEDIUM){
-			return new MapSize(30, 30);
+			return new MapSize(20, 20);
 		}else{
-			return new MapSize(50, 50);
+			return new MapSize(30, 30);
 		}
 	}
 	

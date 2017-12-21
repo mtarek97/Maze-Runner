@@ -12,5 +12,4 @@ public class Level1 extends Level{
 		this.runnerSpeed = GameContract.Speed.HIGH;
 		this.numberOfCheckPoints = 1;
 	}
-	
 }
