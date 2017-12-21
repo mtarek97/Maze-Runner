@@ -16,6 +16,7 @@ public abstract class Runner implements IRunner{
 	private int health = 100;
 	protected String imageLinks;
 	protected List<Weapon> supportedWeapons;
+	private Weapon currentWeapon;
 	
 
 	@Override
@@ -150,5 +151,13 @@ public abstract class Runner implements IRunner{
 			}
 		}
 		return null;
+	}
+
+	public Weapon getCurrentWeapon() {
+		return currentWeapon;
+	}
+
+	public void setCurrentWeapon(Weapon currentWeapon) {
+		this.currentWeapon = currentWeapon;
 	}
 }
