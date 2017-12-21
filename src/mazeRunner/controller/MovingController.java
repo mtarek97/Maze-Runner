@@ -245,7 +245,7 @@ public class MovingController{
         int column = newPosition.y;
         if((row >= 0&& column >= 0&& row < SolidWallAndWaysArray.length&& column < SolidWallAndWaysArray[0].length)) {
 
-            if (SolidWallAndWaysArray[row][column] instanceof Way) {
+            if (SolidWallAndWaysArray[row][column].isWay()&&!mapCellsArray[row][column].isObstacle()&&!mapCellsArray[row][column].isNonObstacle()) {
                 return true;
             }
 
