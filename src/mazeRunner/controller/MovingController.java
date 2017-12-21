@@ -164,40 +164,24 @@ public class MovingController{
                 
              }
             else if(event.getCode() == KeyCode.SPACE) {
-                
-                                    	if(runner.getCurrentWeapon().getBulletsCount() > 0) {
-											
+            	if(runner.getCurrentWeapon().getBulletsCount() > 0) {
+            		runner.getCurrentWeapon().shoot();
+											System.out.println("pressed space");
+											System.out.println(this.map.getRunner().getPosition()+" M: "+this.map.getRunner().getMappedPosition());
 												runner.getCurrentWeapon().shoot();
-											    Bullet bullet = new Bullet();
-											    bullet.setDirection(runner.getDirection());
-											    bullet.setMappedPosition(runner.getMappedPosition());
-											    bullet.setPosition(runner.getPosition());
-
-											    Point currentPosition = bullet.getPosition();
-											    Point currentMapedPosition = bullet.getMappedPosition();
-											    Point newPosition = changePosition(bullet.getDirection(), currentPosition);
-											    Point newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-											    while (isCellAllowedForBullets(newMapedPosition)) {
-											        newPosition = changePosition(bullet.getDirection(), currentPosition);
-											      //  movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
-											      //  movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
-											        buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
-											        MapCellView bulletView = viewFactory.getMapCellView("bullet");
-											        buildingController.addToMovingLayer(newPosition.x,newPosition.y,bulletView);
-											        playingView.putCellInMovingObjectsLayer(bulletView,newPosition.x,newPosition.y,getImageDirection(bullet.getDirection(),bullet));
-											        bullet.moveInTheSameDirection();
-											        currentPosition = newPosition;
-											        newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-											    }
-											    bullet.setMappedPosition(newMapedPosition);
-											    System.out.println(newMapedPosition.x);
-											    this.mapCellsArray[newMapedPosition.x][newMapedPosition.y].update(3);
-											    this.mapCellsArray[newMapedPosition.x][newMapedPosition.y]=null;
-											  //  bulletInteractions = new BulletInteractions(buildingController, map, bullet);
-											 //   bulletInteractions.update();
-
 											
-										}
+											    Point newMapedPosition = runner.getMappedPosition();
+											    
+											    while (isCellAllowedForBullets(newMapedPosition)) {
+											        newMapedPosition = changePosition(runner.getDirection(), newMapedPosition);
+											    }
+											    MapCell[][] mc= this.map.getCellsLayer();
+											    mc[newMapedPosition.x][newMapedPosition.y]=null;
+											    this.map.setCellsLayer(mc);
+												buildingController.removeFromCellsLayer(newMapedPosition.x, newMapedPosition.y);
+
+            	}
+										
                                  
          
 
@@ -235,13 +219,14 @@ public class MovingController{
     public boolean isCellAllowedForBullets(Point newPosition ) {
         int row = newPosition.x;
         int column = newPosition.y;
-        if((row >= 0&& column >= 0&& row < SolidWallAndWaysArray.length&& column < SolidWallAndWaysArray[0].length)) {
+        if((row > 0&& column > 0&& row < SolidWallAndWaysArray.length-1&& column < SolidWallAndWaysArray[0].length-1)) {
 
             if (SolidWallAndWaysArray[row][column].isWay()&&mapCellsArray[row][column]==null) {
                 return true; 
             }
 
         }
+        System.out.println("hit pos"+row + " "+ column);
         return false;
     }
     private ImageView getImageDirection(int newDirection,MovingObject movingObject ){
@@ -251,11 +236,12 @@ public class MovingController{
         }
         return imageView;
     }
-    private Point getMapedPosition(int row, int column){
-        int mapedRow = row / 3;
-        int mapedColumn = column / 3;
-        Point mapedPosition = new Point();
-        mapedPosition.setLocation(mapedRow,mapedColumn);
-        return mapedPosition;
-    }
+    public Point getMapedPosition(int x , int y) {
+		Point smallpos = new Point(1,1);
+		
+		smallpos.setLocation(Math.floor(x/3),Math.floor(y/3));
+		
+		return smallpos;
+
+}
 }

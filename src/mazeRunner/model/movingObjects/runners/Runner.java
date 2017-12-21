@@ -12,9 +12,7 @@ public abstract class Runner implements IRunner {
 
 	private SpeedState speedState;
 	private int direction;
-	private Point position;
-	// position on runner layer
-	private Point mappedPosition;
+	private Point positionInBigLayer;
 	private int health = 100;
 	protected String imageLinks;
 	protected List<Weapon> supportedWeapons = new ArrayList<Weapon>() {
@@ -47,7 +45,7 @@ public abstract class Runner implements IRunner {
 
 	@Override
 	public void moveUp() {
-		Point currentPosition = this.position;
+		Point currentPosition = this.positionInBigLayer;
 		Point newPosition = new Point();
 		newPosition.setLocation(currentPosition.x - 1, currentPosition.y);
 		this.setPosition(newPosition);
@@ -56,7 +54,7 @@ public abstract class Runner implements IRunner {
 
 	@Override
 	public void moveDown() {
-		Point currentPosition = this.position;
+		Point currentPosition = this.positionInBigLayer;
 		Point newPosition = new Point();
 		newPosition.setLocation(currentPosition.x + 1, currentPosition.y);
 		this.setPosition(newPosition);
@@ -65,7 +63,7 @@ public abstract class Runner implements IRunner {
 
 	@Override
 	public void moveRight() {
-		Point currentPosition = this.position;
+		Point currentPosition = this.positionInBigLayer;
 		Point newPosition = new Point();
 		newPosition.setLocation(currentPosition.x, currentPosition.y + 1);
 		this.setPosition(newPosition);
@@ -74,22 +72,28 @@ public abstract class Runner implements IRunner {
 
 	@Override
 	public void moveLeft() {
-		Point currentPosition = this.position;
+		Point currentPosition = this.positionInBigLayer;
 		Point newPosition = new Point();
 		newPosition.setLocation(currentPosition.x, currentPosition.y - 1);
 		this.setPosition(newPosition);
 		this.direction = GameContract.Direction.LEFT;
 	}
 
+	/**
+	 * in big layer
+	 */
 	@Override
 	public void setPosition(Point position) {
-		this.position = position;
+		this.positionInBigLayer = position;
 
 	}
 
+	/**
+	 * in big layer
+	 */
 	@Override
 	public Point getPosition() {
-		return position;
+		return positionInBigLayer;
 	}
 
 	@Override
@@ -112,22 +116,23 @@ public abstract class Runner implements IRunner {
 	public void setImageLinks(String imageLinks) {
 		this.imageLinks = imageLinks;
 	}
-
+	Point PositionInSmall ;
 	@Override
 	public void setMappedPosition(Point mappedPosition) {
 
-		this.mappedPosition = mappedPosition;
+		this.PositionInSmall = mappedPosition;
 
 	}
-
+/**
+ * in small
+ */
 	@Override
 	public Point getMappedPosition() {
-		Point truePosition = this.getPosition();
-		int mapedRow = truePosition.x / 3;
-		int mapedColumn = truePosition.y / 3;
-		Point mapedPosition = new Point();
-		mapedPosition.setLocation(mapedRow, mapedColumn);
-		return mapedPosition;
+			Point smallpos = new Point(1,1);
+			
+			smallpos.setLocation(Math.floor(this.positionInBigLayer.getX()/3),Math.floor(this.positionInBigLayer.getY()/3));
+			
+			return smallpos;
 
 	}
 

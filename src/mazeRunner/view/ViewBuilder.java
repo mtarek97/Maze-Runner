@@ -20,7 +20,7 @@ public class ViewBuilder extends Pane{
     private BorderPane borderPane = new BorderPane();
     private ScrollPane mainPane = new ScrollPane();
     private Pane map = new Pane();
-    private Label score = new Label();
+    private Label score = new Label("Score ");
     private Label remainingLifes = new Label();
     private ProgressBar healthBar = new ProgressBar();
     private HBox parametersBarPane = new HBox();
@@ -35,8 +35,8 @@ public class ViewBuilder extends Pane{
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
         cellsLayerPane.setStyle("-fx-background-color: transparent");
         movingObjectsLayerPane.setStyle("-fx-background-color: transparent");
-        // movingObjectsLayerPane.setGridLinesVisible(true);
-        cellsLayerPane.setGridLinesVisible(true);
+        movingObjectsLayerPane.setGridLinesVisible(false);
+        cellsLayerPane.setGridLinesVisible(false);
         map.getChildren().add(solidWallAndWaysLayerPane);
         map.getChildren().add(cellsLayerPane);
         map.getChildren().add(movingObjectsLayerPane);

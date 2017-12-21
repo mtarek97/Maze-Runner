@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="mazeRunner.model.levels.ILevelFactory" project="Maze-Runner" 
+    file="/Maze-Runner/src/mazeRunner/model/levels/ILevelFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="118" x="73" y="92"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="mazeRunner.model.levels.ILevel" project="Maze-Runner" 
+    file="/Maze-Runner/src/mazeRunner/model/levels/ILevel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="402" y="125"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="mazeRunner.model.levels.Level1" project="Maze-Runner" 
+    file="/Maze-Runner/src/mazeRunner/model/levels/Level1.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="287" y="299"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

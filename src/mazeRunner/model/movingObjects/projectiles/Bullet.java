@@ -86,12 +86,11 @@ public class Bullet implements Projectile{
 
 	@Override
 	public Point getMappedPosition() {
-		Point truePosition = this.getPosition();
-		int mapedRow = truePosition.x / 3;
-		int mapedColumn = truePosition.y / 3;
-		Point mapedPosition = new Point();
-		mapedPosition.setLocation(mapedRow,mapedColumn);
-		return mapedPosition;
+		Point smallpos = new Point(1,1);
+		
+		smallpos.setLocation(Math.floor(this.position.getX()/3),Math.floor(this.position.getY()/3));
+		
+		return smallpos;
 
 	}
 

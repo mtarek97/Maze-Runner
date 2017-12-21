@@ -1,29 +1,29 @@
 package mazeRunner.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import mazeRunner.StartGame;
 import mazeRunner.model.GameSetting;
-import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.Runner1;
 import mazeRunner.model.movingObjects.runners.Runner2;
 import mazeRunner.model.movingObjects.runners.Runner3;
 import mazeRunner.model.utilities.GameContract;
-import mazeRunner.view.ViewBuilder;
-
-import java.io.File;
-import java.io.IOException;
 
 public class SettingController implements Runnable{
+	private final static Logger LOGGER = Logger.getLogger(SettingController.class.getName());
 	GameSetting setting = new GameSetting();
 	FileChooser fileChooser = new FileChooser();
 	@FXML
@@ -95,7 +95,7 @@ public class SettingController implements Runnable{
 
 	@FXML
 	void chooseRunner1(ActionEvent event) {
-		setting.setCurrentRunner((IRunner) new Runner1());
+		setting.setCurrentRunner(new Runner1());
 	}
 
 	@FXML
@@ -133,24 +133,29 @@ void setEasy(ActionEvent event) {
 
 	@FXML
 	void RunnerPictureAction(ActionEvent event) {
-		//TODO
+		
 		String path = FileChooser();
-		setting.getCurrentRunner().setImageLinks(path);
+		setting.addCustomMapCellImageLink("CustomRunner", path);
 	}
 
 	@FXML
 	void bombPictureAction(ActionEvent event) {
-		//TODO
+		
+		String path = FileChooser();
+		setting.addCustomMapCellImageLink("CustomBomb", path);
 	}
 
 	@FXML
 	void giftPictureAction(ActionEvent event) {
-		//TODO
+		
+		String path = FileChooser();
+		setting.addCustomMapCellImageLink("CustomGift", path);
 	}
 
 	@FXML
-	void weaponPictureAction(ActionEvent event) {
-
+	void WeaponPictureAction(ActionEvent event) {
+		String path = FileChooser();
+		setting.addCustomMapCellImageLink("CustomWay", path);
 	}
 
 	@FXML
@@ -170,7 +175,13 @@ void setEasy(ActionEvent event) {
 				new FileChooser.ExtensionFilter("BMP", "*.bmp"),
 				new FileChooser.ExtensionFilter("PNG", "*.png")
 		);
-		String path = fileChooser.showOpenDialog(stage).getAbsolutePath();
+		String path = null;
+		try {
+			path = fileChooser.showOpenDialog(stage).getAbsolutePath();
+		} catch (Exception e) {
+			LOGGER.setLevel(Level.WARNING);
+			LOGGER.info("Error in uploading");
+		}
 		return path;
 	}
 
