@@ -22,26 +22,10 @@ public class Recources {
     public ImageView getImage(String path){
         if(pictures.containsKey(path)){
             ImageView imageView = new ImageView(pictures.get(path).getImage());
-            if(path.contains("Runner") || path.contains("bullet1")){
-                imageView.setFitWidth(20);
-                imageView.setFitHeight(20);
-            }
-            else {
-                imageView.setFitWidth(60);
-                imageView.setFitHeight(60);
-            }
             return imageView;
         }
 System.out.println(path);
         ImageView imageView = new ImageView(new Image(getClass().getResource(path).toExternalForm()));
-        if(path.contains("Runner") || path.contains("bullet1")){
-            imageView.setFitWidth(20);
-            imageView.setFitHeight(20);
-        }
-        else {
-            imageView.setFitWidth(60);
-            imageView.setFitHeight(60);
-        }
         pictures.put(path,imageView);
         return imageView;
     }

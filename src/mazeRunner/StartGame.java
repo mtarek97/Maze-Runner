@@ -18,9 +18,11 @@ public class StartGame extends Application {
     private Stage window;
     public static VBox root = new VBox();
     public static Pane rootPane;
+    public static Pane startMenuePane;
     public StartGame() {
         mainController = MainController.getController();
         rootPane = (Pane) mainController.getMenu().createContent();
+        startMenuePane = rootPane;
         root.getChildren().addAll(rootPane);
         scene = new Scene(root);
     }

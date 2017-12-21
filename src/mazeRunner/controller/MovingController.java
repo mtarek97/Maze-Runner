@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import mazeRunner.StartGame;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.Map;
@@ -53,7 +54,7 @@ public class MovingController{
 
 
     ViewBuilder playingView = ViewBuilder.getViewBuilder();
-    ScrollPane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
+    BorderPane playingPane = playingView.getPlayingPane();//TODO abdelrahman 18/12
     private boolean isNestPositionAWall(Point newPosition){
         int row = newPosition.x;
         int column = newPosition.y;

@@ -13,13 +13,14 @@ public class PlayingController implements Runnable {
     public static BuildingController buildingController;
     private MovingController movingController;
     public static int score = 0;
+    public static int remainingLifes = 3;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
     }
     @Override
     public  void run() {
-        int i = 1;
+        int i = 0;
 
         mapBuilder.setLevel(levelFactory.getLevel(i));
         try {

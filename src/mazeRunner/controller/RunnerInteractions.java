@@ -9,15 +9,19 @@ import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.Runner;
 import mazeRunner.model.movingObjects.runners.WithA4;
 import mazeRunner.model.movingObjects.runners.WithAK;
-import mazeRunner.model.movingObjects.runners.WithCHGun1;
-import mazeRunner.model.movingObjects.runners.WithCHGun2;
-import mazeRunner.model.movingObjects.runners.WithCHGun3;
+//import mazeRunner.model.movingObjects.runners.WithCHGun1;
+//import mazeRunner.model.movingObjects.runners.WithCHGun2;
+//import mazeRunner.model.movingObjects.runners.WithCHGun3;
 import mazeRunner.model.movingObjects.runners.WithPistol;
 import mazeRunner.model.movingObjects.runners.WithSpaceGun1;
 import mazeRunner.model.movingObjects.runners.WithSpaceGun2;
 import mazeRunner.model.movingObjects.runners.WithSpaceGun3;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
+import mazeRunner.view.ViewBuilder;
+import mazeRunner.view.mapCellsView.Recources;
+
+import javax.swing.text.html.ImageView;
 
 /**
  * Created by Mustafa on 12/12/2017.
@@ -32,7 +36,7 @@ public class RunnerInteractions {
 	int runnerMappedPositionX;
 	int runnerMappedPositionY;
 	BuildingController buildingController;
-
+	ViewBuilder viewBuilder = ViewBuilder.getViewBuilder();
 	public RunnerInteractions(BuildingController buildingController, Map map) {
 		this.buildingController = buildingController;
 		this.map = map;
@@ -49,6 +53,9 @@ public class RunnerInteractions {
 		if (isThereAnAction()) {
 			performAction(getAction());
 		}
+		viewBuilder.getScoreTextField().setText(PlayingController.score + "");
+		viewBuilder.getRemainingLifesTextField().setText(PlayingController.remainingLifes + "");
+		viewBuilder.getHealthBar().setProgress(runner.getHealth()/100);
 	}
 
 	private boolean isThereAnAction() {
@@ -157,7 +164,7 @@ public class RunnerInteractions {
 		} else if (weaponName.equals("spaceGun3")) {
 			runner = new WithSpaceGun3(runner, bulletsNumber, oneBulletDamage);
 			System.out.println("decorator with spaceGun3");
-		} else if (weaponName.equals("CHGun1")) {
+		} /*else if (weaponName.equals("CHGun1")) {
 			runner = new WithCHGun1(runner, bulletsNumber, oneBulletDamage);
 			System.out.println("decorator with CHGun1");
 		} else if (weaponName.equals("CHGun2")) {
@@ -166,7 +173,7 @@ public class RunnerInteractions {
 		} else if (weaponName.equals("CHGun3")) {
 			runner = new WithCHGun3(runner, bulletsNumber, oneBulletDamage);
 			System.out.println("decorator with CHGun3");
-		}
+		}*/
 	}
 
 }
