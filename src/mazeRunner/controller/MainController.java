@@ -16,7 +16,6 @@ public class MainController {
     private SettingController settingController = new SettingController();
     private MainController(){
         this.menu = new MainMenu();
-
         menu.setMenuData(this.menuData);
     }
 

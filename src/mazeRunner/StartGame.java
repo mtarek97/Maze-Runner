@@ -1,18 +1,17 @@
 package mazeRunner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import org.omg.CORBA.portable.ApplicationException;
-
-import javafx.application.*;
-import javafx.scene.*;
-import javafx.stage.*;
+import javafx.stage.Stage;
 import mazeRunner.controller.MainController;
-import mazeRunner.view.MainMenu;
-
-import static javafx.application.Application.launch;
 
 public class StartGame extends Application {
+	private final static Logger LOGGER = Logger.getLogger(StartGame.class.getName());
     private MainController mainController;
     public static Scene scene;
     private Stage window;
@@ -33,6 +32,8 @@ public class StartGame extends Application {
         window.setTitle("MAZE RUNNER");
         window.setScene(scene);
         window.show();
+        LOGGER.setLevel(Level.INFO);
+        LOGGER.info("starting game");
     }
 
     public static void main(String[] args) {

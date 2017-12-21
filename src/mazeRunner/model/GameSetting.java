@@ -1,9 +1,15 @@
 package mazeRunner.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
 
 import mazeRunner.model.movingObjects.runners.IRunner;
 import mazeRunner.model.movingObjects.runners.Runner1;
@@ -16,7 +22,7 @@ public class GameSetting {
 
 	/** shared setting (for all the game) **/
 	private IRunner currentRunner = new Runner1();
-	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>(){
+	private List<Class<? extends IRunner>> supportedRunners = new ArrayList<Class<? extends IRunner>>() {
 		{
 			ClassLoader classLoader = this.getClass().getClassLoader();
 			String packageBinName = "mazeRunner.model.movingObjects.runners.";
@@ -29,8 +35,7 @@ public class GameSetting {
 			}
 		}
 	};
-	
-	
+
 	/** custom level setting **/
 	private int customDifficulty = GameContract.Difficulty.EASY;
 	private int customRunnerSpeed = GameContract.Speed.LOW;
@@ -61,7 +66,7 @@ public class GameSetting {
 	public List<Class<? extends IRunner>> getSupportedRunners() {
 		return supportedRunners;
 	}
-	
+
 	public int getCustomRunnerSpeed() {
 		return customRunnerSpeed;
 	}
@@ -70,17 +75,45 @@ public class GameSetting {
 		this.customRunnerSpeed = customRuunerSpeed;
 	}
 
-	public String getCustomMapCellImageLink(String CustomMapCellName){
+	public String getCustomMapCellImageLink(String CustomMapCellName) {
 		return customMapCellsImageLinks.get(CustomMapCellName);
 	}
 
-	
-	public void addCustomMapCellImageLink(String CustomMapCellName){
+	public void addCustomMapCellImageLink(String CustomMapCellName, String path) {
 		// TODO : Dynamic Linkage
+		customMapCellsImageLinks.put(CustomMapCellName, path);
 	}
-	
-	public void addRunner() {
+
+	public void addRunner(String selectedFilePath) {
 		// TODO : Dynamic Linkage
+		try {
+			JarInputStream jarFile = new JarInputStream(new FileInputStream(selectedFilePath));
+			JarEntry jarEntry;
+			ArrayList<String> names = new ArrayList<>();
+			while (true) {
+				jarEntry = jarFile.getNextJarEntry();
+				if (jarEntry == null) {
+					break;
+				}
+				if (jarEntry.getName().endsWith(".class")) {
+					String classBinName = jarEntry.getName().replaceAll("/", "\\.");
+					classBinName = classBinName.substring(0, classBinName.length() - 6);
+					names.add(classBinName);
+				}
+			}
+			ClassLoader mainLoader = getClass().getClassLoader();
+			ClassLoader loader = URLClassLoader.newInstance(new URL[] { new File(selectedFilePath).toURI().toURL() },
+					mainLoader);
+			Class<? extends IRunner> runner = (Class<? extends IRunner>) loader.getClass().forName(names.get(0), true,
+					loader);
+			if (runner.newInstance() instanceof IRunner) {
+				System.out.println(runner.getSimpleName());
+				supportedRunners.add(runner);
+			}
+			jarFile.close();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	public int getCustomDifficulty() {

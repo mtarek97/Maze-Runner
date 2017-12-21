@@ -1,5 +1,9 @@
 package mazeRunner.controller;
 
+import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import mazeRunner.StartGame;
 import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapCells.CheckPoint;
@@ -20,18 +24,12 @@ import mazeRunner.model.movingObjects.runners.WithSpaceGun3;
 import mazeRunner.model.utilities.GameContract;
 import mazeRunner.model.weapons.Weapon;
 import mazeRunner.view.ViewBuilder;
-import mazeRunner.view.mapCellsView.Recources;
-
-import javax.swing.text.html.ImageView;
-import java.awt.*;
 
 /**
  * Created by Mustafa on 12/12/2017.
  */
 public class RunnerInteractions {
-	// TODO : implement interactions methods (connect view with model)
-	// all data that you will need to perform the task must be in map i sent
-	// that map from MovingController
+	private final static Logger LOGGER = Logger.getLogger(RunnerInteractions.class.getName());
 	Map map;
 	IRunner runner;
 	MapCell runnerCell;
@@ -49,12 +47,13 @@ public class RunnerInteractions {
 	public void update() throws IllegalAccessException, InstantiationException {
 		if(ifWin()){
 			StartGame.root.getChildren().setAll(StartGame.startMenuePane);
+			LOGGER.setLevel(Level.INFO);
+			LOGGER.info("Win!");
 		}
 		else {
 			runnerMappedPositionX = runner.getMappedPosition().x;
 			runnerMappedPositionY = runner.getMappedPosition().y;
-			System.out.println("mapped position : " + runnerMappedPositionX + " " + runnerMappedPositionY);
-			System.out.println("position : " + runner.getPosition().x + " " + runner.getPosition().y);
+		
 			runnerCell = map.getCellsLayer()[runnerMappedPositionX][runnerMappedPositionY];
 			if (isThereAnAction()) {
 				performAction(getAction());
@@ -77,54 +76,57 @@ public class RunnerInteractions {
 
 	private void runnerGiftInteraction() {
 		// runner gift interaction logic will be here
+		LOGGER.setLevel(Level.CONFIG);
+		LOGGER.info("hitting a gift");
 		PlayingController.collectedGift++;
 		IGift gift = (IGift) runnerCell;
 		int giftType = gift.getGiftType();
-		System.out.println("hit with" + gift);
+	
 		if (giftType == GameContract.GiftsTypes.HEALTH) {
 			if (runner.getHealth() + gift.getGivenHealth() <= 100) {
 				runner.setHealth(runner.getHealth() + gift.getGivenHealth());
 			} else {
 				runner.setHealth(100);
 			}
-			System.out.println(runner.getHealth());
+			
 		} else if (giftType == GameContract.GiftsTypes.COIN) {
 			PlayingController.score += gift.getScore();
 			System.out.println(PlayingController.score);
 		} else if (giftType == GameContract.GiftsTypes.WEAPON) {
 			String weaponName = gift.getWeaponClass().getSimpleName();
-			System.out.println(weaponName);
+		
 			Weapon weapon;
 			if ((weapon = runner.hasWeapon(weaponName)) == null) {
 				addWeaponToRunner(weaponName, gift.getBulletsNumber(), gift.getOneBulletDamage());
+				LOGGER.setLevel(Level.CONFIG);
+				LOGGER.info("get new weapon");
 			} else {
 				weapon.setFullAmmo();
 			}
-			System.out.println(runner.getSupportedWeapons());
-
+		
 		} else if (giftType == GameContract.GiftsTypes.BULLETS) {
-			// TODO : add bullets to runner current weapon
+			runner.getCurrentWeapon().setFullAmmo();
 		}
 		map.addCellAtRunTime(runnerCell.getUpdateResult(), runnerMappedPositionX, runnerMappedPositionY);
 		buildingController.removeFromCellsLayer(runnerMappedPositionX, runnerMappedPositionY);
-		System.out.println(runnerCell);
+		
 	}
 
 	private void runnerBombInteraction() {
 		// runner bomb interaction will be here
-		System.out.println("hit with" + runnerCell);
+		LOGGER.setLevel(Level.CONFIG);
+		LOGGER.info("hitting a bomb");
 		IBombs bomb = (IBombs) runnerCell;
 		int bombType = bomb.getBombType();
 		if (bombType == GameContract.BombsTypes.DECREASES_HEALTH) {
 			runner.setHealth(runner.getHealth() - bomb.getBombDamage());
-			System.out.println(runner.getHealth());
+		
 		} else if (bombType == GameContract.BombsTypes.DECREASES_SCORE) {
 			PlayingController.score -= bomb.getBombScore();
-			System.out.println(PlayingController.score);
+		
 		}
 		map.addCellAtRunTime(runnerCell.getUpdateResult(), runnerMappedPositionX, runnerMappedPositionY);
 		buildingController.removeFromCellsLayer(runnerMappedPositionX, runnerMappedPositionY);
-
 	}
 
 	private void performAction(String action) throws InstantiationException, IllegalAccessException {
@@ -157,31 +159,31 @@ public class RunnerInteractions {
 	private void addWeaponToRunner(String weaponName, int bulletsNumber, int oneBulletDamage) {
 		if (weaponName.equals("Pistol")) {
 			runner = new WithPistol(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with Pistol");
+			
 		} else if (weaponName.equals("AK")) {
 			runner = new WithAK(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with AK");
+		
 		} else if (weaponName.equals("A4")) {
 			runner = new WithA4(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with A4");
+			
 		} else if (weaponName.equals("spaceGun1")) {
 			runner = new WithSpaceGun1(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with spaceGun1");
+		
 		} else if (weaponName.equals("spaceGun2")) {
 			runner = new WithSpaceGun2(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with spaceGun2");
+			
 		} else if (weaponName.equals("spaceGun3")) {
 			runner = new WithSpaceGun3(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with spaceGun3");
+		
 		} /*else if (weaponName.equals("CHGun1")) {
 			runner = new WithCHGun1(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with CHGun1");
+			
 		} else if (weaponName.equals("CHGun2")) {
 			runner = new WithCHGun2(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with CHGun2");
+		
 		} else if (weaponName.equals("CHGun3")) {
 			runner = new WithCHGun3(runner, bulletsNumber, oneBulletDamage);
-			System.out.println("decorator with CHGun3");
+
 		}*/
 	}
 	private boolean ifWin(){

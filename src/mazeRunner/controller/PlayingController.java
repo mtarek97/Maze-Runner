@@ -1,5 +1,8 @@
 package mazeRunner.controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import mazeRunner.model.levels.ILevelFactory;
 import mazeRunner.model.mapBuilder.IMapBuilder;
 import mazeRunner.model.mapBuilder.MapBuilder;
@@ -8,6 +11,7 @@ import mazeRunner.model.mapBuilder.MapBuilder;
  * Created by Mustafa on 12/14/2017.
  */
 public class PlayingController implements Runnable {
+	private final static Logger LOGGER = Logger.getLogger(PlayingController.class.getName());
     private IMapBuilder mapBuilder;
     public static int collectedGift = 0;
     private ILevelFactory levelFactory;
@@ -16,11 +20,14 @@ public class PlayingController implements Runnable {
     public static int ramainingLifes = 3;
     public static int score = 0;
     public PlayingController(){
+    	
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
     }
     @Override
     public  void run() {
+    	LOGGER.setLevel(Level.INFO);
+    	LOGGER.info("starting a game story");
         int i = 1;
 
         mapBuilder.setLevel(levelFactory.getLevel(i));
