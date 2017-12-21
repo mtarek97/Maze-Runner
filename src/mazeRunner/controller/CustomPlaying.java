@@ -18,19 +18,19 @@ public class CustomPlaying implements Runnable{
     }
     @Override
     public void run() {
-        while (true) {
+        
             mapBuilder.setLevel(levelFactory.getLevel(0));
             try {
                 buildingController = new BuildingController(mapBuilder);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            movingController = new MovingController();
+            movingController = new MovingController(buildingController);
             buildingController.updateSolidWallAndWaysLayerPane();
             updateView();
             movingController.actionHandeling();
             //TODO
-        }
+        
 
     }
 

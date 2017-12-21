@@ -13,6 +13,9 @@ public class PlayingController implements Runnable {
     public static BuildingController buildingController;
     private MovingController movingController;
     public static int score = 0;
+    // TODO : reset colectedGifts after each level
+    public static int collectedGifts = 0;
+    public static int remainingLives = 3;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
@@ -28,7 +31,7 @@ public class PlayingController implements Runnable {
             e.printStackTrace();
         }
         int x = 0;
-        movingController = new MovingController();
+        movingController = new MovingController(buildingController);
         buildingController.updateSolidWallAndWaysLayerPane();
         updateView();
         ////

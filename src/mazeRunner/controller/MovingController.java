@@ -35,12 +35,13 @@ public class MovingController{
     private MapCell[][] mapCellsArray;
     private MapCellViewFactory viewFactory;
     private MapCell[][] SolidWallAndWaysArray;
-    private BuildingController buildingController = PlayingController.buildingController;
+    private BuildingController buildingController;
     private Recources recources = Recources.getRecources();
     private RunnerInteractions runnerInteractions;
     private BulletInteractions bulletInteractions;
     private IRunner runner;
-    public MovingController() {
+    public MovingController(BuildingController buildingController) {
+    	this.buildingController = buildingController;
         viewFactory = new MapCellViewFactory();
         this.mapBuilder = mapBuilder;
         map = mapBuilder.getGeneratedMap();
