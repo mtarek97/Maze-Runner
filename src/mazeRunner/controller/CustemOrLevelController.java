@@ -1,13 +1,12 @@
 package mazeRunner.controller;
 
-import javafx.application.Platform;
+import java.util.Arrays;
+import java.util.List;
+
 import javafx.scene.layout.Pane;
 import javafx.util.Pair;
 import mazeRunner.StartGame;
 import mazeRunner.view.MainMenu;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Mustafa on 12/19/2017.
