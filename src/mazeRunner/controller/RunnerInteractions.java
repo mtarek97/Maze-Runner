@@ -1,5 +1,6 @@
 package mazeRunner.controller;
 
+import mazeRunner.StartGame;
 import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapCells.CheckPoint;
 import mazeRunner.model.mapCells.IBombs;
@@ -22,6 +23,7 @@ import mazeRunner.view.ViewBuilder;
 import mazeRunner.view.mapCellsView.Recources;
 
 import javax.swing.text.html.ImageView;
+import java.awt.*;
 
 /**
  * Created by Mustafa on 12/12/2017.
@@ -45,17 +47,23 @@ public class RunnerInteractions {
 	}
 
 	public void update() throws IllegalAccessException, InstantiationException {
-		runnerMappedPositionX = runner.getMappedPosition().x;
-		runnerMappedPositionY = runner.getMappedPosition().y;
-		System.out.println("mapped position : " + runnerMappedPositionX + " " + runnerMappedPositionY);
-		System.out.println("position : " + runner.getPosition().x + " " + runner.getPosition().y);
-		runnerCell = map.getCellsLayer()[runnerMappedPositionX][runnerMappedPositionY];
-		if (isThereAnAction()) {
-			performAction(getAction());
+		if(ifWin()){
+			StartGame.root.getChildren().setAll(StartGame.startMenuePane);
 		}
-		viewBuilder.getScoreTextField().setText(PlayingController.score + "");
-		viewBuilder.getRemainingLifesTextField().setText(PlayingController.remainingLifes + "");
-		viewBuilder.getHealthBar().setProgress(runner.getHealth()/100);
+		else {
+			runnerMappedPositionX = runner.getMappedPosition().x;
+			runnerMappedPositionY = runner.getMappedPosition().y;
+			System.out.println("mapped position : " + runnerMappedPositionX + " " + runnerMappedPositionY);
+			System.out.println("position : " + runner.getPosition().x + " " + runner.getPosition().y);
+			runnerCell = map.getCellsLayer()[runnerMappedPositionX][runnerMappedPositionY];
+			if (isThereAnAction()) {
+				performAction(getAction());
+			}
+			viewBuilder.getScoreTextField().setText(PlayingController.score + "");
+			viewBuilder.getRemainingLifesTextField().setText(PlayingController.ramainingLifes + "");
+			viewBuilder.getHealthBar().setProgress(runner.getHealth() / 100);
+		}
+
 	}
 
 	private boolean isThereAnAction() {
@@ -69,7 +77,7 @@ public class RunnerInteractions {
 
 	private void runnerGiftInteraction() {
 		// runner gift interaction logic will be here
-		PlayingController.collectedGifts++;
+		PlayingController.collectedGift++;
 		IGift gift = (IGift) runnerCell;
 		int giftType = gift.getGiftType();
 		System.out.println("hit with" + gift);
@@ -175,6 +183,14 @@ public class RunnerInteractions {
 			runner = new WithCHGun3(runner, bulletsNumber, oneBulletDamage);
 			System.out.println("decorator with CHGun3");
 		}*/
+	}
+	private boolean ifWin(){
+		Point runnerPosition = runner.getMappedPosition();
+		Point endPoint = map.getEndPoint();
+		if(runnerPosition.x == endPoint.x && runnerPosition.y == endPoint.y){
+			return true;
+		}
+		return false;
 	}
 
 }

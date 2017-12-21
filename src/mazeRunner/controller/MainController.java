@@ -12,7 +12,7 @@ public class MainController {
     //this controller will control main menu actions
     private static MainController controller = new MainController();
     private MainMenu menu;
-    private PlayingController playingController = new PlayingController();
+    private CustemOrLevelController Custom = CustemOrLevelController.getController();
     private SettingController settingController = new SettingController();
     private MainController(){
         this.menu = new MainMenu();
@@ -25,7 +25,7 @@ public class MainController {
     }
 
     private List<Pair<String, Runnable>> menuData= Arrays.asList(
-            new Pair<String, Runnable>("Start Game", playingController),
+            new Pair<String, Runnable>("Start Game", Custom),
             new Pair<String, Runnable>("Game Setting", settingController),
             new Pair<String, Runnable>("Credits", () -> {}),
             new Pair<String, Runnable>("Exit to Desktop", Platform::exit)

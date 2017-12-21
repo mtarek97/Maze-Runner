@@ -1,4 +1,4 @@
-/*package mazeRunner.controller;
+package mazeRunner.controller;
 
 import javafx.application.Platform;
 import javafx.scene.layout.Pane;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Mustafa on 12/19/2017.
  */
-/*public class CustemOrLevelController implements Runnable{
+public class CustemOrLevelController implements Runnable{
     private static CustemOrLevelController controller = new CustemOrLevelController();
     private MainMenu menu;
     private PlayingController playingController = new PlayingController();
@@ -45,4 +45,4 @@ import java.util.List;
         Pane rootPane = (Pane) this.getMenu().createContent();
         StartGame.rootPane.getChildren().setAll(rootPane);
     }
-}*/
+}

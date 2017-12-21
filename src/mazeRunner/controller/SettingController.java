@@ -18,6 +18,7 @@ import mazeRunner.model.movingObjects.runners.Runner1;
 import mazeRunner.model.movingObjects.runners.Runner2;
 import mazeRunner.model.movingObjects.runners.Runner3;
 import mazeRunner.model.utilities.GameContract;
+import mazeRunner.view.ViewBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class SettingController implements Runnable{
 
 	@FXML
 	private Button runnerPictureChooser;
+
 
 	@FXML
 	private TextField weaponText;
@@ -111,18 +113,20 @@ public class SettingController implements Runnable{
 @FXML
 void setEasy(ActionEvent event) {
 	setting.setCustomDifficulty(GameContract.Difficulty.EASY);
+	levelText.setText("Easy");
 
 }
 
 	@FXML
 	void setMedium(ActionEvent event) {
 		setting.setCustomDifficulty(GameContract.Difficulty.MEDIUM);
-
+		levelText.setText("Medium");
 	}
 
 	@FXML
 	void setHard(ActionEvent event) {
 		setting.setCustomDifficulty(GameContract.Difficulty.HARD);
+		levelText.setText("Hard");
 	}
 //---------------------------
 

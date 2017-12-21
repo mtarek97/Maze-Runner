@@ -9,12 +9,12 @@ import mazeRunner.model.mapBuilder.MapBuilder;
  */
 public class PlayingController implements Runnable {
     private IMapBuilder mapBuilder;
+    public static int collectedGift = 0;
     private ILevelFactory levelFactory;
     public static BuildingController buildingController;
     private MovingController movingController;
+    public static int ramainingLifes = 3;
     public static int score = 0;
-    public static int collectedGifts = 0;
-    public static int remainingLives = 3;
     public PlayingController(){
         mapBuilder = MapBuilder.createMapBuilder();
         levelFactory = new ILevelFactory();
@@ -30,7 +30,7 @@ public class PlayingController implements Runnable {
             e.printStackTrace();
         }
         int x = 0;
-        movingController = new MovingController();
+        movingController = new MovingController(buildingController);
         buildingController.updateSolidWallAndWaysLayerPane();
         updateView();
         ////
