@@ -9,4 +9,6 @@ public interface Weapon {
 	public int getOneBulletDamage();	
 	
 	public void setFullAmmo();
+	
+	public int getBulletsCount();
 }

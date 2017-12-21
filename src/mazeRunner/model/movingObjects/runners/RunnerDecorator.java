@@ -140,5 +140,19 @@ public  class RunnerDecorator implements IRunner{
 	public void setCurrentWeapon(Weapon currentWeapon) {
 		decoratedRunner.setCurrentWeapon(currentWeapon);	
 	}
+
+
+
+	@Override
+	public Weapon getNextWeapon() {
+		return decoratedRunner.getNextWeapon();
+	}
+
+
+
+	@Override
+	public Weapon getPrevWeapon() {
+		return decoratedRunner.getPrevWeapon();
+	}
 	
 }

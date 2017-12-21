@@ -16,7 +16,6 @@ import mazeRunner.model.mapBuilder.Map;
 import mazeRunner.model.mapBuilder.MapBuilder;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.model.mapCells.Wall;
-import mazeRunner.model.mapCells.Way;
 import mazeRunner.model.movingObjects.MovingObject;
 import mazeRunner.model.movingObjects.projectiles.Bullet;
 import mazeRunner.model.movingObjects.runners.IRunner;
@@ -155,6 +154,13 @@ public class MovingController{
                     }
                 }
             }
+            else if (event.getCode() == KeyCode.J) {
+               runner.setCurrentWeapon(runner.getPrevWeapon());
+                
+            }else if (event.getCode() == KeyCode.K) {
+                runner.setCurrentWeapon(runner.getNextWeapon());
+                
+             }
             else if(event.getCode() == KeyCode.SPACE) {
                 Service<Void> service = new Service<Void>() {
                     @Override
@@ -167,38 +173,41 @@ public class MovingController{
                                 Platform.runLater(new Runnable() {
                                     @Override
                                     public void run() {
-                                        try{
-                                            Bullet bullet = new Bullet();
-                                            System.out.println("he is in");
-                                            bullet.setDirection(runner.getDirection());
-                                            bullet.setMappedPosition(runner.getMappedPosition());
-                                            bullet.setPosition(runner.getPosition());
+                                    	if(runner.getCurrentWeapon().getBulletsCount() > 0) {
+											try{
+												runner.getCurrentWeapon().shoot();
+											    Bullet bullet = new Bullet();
+											    System.out.println("he is in");
+											    bullet.setDirection(runner.getDirection());
+											    bullet.setMappedPosition(runner.getMappedPosition());
+											    bullet.setPosition(runner.getPosition());
 
-                                            Point currentPosition = bullet.getPosition();
-                                            Point currentMapedPosition = bullet.getMappedPosition();
-                                            Point newPosition = changePosition(bullet.getDirection(), currentPosition);
-                                            Point newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-                                            while (isCellAllowedForBullets(newMapedPosition)) {
-                                                System.out.println("he is in while");
-                                                newPosition = changePosition(bullet.getDirection(), currentPosition);
-                                                movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
-                                                movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
-                                                buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
-                                                MapCellView bulletView = viewFactory.getMapCellView("bullet");
-                                                buildingController.addToMovingLayer(newPosition.x,newPosition.y,bulletView);
-                                                playingView.putCellInMovingObjectsLayer(bulletView,newPosition.x,newPosition.y,getImageDirection(bullet.getDirection(),bullet));
-                                                bullet.moveInTheSameDirection();
-                                                currentPosition = newPosition;
-                                                newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
-                                                System.out.println("count me");
-                                            }
-                                            bullet.setMappedPosition(newMapedPosition);
-                                            bulletInteractions = new BulletInteractions(buildingController, map, bullet);
-                                            bulletInteractions.update();
+											    Point currentPosition = bullet.getPosition();
+											    Point currentMapedPosition = bullet.getMappedPosition();
+											    Point newPosition = changePosition(bullet.getDirection(), currentPosition);
+											    Point newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
+											    while (isCellAllowedForBullets(newMapedPosition)) {
+											        System.out.println("he is in while");
+											        newPosition = changePosition(bullet.getDirection(), currentPosition);
+											        movingObjectsLayerArray[currentPosition.x][currentPosition.y] = null;
+											        movingObjectsLayerArray[newPosition.x][newPosition.y] = bullet;
+											        buildingController.removeFromMovingLayer(currentPosition.x,currentPosition.y);
+											        MapCellView bulletView = viewFactory.getMapCellView("bullet");
+											        buildingController.addToMovingLayer(newPosition.x,newPosition.y,bulletView);
+											        playingView.putCellInMovingObjectsLayer(bulletView,newPosition.x,newPosition.y,getImageDirection(bullet.getDirection(),bullet));
+											        bullet.moveInTheSameDirection();
+											        currentPosition = newPosition;
+											        newMapedPosition = getMapedPosition(newPosition.x, newPosition.y);
+											        System.out.println("count me");
+											    }
+											    bullet.setMappedPosition(newMapedPosition);
+											    bulletInteractions = new BulletInteractions(buildingController, map, bullet);
+											    bulletInteractions.update();
 
-                                        }finally{
-                                            latch.countDown();
-                                        }
+											}finally{
+											    latch.countDown();
+											}
+										}
                                     }
                                 });
                                 latch.await();

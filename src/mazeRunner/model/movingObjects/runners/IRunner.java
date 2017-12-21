@@ -32,4 +32,8 @@ public interface IRunner extends MovingObject {
 	public Weapon getCurrentWeapon();
 
 	public void setCurrentWeapon(Weapon currentWeapon);
+	
+	public Weapon getNextWeapon();
+	
+	public Weapon getPrevWeapon();
 }
