@@ -26,7 +26,7 @@ public class _2DArrayIterator implements Iterator{
 
     @Override
     public Object next() {
-        columnIndex ++;
+        columnIndex = (columnIndex + 1) % numberOfColumns;
         if(columnIndex >= numberOfColumns){
             columnIndex = 0;
             rowIndex ++;

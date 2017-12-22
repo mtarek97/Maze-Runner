@@ -12,7 +12,6 @@ import mazeRunner.model.mapCells.Gate;
 import mazeRunner.model.mapCells.IGift;
 import mazeRunner.model.mapCells.MapCell;
 import mazeRunner.themes.warTheme.Bullets1;
-import mazeRunner.themes.warTheme.SolidWall;
 
 public class MapGenerator {
 
@@ -45,8 +44,8 @@ public class MapGenerator {
 
 				if (map.getBooleanMaze()[i][j]) {
 
-					this.maze[i][j] = new SolidWall();
-					solidWallAndWaysLayer[i][j] = new SolidWall();
+					this.maze[i][j] = factory.getUndestroyableWall();
+					solidWallAndWaysLayer[i][j] = factory.getUndestroyableWall();
 
 				}
 				else {
